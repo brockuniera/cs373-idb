@@ -23,7 +23,7 @@ before_script:
 script:
     - date
     - ls -al
-    - make models.html
+    # - make models.html
     - ls -al
     - make IDB1.log
     - ls -al
