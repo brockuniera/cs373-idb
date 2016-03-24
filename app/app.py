@@ -22,5 +22,17 @@ def render_category():
 def render_about():
     return render_template('about.html')
 
+@app.route('/jepanese')
+def render_jepanese():
+    return render_template('jepanese.html')
+
+@app.route('/mexican')
+def render_mexican():
+    return render_template('mexican.html')
+
+@app.route('/american')
+def render_american():
+    return render_template('american.html')
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1')
