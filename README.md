@@ -13,12 +13,6 @@ Location - Information about restaurant locations such as address, zip code, lat
 Category - Information such as name, total number of restaurants in this category and average price for this category of restaurants.
   * ex. Mexican, ... 
     
-  Location - Information about restaurant locations such as address, zip code, latitude, longitude and neighborhood.
-    * ex. 6th Street, 78701, ...
-    
-  Category - Information such as name, total number of restaurants in this category and average price for this category of restaurants.
-    * ex. Mexican, ... 
-
 ##How to run locally  
 
 1. Clone the project
