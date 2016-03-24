@@ -1,0 +1,268 @@
+FORMAT: 1A
+HOST: austinfoodfor.me/api
+
+# AustinFoodForMe
+
+Simple API to gather information about Austin restaurants. Inspired by IMDB and Yelp.
+
+## API Root [/]
+
+### Retrieve the API entry points [GET]
+
++ Response 200 (application/json)
+
+        {
+            'urls': {
+                        "category_url": "/category",
+                        "location_url": "/location",
+                        "restaurant_url": "/restaurant"
+                    }
+        }
+
+# Group Restaurant
+
+Individual restaurants and their respective information
+
+### Attributes
+* category (dictionary) All the categories associated with this restaurant.
+* id (integer) ID of the restaurant, unique to each restaurant.
+* location_id (integer) ID of the location of the restaurant, unique to each restaurant.
+* name (string) Name of the restaurant.
+* phonenum (string) Phone number of the restaurant.
+* price (integer) 1-5 range representing $-$$$$$ based on Yelp prices.
+* rating (float) 0.1 - 5.0 range representing review average.
+* reviewcount (integer) Total number of reviews a restaurant has.
+
+## All Restaurants [/restaurant]
+### List all Restaurants [GET]
+
++ Response 200 (application/json)
+
+        {
+            "1": {
+                "category": ...,
+                "id": 1,
+                "location_id": 12,
+                "name": "Olive Garden",
+                "phonenum": "5125551234",
+                "price": 3,
+                "rating": 3.2,
+                "reviewcount": 127
+            },
+            "2": {
+                "category": ...,
+                "id": 2,
+                "location_id": 12,
+                "name": "Hula Hut",
+                "phonenum": "5125556789",
+                "price": 3,
+                "rating": 4.1,
+                "reviewcount": 68
+            },
+            
+            ...
+        }
+    
+## Restaurant by ID [/restaurant/{id}]
+
++ Parameters
+    + id (integer) - ID of the Restaurant.
+    
+### Get a Restaurant by ID [GET]
+
++ Response 200 (application/json)
+
+        {
+            "category": ...,
+            "id": 1,
+            "location_id": 12,
+            "name": "Olive Garden",
+            "phonenum": "5125551234",
+            "price": 3,
+            "rating": 3.2,
+            "reviewcount": 127
+        }
+
+## Restaurant by Filter [/restaurant?q={filter}]
+
+### List Restaurant by filter [GET]
+
++ Parameters
+    + filter (required, json, `{"filters":[{"attr":"name","op":"==","val":"Olive Garden"}]}`)
+    A json filter. "attr" value "name" can be replaced by any other attribute of restaurant.
+"op" value "==" can be replaced with other operations like "<", ">", "!=".
+"val" value "Olive Garden" can be replaced by any other restaurant's name. 
+
++ Response 200 (application/json)
+
+        {
+            "1": {
+                "category": ...,
+                "id": 1,
+                "location_id": 12,
+                "name": "Olive Garden",
+                "phonenum": "5125551234",
+                "price": 3,
+                "rating": 3.2,
+                "reviewcount": 127
+            }, ...
+        }
+
+# Group Category
+
+Individual categories of restaurants.
+
+### Attributes
+* id (integer) ID of the category, unique to each category.
+* name (string) Name of category.
+* priceavg (float) 0.1 - 5.0, average price of category based on all restaurants that have this category.
+* resttotal (integer) Total number of restaurants in category.
+* reviewtotal (integer) Total number of reviews for category based on all restaurants that have this category.
+* ratingavg (float) 0.1 - 5.0, average rating of category based on all restaurants that have this category.
+
+## All Categories [/category]
+### List all Categories [GET]
+
++ Response 200 (application/json)
+
+        {
+            "1": {
+                "id": 1,
+                "name": "Italian",
+                "priceavg": 3.9,
+                "resttotal": 113,
+                "reviewtotal": 413,
+                "ratingavg": 3.1
+            },
+            "2": {
+                "id": 2,
+                "name": "Mexican",
+                "priceavg": 3.1,
+                "resttotal": 239,
+                "reviewtotal": 722,
+                "ratingavg": 3.5
+            },
+            
+            ...
+        }
+
+## Category by ID [/category/{id}]
+
++ Parameters
+    + id (integer) - ID of the Category.
+    
+### Get a Category by ID [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "Italian",
+            "priceavg": 3.9,
+            "resttotal": 113,
+            "reviewtotal": 413,
+            "ratingavg": 3.1
+        }
+
+## Category by Filter [/category?q={filter}]
+
+### List Category by filter [GET]
+
++ Parameters
+    + filter (required, json, `{"filters":[{"attr":"priceavg","op":"<","val":3.7}]}`)
+    A json filter. "attr" value "priceavg" can be replaced by any other attribute of category.
+"op" value ">" can be replaced with other operations like "==", ">", "!=".
+"val" value 3.7 can be replaced by any other float in the range 0.1 - 5.0. 
+
++ Response 200 (application/json)
+
+        {
+            "1": {
+                "id": 2,
+                "name": "Mexican",
+                "priceavg": 3.1,
+                "resttotal": 239,
+                "reviewtotal": 722,
+                "ratingavg": 3.5
+            }, ...
+        }
+
+# Group Location
+
+Individual locations and their respective information
+
+### Attributes
+* address (string) Location's address.
+* id (integer) ID of the location, unique to each location.
+* latitude (float) Geographical latitude of the location.
+* longitude (float) Geographical longitude of the location.
+* neighborhood (string) Neighborhood associated with this location.
+* zipcode (integer) Zipcode of the location. 
+
+## All Locations [/location]
+### List all Locations [GET]
+
++ Response 200 (application/json)
+
+        {
+            "1": {
+                "address": "452 W 2nd St",
+                "id": 1,
+                "latitude": 30.2656718,
+                "longitude": -97.7484536,
+                "neighborhood": "2nd Street District", 
+                "zipcode": 78701
+            },
+            "2": {
+                "address": "301 San Jacinto Blvd",
+                "id": 1,
+                "latitude": 30.2647571563721,
+                "longitude": 97.74305996386,
+                "neighborhood": "Downtown", 
+                "zipcode": 78701
+            },
+            
+            ...
+        }
+    
+## Location by ID [/location/{id}]
+
++ Parameters
+    + id (integer) - ID of the Location.
+    
+### Get a Location by ID [GET]
+
++ Response 200 (application/json)
+
+        {
+            "address": "301 San Jacinto Blvd",
+            "id": 1,
+            "latitude": 30.2647571563721,
+            "longitude": 97.74305996386,
+            "neighborhood": "Downtown", 
+            "zipcode": 78701
+        }
+
+## Location by Filter [/location?q={filter}]
+
+### List Location by filter [GET]
+
++ Parameters
+    + filter (required, json, `{"filters":[{"attr":"zipcode","op":"==","val": 78701}]}`)
+    A json filter. "attr" value "zipcode" can be replaced by any other attribute of location.
+"op" value "==" can be replaced with other operations like "<", ">", "!=".
+"val" value 78701 can be replaced by any location zipcode. 
+
++ Response 200 (application/json)
+
+        {
+            "1": {
+                "address": "452 W 2nd St",
+                "id": 1,
+                "latitude": 30.2656718,
+                "longitude": -97.7484536,
+                "neighborhood": "2nd Street District", 
+                "zipcode": 78701
+            }, ...
+        }
+        
