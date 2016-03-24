@@ -224,7 +224,7 @@ fieldset[disabled] .btn-xl.active {
   }
 }
 header {
-  background-image: url('../img/main_bg.jpg');
+  background-image: url('../img/background.jpg');
   background-repeat: none;
   background-attachment: scroll;
   background-position: center center;
@@ -235,6 +235,7 @@ header {
   text-align: center;
   color: white;
 }
+
 header .intro-text {
   padding-top: 100px;
   padding-bottom: 50px;
@@ -259,6 +260,7 @@ header .intro-text .intro-heading {
   line-height: 50px;
   margin-bottom: 25px;
 }
+
 @media (min-width: 768px) {
   header .intro-text {
     padding-top: 300px;
@@ -294,14 +296,14 @@ section h2.section-heading {
   margin-top: 0;
   margin-bottom: 15px;
 }
-section h3.section-subheading {
+/*section h3.section-subheading {
   font-size: 16px;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: none;
   font-style: italic;
   font-weight: 400;
   margin-bottom: 75px;
-}
+}*/
 @media (min-width: 768px) {
   section {
     padding: 150px 0;
@@ -311,7 +313,7 @@ section h3.section-subheading {
   margin: 15px 0;
   text-transform: none;
 }
-#portfolio .portfolio-item {
+/*#portfolio .portfolio-item {
   margin: 0 0 15px;
   right: 0;
 }
@@ -375,8 +377,8 @@ section h3.section-subheading {
   #portfolio .portfolio-item {
     margin: 0 0 30px;
   }
-}
-.timeline {
+}*/
+/*.timeline {
   list-style: none;
   padding: 0;
   position: relative;
@@ -542,7 +544,7 @@ section h3.section-subheading {
   .timeline > li.timeline-inverted > .timeline-panel {
     padding: 0 100px 20px 20px;
   }
-}
+}*/
 .team-member {
   text-align: center;
   margin-bottom: 50px;
@@ -559,12 +561,12 @@ section h3.section-subheading {
 .team-member p {
   margin-top: 0;
 }
-aside.clients img {
+/*aside.clients img {
   margin: 50px auto;
-}
+}*/
 section#contact {
   background-color: #222222;
-  background-image: url('../img/map-image.png');
+  background-image: url('../img/map-image.jpg');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -662,7 +664,7 @@ ul.social-buttons li a:active {
 .btn:active:focus {
   outline: none;
 }
-.portfolio-modal .modal-content {
+/*.portfolio-modal .modal-content {
   border-radius: 0;
   background-clip: border-box;
   -webkit-box-shadow: none;
@@ -710,32 +712,32 @@ ul.social-buttons li a:active {
   margin-left: 35px;
   background-color: #222222;
   transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);*/
   /* IE 9 */
-  -webkit-transform: rotate(45deg);
+  /*-webkit-transform: rotate(45deg);*/
   /* Safari and Chrome */
-  z-index: 1051;
+  /*z-index: 1051;*/
 }
-.portfolio-modal .close-modal .lr .rl {
+/*.portfolio-modal .close-modal .lr .rl {
   height: 75px;
   width: 1px;
   background-color: #222222;
   transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);*/
   /* IE 9 */
-  -webkit-transform: rotate(90deg);
+  /*-webkit-transform: rotate(90deg);*/
   /* Safari and Chrome */
-  z-index: 1052;
+  /*z-index: 1052;*/
 }
-.portfolio-modal .modal-backdrop {
+/*.portfolio-modal .modal-backdrop {
   opacity: 0;
   display: none;
 }
 ::-moz-selection {
   text-shadow: none;
   background: #fed136;
-}
-::selection {
+}*/
+/*::selection {
   text-shadow: none;
   background: #fed136;
 }
@@ -747,4 +749,4 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #fed136;
-}
+}*/
