@@ -42,5 +42,5 @@ IDB1.log:
 	git log > IDB1.log
 	
 models.html: models.py
-	python -m pydoc -w models
+	pydoc -w models
 
