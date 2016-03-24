@@ -1,11 +1,11 @@
-from db import db
+from db import db, Base
 
 # This is an association table, needed for the many-to-many
 # relationship between Restaurant and Category.
 # http://docs.sqlalchemy.org/en/rel_1_0/orm/basic_relationships.html#many-to-many
 _assoctable_restcat = db.Table('assoc_restcat', Base.metadata,
-    db.Column('left_id', db.Integer, ForeignKey('restaurants.id')),
-    db.Column('right_id', db.Integer, ForeignKey('categories.id'))
+    db.Column('left_id', db.Integer, db.ForeignKey('restaurants.id')),
+    db.Column('right_id', db.Integer, db.ForeignKey('categories.id'))
 )
 
 class Restaurant(Base):
@@ -22,7 +22,7 @@ class Restaurant(Base):
     reviewcount = db.Column(db.Integer)
 
     # Attrs for a one-to-one relationship with Location
-    location_id = db.Column(db.Integer, ForeignKey('locations.id'))
+    location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
     location = db.relationship('Location', back_populates='restaurant')
 
     # Many-to-many with Category
@@ -56,7 +56,7 @@ class Location(Base):
 
     id = db.Column(db.Integer, primary_key=True)
     address = db.Column(db.String(256))
-    streetname = db.Column(db.String(40))
+    neighborhood = db.Column(db.String(40))
     zipcode = db.Column(db.String(10))
     latitude = db.Column(db.Float)
     longitude = db.Column(db.Float)
@@ -64,24 +64,24 @@ class Location(Base):
     # Corresponding relation for a one-to-one with Restaurant
     restaurant = db.relationship('Restaurant', back_populates='location', uselist=False)
 
-    def __init__(self, address, streetname, zipcode, latitude, longitude):
+    def __init__(self, address, neighborhood, zipcode, latitude, longitude):
         """
-        Construct a Restaurant object
-        name: name of this restaurant, String(256)
-        phonenum: phone number of this restaurant, String(20)
-        price: an Integer within [1, 5], giving this restaurant a price rating
-        rating: customer rating of this restaurant, a Float between [1, 5]
-        reviewcount: number of reviews this restaurant has, Integer
+        Construct a Location object
+        address: address of this location, String(256)
+        neighborhood: neighborhood of this location, String(40)
+        zipcode: zipcode of this location, String(10)
+        latitude: Geographical latitude of this location, Float
+        logitude: Geographical longitude of this location, Float
         """
         self.address = address 
-        self.streetname = streetname 
+        self.neighborhood = neighborhood 
         self.zipcode = zipcode 
         self.latitude = latitude 
         self.longitude = longitude 
 
     def __repr__(self):
-        return "<Location(address='{}', streetname='{}', zipcode='{}', latitude='{}', longitude='{}')>".format(
-                self.address, self.streetname, self.zipcode, self.latitude, self.longitude
+        return "<Location(address='{}', neighborhood='{}', zipcode='{}', latitude='{}', longitude='{}')>".format(
+                self.address, self.neighborhood, self.zipcode, self.latitude, self.longitude
                 )
 
 class Category(Base):
