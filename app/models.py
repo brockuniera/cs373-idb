@@ -6,6 +6,9 @@ _assoctable_restcat = db.Table('assoc_restcat', Base.metadata,
 )
 
 class Restaurant(Base):
+    """
+    Represents a row of a Restaurant table
+    """
     __tablename__ = 'restaurants'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +26,14 @@ class Restaurant(Base):
     catlist = db.relationship('Category', secondary=_assoctable_restcat, back_populates='restlist')
 
     def __init__(self, name, phonenum, price, rating, reviewcount):
+        """
+        Construct a Restaurant object
+        name: name of this restaurant, String(256)
+        phonenum: phone number of this restaurant, String(20)
+        price: an Integer within [1, 5], giving this restaurant a price rating
+        rating: customer rating of this restaurant, a Float between [1, 5]
+        reviewcount: number of reviews this restaurant has, Integer
+        """
         self.name = name
         self.phonenum = phonenum
         self.price = price
@@ -35,6 +46,9 @@ class Restaurant(Base):
                 )
 
 class Location(Base):
+    """
+    Represents a row of a Location table
+    """
     __tablename__ = 'locations'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -48,6 +62,14 @@ class Location(Base):
     restaurant = db.relationship('Restaurant', back_populates='location', uselist=False)
 
     def __init__(self, address, streetname, zipcode, latitude, longitude):
+        """
+        Construct a Restaurant object
+        name: name of this restaurant, String(256)
+        phonenum: phone number of this restaurant, String(20)
+        price: an Integer within [1, 5], giving this restaurant a price rating
+        rating: customer rating of this restaurant, a Float between [1, 5]
+        reviewcount: number of reviews this restaurant has, Integer
+        """
         self.address = address 
         self.streetname = streetname 
         self.zipcode = zipcode 
@@ -60,6 +82,9 @@ class Location(Base):
                 )
 
 class Category(Base):
+    """
+    Represents a row of a Category table
+    """
     __tablename__ = 'categories'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -73,6 +98,14 @@ class Category(Base):
     restlist = db.relationship('Restaurant', secondary=_assoctable_restcat, back_populates='catlist')
 
     def __init__(self, name, resttotal, reviewtotal, priceavg, ratingavg):
+        """
+        Construct a Category object
+        name: name of this category, such as "Mexican" or "Beer, Wine, and Spirits", String(256)
+        resttotal: total number of restaurants in this category
+        reviewtotal: total number of reviews of restaurants in this category
+        priceavg: average price of restaurants in this category
+        rating: average rating of restaurants in this category
+        """
         self.name = name 
         self.resttotal = resttotal 
         self.reviewtotal = reviewtotal 
