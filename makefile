@@ -34,8 +34,8 @@ clean:
 	rm -rf __pycache__
 	
 test: tests.py
-	coverage3 run    --branch tests.py >  tests.tmp 2>&1
-	coverage3 report -m                >> tests.tmp
+	coverage run    --branch tests.py >  tests.tmp 2>&1
+	coverage report -m                >> tests.tmp
 	cat tests.tmp
 	
 IDB1.log:
