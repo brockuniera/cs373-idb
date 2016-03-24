@@ -1,5 +1,8 @@
 from db import db
 
+# This is an association table, needed for the many-to-many
+# relationship between Restaurant and Category.
+# http://docs.sqlalchemy.org/en/rel_1_0/orm/basic_relationships.html#many-to-many
 _assoctable_restcat = db.Table('assoc_restcat', Base.metadata,
     db.Column('left_id', db.Integer, ForeignKey('restaurants.id')),
     db.Column('right_id', db.Integer, ForeignKey('categories.id'))
