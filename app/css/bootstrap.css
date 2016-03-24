@@ -182,6 +182,9 @@ optgroup {
 table {
   border-spacing: 0;
   border-collapse: collapse;
+  vertical-align: center center;
+  margin-left:auto;
+  margin-right:auto;
 }
 td,
 th {
