@@ -2,6 +2,8 @@
 
 Python Web application based on providing information about Austin restaurants, inspired by IMDB and Yelp.
 
+[![Build Status](https://travis-ci.org/brockuniera/cs373-idb.svg?branch=master)](https://travis-ci.org/brockuniera/cs373-idb)
+
 ## Database Model
 
 Restaurant - Information about restaurants such as location, name, category, price and rating.
