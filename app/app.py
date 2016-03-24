@@ -1,16 +1,6 @@
-import logging
-
 from flask import Flask, render_template
-from flask.ext.script import Manager
-from db import db, app
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(levelname)s: %(message)s')
-logger = logging.getLogger(__name__)
-logger.debug("Welcome to Swestaurants")
-
-manager = Manager(app)
+app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def index():
@@ -33,4 +23,4 @@ def render_about():
     return render_template('about.html')
 
 if __name__ == '__main__':
-    manager.run()
+    app.run(host='127.0.0.1')
