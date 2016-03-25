@@ -8,31 +8,34 @@ def index():
 	
 @app.route('/location')
 def render_location():
-    return render_template('location.html')
+    return render_template('location_db.html')
+	
+@app.route('/location/<location_id>')
+def render_locatoin_id(location_id=None):
+	id = location_id
+	return render_template('location.html', id = id)
 	
 @app.route('/restaurant')
 def render_restaurant():
-    return render_template('restaurant.html')
+    return render_template('restaurant_db.html')
+	
+@app.route('/restaurant/<restaurant_id>')
+def render_restaurant_id(restaurant_id=None):
+	id = restaurant_id
+	return render_template('restaurant.html', id = id)
 	
 @app.route('/category')
 def render_category():
-    return render_template('category.html')
+    return render_template('category_db.html')
+	
+@app.route('/category/<category_id>')
+def render_category_id(category_id=None):
+	id = category_id
+	return render_template('category.html', id = id)
 	
 @app.route('/about')
 def render_about():
     return render_template('about.html')
-
-@app.route('/jepanese')
-def render_jepanese():
-    return render_template('jepanese.html')
-
-@app.route('/mexican')
-def render_mexican():
-    return render_template('mexican.html')
-
-@app.route('/american')
-def render_american():
-    return render_template('american.html')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1')

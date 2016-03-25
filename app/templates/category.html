@@ -76,46 +76,77 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+	
+	<section id="table">
+	  <h2> Category {{id}}</h2>
+	  <table class="table table-striped table-hover">
+	    <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Resturant total</th>
+            <th>Review total</th>
+            <th>Price Avg</th>
+            <th>Rating Avg</th>
+          </tr>
+      </thead>
+	        <tr>
+			  <td >1</td>
+			  <td >Japanese</td>
+			  <td >12</td>
+			  <td >200</td>
+			  <td >$$$</td>
+			  <td >3.3</td>
+			</tr>
+	  </table>
+	</section>
 
     <!--table-->
     <section id="table">
-    <table class="table table-hover">
-            <thead>
+	<h2> Related Restaurants </h2>
+                <table class="table table-striped table-hover">
+                <thead>
+              <tr>
+                <th >ID</th>
+                <th >Name</th>
+                <th >Phonenum</th>
+                <th >Price</th>
+                <th >Rating</th>
+                <th >Reviewcount</th>
+              </tr>
+                </thead>
+              <tr onclick="document.location='/restaurant/1'">
+                <td >1</td>
+                <td >Koriente</td>
+                <td >(512) 275-0852</td>
+                <td > $ </td>
+                <td >4.5</td>
+                <td >954</td>
+              </tr>
+	    </table>
+		<h2> Related Locations </h2>
+    <table class="table table-striped table-hover" style="cursor:pointer">
+          <thead>
           <tr>
             <th >ID</th>
-            <th >Name</th>
-            <th >Resturant total</th>
-            <th >Review total</th>
-            <th >Price Avg</th>
-            <th >Rating Avg</th>
+            <th >Address</th>
+            <th >Neighborhood</th>
+            <th >Zipcode</th>
+            <th >latitude</th>
+            <th >longitude</th>
           </tr>
-            </thread>
-          <tr>
+            </thead>
+          <tr onclick="document.location='/location/1'" style="cursor:pointer">
             <td >1</td>
-            <td >Jepanese</td>
-            <td >12</td>
-            <td >200</td>
-            <td >$$$</td>
-            <td >3.3</td>
-          </tr>
-          <tr>
-            <td >2</td>
-            <td >American</td>
-            <td >10</td>
-            <td >80</td>
-            <td >$$</td>
-            <td >3.4</td>
-          </tr>
-          <tr>
-            <td >3</td>
-            <td >Mexican</td>
-            <td >16</td>
-            <td >240</td>
-            <td >$$$</td>
-            <td >3.0</td>
+            <td >1403 E 7th St</td>
+            <td >East Austin</td>
+            <td >78702</td>
+            <td >41.403831</td>
+            <td >-94.993606<td>
           </tr>
         </table>
     </section>
+	
 
 
 </body>

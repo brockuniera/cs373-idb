@@ -33,7 +33,8 @@
 
 </head>
 
-<body id="page-top" class="location">
+<body id="page-top" class="category">
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -58,13 +59,13 @@
                         <a href="/#services">Services</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/location">Location</a>
+                        <a href="/location">Location</a>
                     </li>
                     <li>
                         <a href="/restaurant">Restaurant</a>
                     </li>
                     <li>
-                        <a href="/category">Category</a>
+                        <a class="page-scroll" href="/category">Category</a>
                     </li>
                     <li>
                         <a href="/about">About</a>
@@ -75,58 +76,12 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-</body>
 
-<section id="table">
-	  <h2> Location {{id}}</h2>
-	  <table class="table table-hover">
-            <thead>
-          <tr>
-            <th >ID</th>
-            <th >Address</th>
-            <th >Neighborhood</th>
-            <th >Zipcode</th>
-            <th >latitude</th>
-            <th >longitude</th>
-          </tr>
-            </thread>
-          <tr>
-            <td >1</td>
-            <td >1403 E 7th St</td>
-            <td >East Austin</td>
-            <td >78702</td>
-            <td >41.403831</td>
-            <td >-94.993606<td>
-          </tr>
-	  </table>
-	</section>
-
-<!--table-->
+    <!--table-->
     <section id="table">
-	<h2> Related Restaurants </h2>
-                <table class="table table-striped table-hover">
-                <thead>
-              <tr>
-                <th >ID</th>
-                <th >Name</th>
-                <th >Phonenum</th>
-                <th >Price</th>
-                <th >Rating</th>
-                <th >Reviewcount</th>
-              </tr>
-                </thead>
-              <tr onclick="document.location='/restaurant/1'" style="cursor:pointer">
-                <td >1</td>
-                <td >Koriente</td>
-                <td >(512) 275-0852</td>
-                <td > $ </td>
-                <td >4.5</td>
-                <td >954</td>
-              </tr>
-	    </table>
-		<h2> Related Categories </h2>
+	<h2> Categories </h2>
     <table class="table table-striped table-hover">
-	    <thead>
+      <thead>
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -144,6 +99,25 @@
 			  <td >$$$</td>
 			  <td >3.3</td>
 			</tr>
-	  </table>
+		    <tr onclick="document.location='/category/2'" style="cursor:pointer"> 
+              <td >2</td>
+              <td >American</td>
+              <td >10</td>
+              <td >80</td>
+              <td >$$</td>
+              <td >3.4</td>
+            </tr>
+		    <tr onclick="document.location='/category/3'" style="cursor:pointer">
+              <td >3</td>
+              <td >Mexican</td>
+              <td >16</td>
+              <td >240</td>
+              <td >$$$</td>
+              <td >3.0</td>
+            </tr>
+        </table>
     </section>
+
+
+</body>
 </html>
