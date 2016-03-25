@@ -1,3 +1,35 @@
+commit ab51173270c67e62d9ed811f2ac8437404f89ddb
+Merge: 2efc5c8 7968d8d
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 21:18:01 2016 -0500
+
+    Merge branch 'master' into dev
+
+commit 7968d8d56be3dc5dee460ad09a215cf15b9afc34
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 21:16:41 2016 -0500
+
+    updated commits and issues before phase 1 turn in
+
+commit db06fc98394fa0ef4508d56d6409311e98975153
+Merge: d0412b5 9500355
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 21:08:44 2016 -0500
+
+    Fixing merge for master
+
+commit 2efc5c824f71624a7c4e90b0fd54148451082488
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 21:00:42 2016 -0500
+
+    minor changes
+
+commit d0412b59b1080d7cd478a34bef493f34f34a56fc
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 20:49:10 2016 -0500
+
+    Updated that IDB1 log closes closes brockuniera/cs373-idb#14
+
 commit 62283223f4aac83e36e8c3984a81da4955a0372e
 Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
 Date:   Thu Mar 24 20:47:31 2016 -0500
@@ -70,6 +102,18 @@ Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
 Date:   Thu Mar 24 19:08:31 2016 -0500
 
     changes 2
+
+commit 950035531c1b9b529032b826114ac115de06037b
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 19:00:00 2016 -0500
+
+    minor changes agency.css
+
+commit 2642f9af4673cdb540bd92e6af26f9eec4139139
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 18:55:19 2016 -0500
+
+    Updated about page, team members
 
 commit 2b9d3dd4c2584fc895ae944705cc0d6514e1e1ef
 Author: angelxut <angelx@utexas.edu>
