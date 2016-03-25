@@ -1,0 +1,268 @@
+commit 62283223f4aac83e36e8c3984a81da4955a0372e
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 20:47:31 2016 -0500
+
+    closes brockuniera/cs373-idb#2
+
+commit 036c451c9ef3789a9fd5c67f064b03ccb5ca5c8a
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 20:38:03 2016 -0500
+
+    set both of location and restuarant page in center
+
+commit b48f9233d55d7ba67a40067af463f1ae950f4532
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 20:34:30 2016 -0500
+
+    Removed copies of files, everything should have been in static
+
+commit 963bbe0bda161c501480f0e5ad7c7334aee4081b
+Merge: 2f31cc5 761b8fe
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 20:26:19 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb into dev
+
+commit 2f31cc509404068f086c8e5d8db63669fd7cdfa4
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 20:25:35 2016 -0500
+
+    finish about page
+
+commit 761b8fe4070a4777a77da6249a702907c9355871
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Mar 24 20:19:47 2016 -0500
+
+    Added image candidates for static web pages
+
+commit 9713ebe311350ffb51f0e3549f37b38f5664c675
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 20:10:15 2016 -0500
+
+    Added images to each of the model id files, they're the same for each but at least it's something
+
+commit 41609c94d408606eabc164dcfa77bdbd4ba823fc
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 19:59:15 2016 -0500
+
+    change photo's size
+
+commit 8c28f4288613d9b3c7dea17926020ac49c392389
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 19:56:18 2016 -0500
+
+    added more stuff to about page
+
+commit f5146afb94832405fdc76e29a67d5073312e2bfb
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 19:46:09 2016 -0500
+
+    Added the routing to template models based on id as well as the template id pages
+
+commit 22cee5082571c6b47594f8918826e4be7c3b9c73
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 19:25:30 2016 -0500
+
+    git photos in the about page works
+
+commit a06cb43789ca63f44b85fc343e5ff49e073834b2
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 19:08:31 2016 -0500
+
+    changes 2
+
+commit 2b9d3dd4c2584fc895ae944705cc0d6514e1e1ef
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 18:43:12 2016 -0500
+
+    finish the details of the table and add the hover table
+
+commit 479548f1c44abab09c51be9d1680af491eed67a6
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Mar 24 18:10:49 2016 -0500
+
+    Slightly updated agreed UML design
+
+commit 30ba8dad48afd04eeb2e54be21429055b4cfa67d
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 18:06:11 2016 -0500
+
+    fill some details for the tables
+
+commit 3abce40ab1d9133ab97fb44374b3b550428ea88e
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 16:25:35 2016 -0500
+
+    create a table but not finish yet
+
+commit ab09d23d0a7818894f73b649bb61b72a96b2e3f5
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 15:05:01 2016 -0500
+
+    Added Apiary documentation, closes brockuniera/cs373-idb#7
+
+commit e869fdc4f4977a1b0ddf81f117fccc9a4dcac8fb
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 14:54:38 2016 -0500
+
+    Added Travis CI  image for build pass/fail
+
+commit 4c8199d1e2c17bbd6f0b84a8adf354bd2b92beba
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 14:52:01 2016 -0500
+
+    Manually ran pydoc for models and commented it out on travis yml file
+
+commit 5cab3ab126617accc826434c5667e67fc2de8c38
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 14:30:10 2016 -0500
+
+    Changed the way makefile is making documentation
+
+commit 3399b1fff154e6f927cf80110ceb64a4a54f3b14
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 14:27:17 2016 -0500
+
+    Updated travil yml and makefile, added apiary documentation
+
+commit 19bc975be3c7253011ba33408f4adecb882fae7a
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:37:13 2016 -0500
+
+    Changed makefile to attempt to fix failing commands
+
+commit a70905670b889fc36b2b3ee2738cbedad23b5b03
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:23:39 2016 -0500
+
+    Fixed tab issue with .travis.yml
+
+commit 2a59f977e2155b898c676812df8cf8ed52a31b7a
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:21:18 2016 -0500
+
+    Added changes to .travis.yml so it actually runs some tests
+
+commit ece8dad8ccf8754130567d0519831ee9ffe86c54
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:19:27 2016 -0500
+
+    Added README
+
+commit e8d6d1ca4104f887e8e5781e8023d8f600e8325f
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:18:44 2016 -0500
+
+    Added README
+
+commit ecea1d6cfdd4d31e518df9cecbdbc0065ea03289
+Merge: d269e0b 31f8659
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:17:07 2016 -0500
+
+    Added README
+
+commit d269e0b24149a18155e262a35cb2fce8ded5abda
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:15:13 2016 -0500
+
+    Added UML pdf and empty apiary file to make travis happy. Readded README, closes brockuniera/cs373-idb#9
+
+commit 31f8659c096ab026b1e0ded61d35f3e834aa9caa
+Author: annyuu <annyuu@users.noreply.github.com>
+Date:   Thu Mar 24 06:14:24 2016 -0500
+
+    Create README.md
+
+commit 0c5c6068b56a7fbb16cf292773271f326380a41a
+Merge: 0e9c072 52e2cba
+Author: annyuu <ann@Anns-MacBook-Pro.local>
+Date:   Thu Mar 24 06:01:10 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb-dev into dev
+
+commit 0e9c07282fa43d65089c601da51dfbf24ddf4bc5
+Author: annyuu <ann@Anns-MacBook-Pro.local>
+Date:   Thu Mar 24 05:57:13 2016 -0500
+
+    changed and fixed background and colors
+
+commit 52e2cba5fbab94085483bb380abb976eb444f39d
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 05:56:56 2016 -0500
+
+    Added tests to tests.py to test models.py, they succeed closes brockuniera/cs373-idb#15
+
+commit 25eb7127c72429a6d06136d104a505aaf4eb1436
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 04:05:07 2016 -0500
+
+    Changed the Readme to show a glimpse into our application
+
+commit 562d9a84fd82a7acc1d948ab6b8131dda3da53c6
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 04:03:54 2016 -0500
+
+    Changed the Readme to show a glimpse into our application
+
+commit 7184ca7a2450ac7cd10955767de543965f551c47
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 03:42:29 2016 -0500
+
+    Added docker image and austin eats image for closes brockuniera/cs373-idb#21
+
+commit 4131165e4bdf9d90ce9c7d087b60de57bad5c2c9
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 03:35:33 2016 -0500
+
+    Removed uneeded css file since we're linking it now, added carina cluster image for Wiki
+
+commit 67957bf2656510ba6b625ab5f6e11553bacc826f
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Wed Mar 23 23:08:05 2016 -0500
+
+    Comment _assoctable_restcat table in models.py
+
+commit 1870fce96579658c85876f226a0c6fbac53edd0c
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Wed Mar 23 22:47:16 2016 -0500
+
+    Add docstrings to models.py
+
+commit 913528ab56243cd9c4006f74de22a5f5ba2dfae9
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Wed Mar 23 20:08:38 2016 -0500
+
+    Implement models.py
+    
+    Still needs documentation
+
+commit da2da85f7031f943979eacfdaf68df32160565c6
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Wed Mar 23 18:14:17 2016 -0500
+
+    changed links to pages
+
+commit b0fb612c60bbc047153d7050ec4b7f30e7dd7cb4
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Wed Mar 23 05:47:56 2016 -0500
+
+    Changed the structure of the repo to match how Flask expects it, this commit is currently live on the website resolves brockuniera/cs373-idb#17
+
+commit 8b30d6292aa360326bb1d66ee82c5ec2b6e2fb55
+Author: angelxut <angelx@utexas.edu>
+Date:   Tue Mar 22 23:43:11 2016 -0500
+
+    add four subpages
+
+commit 4f232569afb48d7843c93fc61e061d1c21586eec
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Tue Mar 22 18:26:46 2016 -0500
+
+    Main page html files and pictures
+
+commit aebd5aa1a360ef579b7368b9d42342d54329f2ee
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Sat Mar 19 16:04:35 2016 -0500
+
+    Add .gitignore, .travis.yml
