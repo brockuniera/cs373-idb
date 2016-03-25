@@ -44,7 +44,7 @@ h4,
 h5,
 h6 {
   font-family: Cambria, Georgia, serif;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-weight: 700;
 }
 .img-centered {
@@ -547,7 +547,7 @@ section h3.section-subheading {
   }
 }
 .team-member {
-  text-align: center;
+  /*text-align: center;*/
   margin-bottom: 50px;
 }
 .team-member img {
