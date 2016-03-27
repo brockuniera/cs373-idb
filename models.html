@@ -43,11 +43,10 @@
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Category-__init__"><strong>__init__</strong></a>(self, name, resttotal, reviewtotal, priceavg, ratingavg)</dt><dd><tt>Construct&nbsp;a&nbsp;<a href="#Category">Category</a>&nbsp;object<br>
+<dl><dt><a name="Category-__init__"><strong>__init__</strong></a>(self, name, resttotal, reviewtotal, ratingavg)</dt><dd><tt>Construct&nbsp;a&nbsp;<a href="#Category">Category</a>&nbsp;object<br>
 name:&nbsp;name&nbsp;of&nbsp;this&nbsp;category,&nbsp;such&nbsp;as&nbsp;"Mexican"&nbsp;or&nbsp;"Beer,&nbsp;Wine,&nbsp;and&nbsp;Spirits",&nbsp;String(256)<br>
 resttotal:&nbsp;total&nbsp;number&nbsp;of&nbsp;restaurants&nbsp;in&nbsp;this&nbsp;category<br>
 reviewtotal:&nbsp;total&nbsp;number&nbsp;of&nbsp;reviews&nbsp;of&nbsp;restaurants&nbsp;in&nbsp;this&nbsp;category<br>
-priceavg:&nbsp;average&nbsp;price&nbsp;of&nbsp;restaurants&nbsp;in&nbsp;this&nbsp;category<br>
 rating:&nbsp;average&nbsp;rating&nbsp;of&nbsp;restaurants&nbsp;in&nbsp;this&nbsp;category</tt></dd></dl>
 
 <dl><dt><a name="Category-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
@@ -57,8 +56,6 @@ Data descriptors defined here:<br>
 <dl><dt><strong>id</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
-</dl>
-<dl><dt><strong>priceavg</strong></dt>
 </dl>
 <dl><dt><strong>ratingavg</strong></dt>
 </dl>
@@ -70,7 +67,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x19bf0ed80b8; Category&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x273d2f582e8; Category&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('categories', MetaData(bind=None), Column(...gavg', Float(), table=&lt;categories&gt;), schema=None)</dl>
 
@@ -131,7 +128,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x19bf0eb7b70; Location&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x273d2f2fe10; Location&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('locations', MetaData(bind=None), Column('...itude', Float(), table=&lt;locations&gt;), schema=None)</dl>
 
@@ -165,12 +162,13 @@ Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Restaurant-__init__"><strong>__init__</strong></a>(self, name, phonenum, price, rating, reviewcount)</dt><dd><tt>Construct&nbsp;a&nbsp;<a href="#Restaurant">Restaurant</a>&nbsp;object<br>
+<dl><dt><a name="Restaurant-__init__"><strong>__init__</strong></a>(self, imageurl, name, phonenum, rating, reviewcount, url)</dt><dd><tt>Construct&nbsp;a&nbsp;<a href="#Restaurant">Restaurant</a>&nbsp;object<br>
+imageurl:&nbsp;a&nbsp;random&nbsp;image&nbsp;uploaded&nbsp;to&nbsp;the&nbsp;restaurant's&nbsp;Yelp&nbsp;page<br>
 name:&nbsp;name&nbsp;of&nbsp;this&nbsp;restaurant,&nbsp;String(256)<br>
 phonenum:&nbsp;phone&nbsp;number&nbsp;of&nbsp;this&nbsp;restaurant,&nbsp;String(20)<br>
-price:&nbsp;an&nbsp;Integer&nbsp;within&nbsp;[1,&nbsp;5],&nbsp;giving&nbsp;this&nbsp;restaurant&nbsp;a&nbsp;price&nbsp;rating<br>
 rating:&nbsp;customer&nbsp;rating&nbsp;of&nbsp;this&nbsp;restaurant,&nbsp;a&nbsp;Float&nbsp;between&nbsp;[1,&nbsp;5]<br>
-reviewcount:&nbsp;number&nbsp;of&nbsp;reviews&nbsp;this&nbsp;restaurant&nbsp;has,&nbsp;Integer</tt></dd></dl>
+reviewcount:&nbsp;number&nbsp;of&nbsp;reviews&nbsp;this&nbsp;restaurant&nbsp;has,&nbsp;Integer<br>
+url:&nbsp;the&nbsp;url&nbsp;of&nbsp;the&nbsp;Yelp&nbsp;page&nbsp;of&nbsp;this&nbsp;restaurant</tt></dd></dl>
 
 <dl><dt><a name="Restaurant-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
 
@@ -180,6 +178,8 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>id</strong></dt>
 </dl>
+<dl><dt><strong>imageurl</strong></dt>
+</dl>
 <dl><dt><strong>location</strong></dt>
 </dl>
 <dl><dt><strong>location_id</strong></dt>
@@ -188,15 +188,15 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>phonenum</strong></dt>
 </dl>
-<dl><dt><strong>price</strong></dt>
-</dl>
 <dl><dt><strong>rating</strong></dt>
 </dl>
 <dl><dt><strong>reviewcount</strong></dt>
 </dl>
+<dl><dt><strong>url</strong></dt>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x19bf0eb7550; Restaurant&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x273d2f2f7f0; Restaurant&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('restaurants', MetaData(bind=None), Column...ocations.id'), table=&lt;restaurants&gt;), schema=None)</dl>
 
@@ -221,5 +221,5 @@ Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine='mysql+pymysql://None:None@None/None'&gt;</td></tr></table>
+<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine='mysql+pymysql://admin:admin-pass@localhost/swestaurant_db'&gt;</td></tr></table>
 </body></html>
