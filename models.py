@@ -15,11 +15,12 @@ class Restaurant(Base):
     __tablename__ = 'restaurants'
 
     id = db.Column(db.Integer, primary_key=True)
+    imageurl = db.Column(db.String(256))
     name = db.Column(db.String(256))
     phonenum = db.Column(db.String(20))
-    price = db.Column(db.Integer)
     rating = db.Column(db.Float)
     reviewcount = db.Column(db.Integer)
+    url = db.Column(db.String(256))
 
     # Attrs for a one-to-one relationship with Location
     location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
@@ -28,24 +29,26 @@ class Restaurant(Base):
     # Many-to-many with Category
     catlist = db.relationship('Category', secondary=_assoctable_restcat, back_populates='restlist')
 
-    def __init__(self, name, phonenum, price, rating, reviewcount):
+    def __init__(self, imageurl, name, phonenum, rating, reviewcount, url):
         """
         Construct a Restaurant object
+        imageurl: a random image uploaded to the restaurant's Yelp page
         name: name of this restaurant, String(256)
         phonenum: phone number of this restaurant, String(20)
-        price: an Integer within [1, 5], giving this restaurant a price rating
         rating: customer rating of this restaurant, a Float between [1, 5]
         reviewcount: number of reviews this restaurant has, Integer
+        url: the url of the Yelp page of this restaurant
         """
+        self.imageurl = imageurl
         self.name = name
         self.phonenum = phonenum
-        self.price = price
         self.rating = rating
         self.reviewcount = reviewcount
+        self.url = url
 
     def __repr__(self):
-        return "<Restaurant(name='{}', phonenum='{}', price='{}', rating='{}', reviewcount='{}')>".format(
-                self.name, self.phonenum, self.price, self.rating, self.reviewcount
+        return "<Restaurant(imageurl='{}', name='{}', phonenum='{}', rating='{}', reviewcount='{}', url='{}')>".format(
+                self.imageurl, self.name, self.phonenum, self.rating, self.reviewcount, self.url
                 )
 
 class Location(Base):
@@ -94,28 +97,25 @@ class Category(Base):
     name = db.Column(db.String(256))
     resttotal = db.Column(db.Integer)
     reviewtotal = db.Column(db.Integer)
-    priceavg = db.Column(db.Float)
     ratingavg = db.Column(db.Float)
 
     # The many-to-many with Restaurant
     restlist = db.relationship('Restaurant', secondary=_assoctable_restcat, back_populates='catlist')
 
-    def __init__(self, name, resttotal, reviewtotal, priceavg, ratingavg):
+    def __init__(self, name, resttotal, reviewtotal, ratingavg):
         """
         Construct a Category object
         name: name of this category, such as "Mexican" or "Beer, Wine, and Spirits", String(256)
         resttotal: total number of restaurants in this category
         reviewtotal: total number of reviews of restaurants in this category
-        priceavg: average price of restaurants in this category
         rating: average rating of restaurants in this category
         """
         self.name = name 
         self.resttotal = resttotal 
-        self.reviewtotal = reviewtotal 
-        self.priceavg = priceavg 
+        self.reviewtotal = reviewtotal  
         self.ratingavg = ratingavg 
 
     def __repr__(self):
-        return "<Category(name='{}', resttotal='{}', reviewtotal='{}', priceavg='{}', ratingavg='{}')>".format(
-                self.name, self.resttotal, self.reviewtotal, self.priceavg, self.ratingavg
+        return "<Category(name='{}', resttotal='{}', reviewtotal='{}', ratingavg='{}')>".format(
+                self.name, self.resttotal, self.reviewtotal, self.ratingavg
                 )

@@ -19,8 +19,14 @@ Category - Information such as name, total number of restaurants in this categor
 
 1. Clone the project
 
-2. Open terminal and go into the cloned repository, then cd apps.
+2. Open terminal and go into the cloned repository, then cd app.
 
-3. Execute app.py by typing python app.py. (You will need and Python and Flask installed locally)
+3. Run "pip install -r requirements.txt" to download dependencies required for the application onto your own machine.
 
-4. In order to view the site, open a browser and go to 127.0.0.1:5000.
+4. To query the Yelp API you will need to acquire a [API key](https://www.yelp.com/developers/manage_api_keys) from them.
+
+5. Then follow [these instructions](https://github.com/Yelp/yelp-python) to create a config_secret.json file that holds your private API key information. 
+
+6. Execute app.py by running "python app.py".
+
+7. In order to view the site, open a browser and go to 127.0.0.1:5000.
