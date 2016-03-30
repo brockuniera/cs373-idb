@@ -2,8 +2,7 @@ import requests
 import json
 import io
 
-from collections import namedtuple
-from db import db
+from app.app import db
 from models import Restaurant, Location, Category
 from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
