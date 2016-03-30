@@ -3,148 +3,152 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>AustinFoodForMe</title>
+  <title>AustinFoodForMe</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="{{ url_for('static', filename='css/agency.css') }}" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static', filename='css/agency.css') }}" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <!-- Custom Fonts -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
 </head>
 
 <body id="page-top" class="location">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="/">AustinFoodForMe</a>
-            </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-  <!--                   <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li> -->
-                    <li>
-                        <a href="/#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="/location">Location</a>
-                    </li>
-                    <li>
-                        <a href="/restaurant">Restaurant</a>
-                    </li>
-                    <li>
-                        <a href="/category">Category</a>
-                    </li>
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-</body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
 
-<section id="table">
-	  <h2> Location {{id}}</h2>
-	  <img src="../img/austin-tx.jpg" height="300px" width="250px"</img>
-	  <table class="table table-hover">
-            <thead>
-          <tr>
-            <th >ID</th>
-            <th >Address</th>
-            <th >Neighborhood</th>
-            <th >Zipcode</th>
-            <th >latitude</th>
-            <th >longitude</th>
-          </tr>
-            </thread>
-          <tr>
-            <td >1</td>
-            <td >1403 E 7th St</td>
-            <td >East Austin</td>
-            <td >78702</td>
-            <td >41.403831</td>
-            <td >-94.993606<td>
-          </tr>
-	  </table>
-	</section>
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="/">AustinFoodForMe</a>
+      </div>
 
-<!--table-->
-    <section id="table">
-	<h2> Related Restaurants </h2>
-                <table class="table table-striped table-hover">
-                <thead>
-              <tr>
-                <th >ID</th>
-                <th >Name</th>
-                <th >Phonenum</th>
-                <th >Price</th>
-                <th >Rating</th>
-                <th >Reviewcount</th>
-              </tr>
-                </thead>
-              <tr onclick="document.location='/restaurant/1'" style="cursor:pointer">
-                <td >1</td>
-                <td >Koriente</td>
-                <td >(512) 275-0852</td>
-                <td > $ </td>
-                <td >4.5</td>
-                <td >954</td>
-              </tr>
-	    </table>
-		<h2> Related Categories </h2>
-    <table class="table table-striped table-hover">
-	    <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Resturant total</th>
-            <th>Review total</th>
-            <th>Price Avg</th>
-            <th>Rating Avg</th>
-          </tr>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/#services">Services</a>
+          </li>
+          <li>
+            <a href="/location">Location</a>
+          </li>
+          <li>
+            <a href="/restaurant">Restaurant</a>
+          </li>
+          <li>
+            <a href="/category">Category</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+  <!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- The information about this particular location -->
+  <section id="table">
+    <h2> Location {{id}}</h2>
+    <img src="../img/austin-tx.jpg" height="300px" width="250px"</img>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Address</th>
+          <th>Neighborhood</th>
+          <th>Zipcode</th>
+          <th>latitude</th>
+          <th>longitude</th>
+        </tr>
       </thead>
-	        <tr onclick="document.location='/category/1'" style="cursor:pointer">
-			  <td >1</td>
-			  <td >Japanese</td>
-			  <td >12</td>
-			  <td >200</td>
-			  <td >$$$</td>
-			  <td >3.3</td>
-			</tr>
-	  </table>
-    </section>
+      <tr>
+        <td>1</td>
+        <td>1403 E 7th St</td>
+        <td>East Austin</td>
+        <td>78702</td>
+        <td>41.403831</td>
+        <td>-94.993606</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Table of related Restaurants for this particular location -->
+  <section id="table">
+    <h2> Related Restaurants </h2>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phonenum</th>
+          <th>Price</th>
+          <th>Rating</th>
+          <th>Reviewcount</th>
+        </tr>
+      </thead>
+      <tr onclick="document.location='/restaurant/1'" style="cursor:pointer">
+        <td>1</td>
+        <td>Koriente</td>
+        <td>(512) 275-0852</td>
+        <td>$</td>
+        <td>4.5</td>
+        <td>954</td>
+      </tr>
+    </table>
+
+    <!-- Table of Related Categories for this particular location -->
+    <h2> Related Categories </h2>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Resturant total</th>
+          <th>Review total</th>
+          <th>Price Avg</th>
+          <th>Rating Avg</th>
+        </tr>
+      </thead>
+      <tr onclick="document.location='/category/1'" style="cursor:pointer">
+        <td>1</td>
+        <td>Japanese</td>
+        <td>12</td>
+        <td>200</td>
+        <td>$$$</td>
+        <td>3.3</td>
+      </tr>
+    </table>
+  </section>
+
+</body>
 </html>
