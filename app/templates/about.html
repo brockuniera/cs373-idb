@@ -1,273 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "common_content.html" %}
 
-<head>
+{% block title %}About{% endblock %}
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<!-- super() loads the header, navbar and an open body tag -->
+{% block body %} {{super()}}
+    <!-- About Section -->
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">About Us</h2>
+            <br></br>
+          </div>
+        </div>
 
-  <title>AustinFoodForMe</title>
+        <!-- Alex, Tomas, Zach row -->
+        <div class="row">
+          <!-- Alex -->
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img src="img/team/1.jpg" class="img-responsive">
+              <h3 class="center-text">Alex Brockunier</h3>
+              <p class="bold-text">
+                I'm a senior in CS with one more semester to go. I had a web development internship last year and this Summer I'll be interning with Intentional Software, doing some research. In my free time I make music, create video games with my friends, play video games with my friends, read about computer science things, and miss my two cats.
+              </p>
+              <p class="text-muted">Major Responsibilities:</p>
+              <ul>
+                <li> Database setup using SQLAlchemy </li> 
+                <li> Database design </li>
+                <li> Python and RESTful API support </li>
+              </ul>
+              <p></p>
+              <p class="text-muted"> No. of commits: 4 </p>
+              <p class="text-muted"> No. of issues: 7 </p>
+            </div>
+          </div>
 
-  <!-- Bootstrap Core CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+          <!-- Tomas -->
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img src="img/team/Tomas.jpg" class="img-responsive">
+              <h3 class="center-text">Tomas Gonzalez</h3>
+              <p class="bold-text">
+                I am currently a senior here at UT graduating May 2016, searching for a potential internship or job over the course of the next year. Wanting to become self-taught 2D/3D artist/animator, with interest in video games and concept art. I am unusually proud for having coined the name austinfoodfor.me, and I have a cat.
+              </p>
+              <p class="text-muted">Major Responsibilities:</p>
+              <ul>
+                <li> Database Design </li> 
+                <li> UML Design </li>
+              </ul>
+              <p></p>
+              <p class="text-muted"> No. of commits: 2 </p>
+              <p class="text-muted"> No. of issues: 3 </p>
+            </div>
+          </div> 
 
-  <!-- Custom CSS -->
-  <link href="{{ url_for('static', filename='css/agency.css') }}" rel="stylesheet">
+          <!-- Zach -->
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img src="img/team/3.jpg" class="img-responsive">
+              <h3 class="center-text">Zachary Sanders</h3>
+              <p class="bold-text">
+                Senior in CS, this is my last semester here at UT. I've had three internships in the past and have accepted a full time Software Engineering position at American Express in Phoenix, AZ. I'm married, I have two cats and I enjoy a good cold adult beverage.
+              </p>
+              <p class="text-muted">Major Responsibilities: </p>
+              <ul>
+                <li> Team Leader (Phase 1) </li> 
+                <li> Setting up hosting environment </li>
+                <li> Deployment </li>
+              </ul>
+              <p></p>
+              <p class="text-muted"> No. of commits: 24 </p>
+              <p class="text-muted"> No. of issues: 8 </p>
+              <!-- <p class="text-muted"> No. of unit tests: x </p> -->
+            </div>
+          </div>
+        </div>
 
-  <!-- Custom Fonts -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <!-- Angel, Ann row -->
+        <div class="row">
+          <!-- Angel -->
+          <div class="col-sm-6">
+            <div class="team-member">
+              <img src="img/team/4.jpg" class="img-responsive">
+              <h3 class="center-text">Angel Xiao</h3>
+              <p class="bold-text">
+                Junior in CS. I've had an summer internship in National Instrument. I will be a Software Engineering intern in Microsoft in the following summer. I have a cat named hacker. I am a photographer and I love taking photos.
+              </p>
+              <p class="text-muted">Major Responsibilities:</p>
+              <ul>
+                <li> Website design </li> 
+                <li> Wiki management </li>
+                <li> Graphics design </li>
+              </ul>
+              <p></p>
+              <p class="text-muted"> No. of commits: 7 </p>
+              <p class="text-muted"> No. of issues: 3 </p>
+              <!-- <p class="text-muted"> No. of unit tests: x </p> -->
+            </div>
+          </div>
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+          <!-- Ann -->
+          <div class="col-sm-6">
+            <div class="team-member">
+              <img src="img/team/5.jpg" class="img-responsive">
+              <h3 class="center-text">An-Yi Yu</h3>
+              <p class="bold-text">
+                I'm a senior in Computer Science. I was born in Taiwan and moved to the United States when I was 11 years old. I don't have a cat.
+              </p>
+              <p class="text-muted">Major Responsibilities: </p>
+              <ul>
+                <li> Website design </li> 
+                <li> Website templates </li>
+              </ul>
+              <p></p>
+              <p class="text-muted"> No. of commits: 17 </p>
+              <p class="text-muted"> No. of issues: 3 </p>
+            </div>
+          </div> 
+        </div>
 
-</head>
+      <!-- Team Stats -->
+      <h3>Team Stats</h3>
+      <ul class="no-bullet">
+        <li> Total no. of commits: 51 <li>
+        <li> Total no. of issues: 24 </li>
+        <li> <a href="http://docs.austinfoodidb.apiary.io/#">Apiary API</a></li>
+        <li> <a href="https://github.com/brockuniera/cs373-idb/issues">GitHub Issue Tracker</a></li>
+        <li> <a href="https://github.com/brockuniera/cs373-idb">GitHub Repo</a></li>
+        <li> <a href="https://github.com/brockuniera/cs373-idb/wiki">GitHub Wiki</a></li>
+      </ul>
 
-<body id="page-top" class="index">
+      <br></br>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand page-scroll" href="/">AustinFoodForMe</a>
-      </div>
+      <!-- Data -->
+      <h3>Data</h3>
+      <ul class="no-bullet">
+        <li><a href="http://www.sqlalchemy.org/">SQLAlchemy</a></li>
+      </ul>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="/#services">Services</a>
-          </li>
-          <li>
-            <a href="/location">Location</a>
-          </li>
-          <li>
-            <a href="/restaurant">Restaurant</a>
-          </li>
-          <li>
-            <a href="/category">Category</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
+      <br></br>
+
+      <h3>Tools</h3>
+      <ul class="no-bullet">
+        <li> <h4> Front End </h4></li>
+        <ul>
+          <li> <a href="http://getbootstrap.com/">Bootstrap</a></li>
         </ul>
-      </div>
-    <!-- /.navbar-collapse -->
-    </div>
-  <!-- /.container-fluid -->
-  </nav>
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">About Us</h2>
-          <br></br>
-        </div>
-      </div>
-
-      <!-- Alex, Tomas, Zach row -->
-      <div class="row">
-        <!-- Alex -->
-        <div class="col-sm-3">
-          <div class="team-member">
-            <img src="img/team/1.jpg" class="img-responsive">
-            <h4>Alex Brockunier</h4>
-            <h5>
-              I'm a senior in CS with one more semester to go. I had a web development internship last year and this Summer I'll be interning with Intentional Software, doing some research. In my free time I make music, create video games with my friends, play video games with my friends, read about computer science things, and miss my two cats.
-            </h5>
-            <p class="text-muted">Major Responsibilities:</p>
-            <li class ="text-text" style="margin-left:2em"> Database setup using SQLAlchemy </li> 
-            <li class ="text-text" style="margin-left:2em"> Database design </li>
-            <li class ="text-text" style="margin-left:2em"> Python and RESTful API support </li>
-            <p></p>
-            <p class="text-muted"> No. of commits: 4 </p>
-            <p class="text-muted"> No. of issues: 7 </p>
-          </div>
-        </div>
-
-        <!-- Tomas -->
-        <div class="col-sm-3">
-          <div class="team-member">
-            <img src="img/team/Tomas.jpg" class="img-responsive">
-            <h4>Tomas Gonzalez</h4>
-            <h5>
-              I am currently a senior here at UT graduating May 2016, searching for a potential internship or job over the course of the next year. Wanting to become self-taught 2D/3D artist/animator, with interest in video games and concept art. I am unusually proud for having coined the name austinfoodfor.me, and I have a cat.
-            </h5>
-            <p class="text-muted">Major Responsibilities: , </p>
-            <li class ="text-text" style="margin-left:2em"> Database Design </li> 
-            <li class ="text-text" style="margin-left:2em"> UML Design </li>
-            <p></p>
-            <p class="text-muted"> No. of commits: 2 </p>
-            <p class="text-muted"> No. of issues: 3 </p>
-          </div>
-        </div> 
-
-        <!-- Zach -->
-        <div class="col-sm-3">
-          <div class="team-member">
-            <img src="img/team/3.jpg" class="img-responsive">
-            <h4>Zachary Sanders</h4>
-            <h5>
-              Senior in CS, this is my last semester here at UT. I've had three internships in the past and have accepted a full time Software Engineering position at American Express in Phoenix, AZ. I'm married, I have two cats and I enjoy a good cold adult beverage.
-            </h5>
-            <p class="text-muted">Major Responsibilities: </p>
-            <li class ="text-text" style="margin-left:2em"> Team Leader (Phase 1) </li> 
-            <li class ="text-text" style="margin-left:2em"> Setting up hosting environment </li>
-            <li class ="text-text" style="margin-left:2em"> Deployment </li>
-            <p></p>
-            <p class="text-muted"> No. of commits: 24 </p>
-            <p class="text-muted"> No. of issues: 8 </p>
-            <!-- <p class="text-muted"> No. of unit tests: x </p> -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Angel, Ann row -->
-      <div class="row">
-        <!-- Angel -->
-        <div class="col-sm-3">
-          <div class="team-member">
-            <img src="img/team/4.jpg" class="img-responsive">
-            <h4>Angel Xiao</h4>
-            <h5>
-              Junior in CS. I've had an summer internship in National Instrument. I will be a Software Engineering intern in Microsoft in the following summer. I have a cat named hacker. I am a photographer and I love taking photos.
-            </h5>
-            <p class="text-muted">Major Responsibilities:</p>
-            <li class ="text-text" style="margin-left:2em"> Website design </li> 
-            <li class ="text-text" style="margin-left:2em"> Wiki management </li>
-            <li class ="text-text" style="margin-left:2em"> Graphics design </li>
-            <p></p>
-            <p class="text-muted"> No. of commits: 7 </p>
-            <p class="text-muted"> No. of issues: 3 </p>
-            <!-- <p class="text-muted"> No. of unit tests: x </p> -->
-          </div>
-        </div>
-
-        <!-- Ann -->
-        <div class="col-sm-3">
-          <div class="team-member">
-            <img src="img/team/5.jpg" class="img-responsive">
-            <h4>An-Yi Yu</h4>
-            <h5>
-              I'm a senior in Computer Science. I was born in Taiwan and moved to the United States when I was 11 years old. I don't have a cat.
-            </h5>
-            <p class="text-muted">Major Responsibilities: </p>
-            <li class ="text-text" style="margin-left:2em"> Website design </li> 
-            <li class ="text-text" style="margin-left:2em"> Website templates </li>
-            <p></p>
-            <p class="text-muted"> No. of commits: 17 </p>
-            <p class="text-muted"> No. of issues: 3 </p>
-          </div>
-        </div> 
-      </div>
-
-    <h3>Team Stats</h3>
-    <p style="margin-left:2em"> Total no. of commits: 51 </p>
-    <p style="margin-left:2em"> Total no. of issues: 24 </p>
-    <!-- <p style="margin-left:2em"> Total no. of unit tests: x </p> -->
-    <p style="margin-left:2em"> 
-      <a href="http://docs.austinfoodidb.apiary.io/#">Apiary API</a>
-    </p>
-    <p style="margin-left:2em"> 
-      <a href="https://github.com/brockuniera/cs373-idb/issues">GitHub Issue Tracker</a>
-    </p>
-    <p style="margin-left:2em"> 
-      <a href="https://github.com/brockuniera/cs373-idb">GitHub Repo</a>
-    </p>
-    <p style="margin-left:2em"> 
-      <a href="https://github.com/brockuniera/cs373-idb/wiki">GitHub Wiki</a>
-    </p>
-
-    <br></br>
-
-    <h3>Data</h3>
-    <p style="margin-left:2em"> 
-      <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>
-    </p>
-
-    <br></br>
-
-    <h3>Tools</h3>
-    <li>
-      <h4 style="margin-left:2em">Front End</h4>
-    </li>
-    <p style="margin-left:4em"> 
-      <a href="http://getbootstrap.com/">Bootstrap</a>
-    </p>
-
-    <li>
-      <h4 style="margin-left:2em" >Back End</h4>
-    </li>
-    <p style="margin-left:4em">
-      <a href="https://www.python.org/download/releases/3.0/">Python3</a>
-    </p>
-    <p style="margin-left:4em"> 
-      <a href="http://flask.pocoo.org/">Flask</a>
-    </p>
-    <p style="margin-left:4em"> 
-      <a href="http://flask-sqlalchemy.pocoo.org/2.1/">Flask SQLAlchemy Extension</a>
-    </p>
-    <p style="margin-left:4em"> 
-      <a href="https://www.mysql.com/">MySql</a>
-    </p>
-
-    <li>
-      <h4 style="margin-left:2em">API</h4>
-    </li>
-    <p style="margin-left:4em"> 
-      <a href="https://apiary.io/">Apiary</a>
-    </p>
-    <p style="margin-left:4em"> 
-      <a href="https://www.yelp.com/developers">Yelp</a>
-    </p>
-
-    <li>
-      <h4 style="margin-left:2em">Hosting</h4>
-    </li>
-    <p style="margin-left:4em"> 
-      <a href="https://www.namecheap.com/">Namecheap</a>
-    </p>
-    <p style="margin-left:4em"> 
-      <a href="https://getcarina.com/">Rackspace Carina</a>
-    </p>
-
-    <li>
-      <h4 style="margin-left:2em">Collaboration</h4>
-    </li>
-    <p style="margin-left:4em"> 
-      <a href="https://slack.com/">Slack</a>
-    </p>
-    <p style="margin-left:4em"> 
-      <a href="https://github.com/">GitHub</a>
-    </p>
-
-    <li>
-      <h4 style="margin-left:2em">Data Modeling</h4>
-    </li>
-    <p style="margin-left:4em"> 
-      <a href="http://yuml.me/">yUML</a>
-    </p> 
-    <br></br>
-  </section>
-
-</body>
-</html>
+        <li> <h4>Back End</h4></li>
+        <ul>
+          <li> <a href="https://www.python.org/download/releases/3.0/">Python3</a></li>
+          <li> <a href="http://flask.pocoo.org/">Flask</a></li>
+          <li> <a href="http://flask-sqlalchemy.pocoo.org/2.1/">Flask SQLAlchemy Extension</a></li>
+          <li> <a href="https://www.mysql.com/">MySql</a></li>
+        </ul>
+        <li> <h4>API</h4> </li>
+        <ul>
+          <li> <a href="https://apiary.io/">Apiary</a></li>
+          <li> <a href="https://www.yelp.com/developers">Yelp</a></li>
+        </ul>
+        <li> <h4>Hosting</h4> </li>
+        <ul>
+          <li> <a href="https://www.namecheap.com/">Namecheap</a></li>
+          <li> <a href="https://getcarina.com/">Rackspace Carina</a></li>
+        </ul>
+        <li> <h4>Collaboration</h4> </li>
+        <ul>
+          <li> <a href="https://slack.com/">Slack</a></li>
+          <li> <a href="https://github.com/">GitHub</a></li>
+        </ul>
+        <li> <h4> Data Modeling</h4> </li>
+        <ul> 
+          <li> <a href="http://yuml.me/">yUML</a></li> 
+        </ul>
+      </ul>
+    </section>
+{% endblock %}
+<!-- common_content.html closes the body and html tags -->

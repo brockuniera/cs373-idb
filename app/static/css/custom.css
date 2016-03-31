@@ -1,0 +1,54 @@
+/* Image for our main index.html page */
+.header-image {
+  background-image: url('../img/main_bg.jpg');
+}
+
+/* Wrapper class to put in div around tables */
+.table-wrapper {
+  margin-top: 25px;
+}
+
+/* Styling for our data tables */
+.data-table {
+  font-size: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  max-width: 100%;
+  table-layout: fixed;
+  width: 85%;
+}
+
+/* Styling for our data table hover */
+.data-table > tbody > tr:hover {
+  background-color: #c2f5f6;
+}
+
+/* Add pointer to rows in data tables because they're links */
+.data-table > tbody > tr {
+  border: solid;
+  border-width: 1px 0;
+  cursor: pointer;
+}
+
+/* center text */
+.center-text {
+  text-align: center;
+}
+
+/* Makes text bold */
+.bold-text {
+  font-weight: bold;
+}
+
+/* Style for individual page images, centers them */
+.center-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Removes bullet points from ul */
+.no-bullet > li {
+  list-style: none;
+}

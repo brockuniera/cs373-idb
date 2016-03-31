@@ -181,7 +181,7 @@ fieldset[disabled] .btn-xl.active {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
-  color: white;
+  color: #2440cc;
 }
 .navbar-default .nav li a:hover,
 .navbar-default .nav li a:focus {
@@ -200,8 +200,8 @@ fieldset[disabled] .btn-xl.active {
 }
 @media (min-width: 768px) {
   .navbar-default {
-    background-color: transparent;
-    padding: 25px 0;
+    background-color: #f8f8f8;
+    padding: 10px 0;
     -webkit-transition: padding 0.3s;
     -moz-transition: padding 0.3s;
     transition: padding 0.3s;
@@ -225,7 +225,6 @@ fieldset[disabled] .btn-xl.active {
   }
 }
 header {
-  background-image: url('../img/main_bg.jpg');
   background-repeat: none;
   background-attachment: scroll;
   background-position: center center;
