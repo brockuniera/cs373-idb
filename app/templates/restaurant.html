@@ -9,7 +9,7 @@
       <h2 class="center-text"> Restaurant {{id}}</h2>
       <img class="center-img" src="{{ url_for('static', filename='img/austin_eats.png') }}" height="300px" width="250px"</img>
       <div class="table-wrapper container">
-        <table class="data-table">
+        <table id="data-table" class="table">
           <thead>
             <tr>
               <th>ID</th>
@@ -36,7 +36,7 @@
       <!-- Table of related categories for this particular restaurant -->
       <h2 class="center-text"> Related Categories </h2>
       <div class="table-wrapper container">
-        <table class="data-table">
+        <table id="data-table" class="table">
           <thead>
             <tr>
               <th>ID</th>
@@ -63,7 +63,7 @@
       <!-- Table of related locations for this particular restaurant -->
   		<h2 class="center-text"> Related Locations </h2>
       <div class="table-wrapper container">
-        <table class="data-table">
+        <table id="data-table" class="table">
           <thead>
             <tr>
               <th>ID</th>

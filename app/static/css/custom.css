@@ -8,27 +8,36 @@
   margin-top: 25px;
 }
 
-/* Styling for our data tables */
-.data-table {
-  font-size: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  max-width: 100%;
-  table-layout: fixed;
-  width: 85%;
+#data-table {
+  border: 2px solid black;
 }
 
 /* Styling for our data table hover */
-.data-table > tbody > tr:hover {
+#data-table > tbody > tr:hover {
   background-color: #c2f5f6;
 }
 
 /* Add pointer to rows in data tables because they're links */
-.data-table > tbody > tr {
-  border: solid;
-  border-width: 1px 0;
+#data-table > tbody > tr {
   cursor: pointer;
+}
+
+/* Change color of the borders of table header */
+#data-table thead > tr > th {
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Change color of the borders of table rows */
+#data-table tbody > tr > td {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: black;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* center text */
