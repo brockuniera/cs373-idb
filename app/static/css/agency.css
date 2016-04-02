@@ -8,12 +8,15 @@ body {
   overflow-x: hidden;
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+/* About page colors */
 .text-muted {
   color:  #006666;
 }
 .text-primary {
   color: #6d0a3a;
 }
+
 p {
   font-size: 14px;
   line-height: 1.75;
@@ -28,14 +31,17 @@ a:active,
 a.active {
   outline: none;
 }
-a {
-  color: #6d0a3a;
+a,
+a.link,
+a.visited {
+  color: white;
+  text-decoration: none;
 }
 a:hover,
 a:focus,
 a:active,
-a.active {
-  color: #6d0a3a;
+a.active{
+  color: #ff0a3a;
 }
 h1,
 h2,
@@ -200,7 +206,7 @@ fieldset[disabled] .btn-xl.active {
 }
 @media (min-width: 768px) {
   .navbar-default {
-    background-color: #f8f8f8;
+    background-color: #99c2c2;
     padding: 10px 0;
     -webkit-transition: padding 0.3s;
     -moz-transition: padding 0.3s;
@@ -208,7 +214,7 @@ fieldset[disabled] .btn-xl.active {
     border: none;
   }
   .navbar-default .navbar-brand {
-    font-size: 2em;
+    font-size: 1.5em;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -224,6 +230,8 @@ fieldset[disabled] .btn-xl.active {
     font-size: 1.5em;
   }
 }
+
+/* Intro text and description */
 header {
   background-repeat: none;
   background-attachment: scroll;
@@ -238,56 +246,82 @@ header {
 
 header .intro-text {
   padding-top: 100px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
+  margin: 0;
+  height: 100%;
+  color: #eeeeee;
 }
-header .intro-text .intro-lead-in {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic;
-  font-size: 22px;
-  line-height: 22px;
-  margin-bottom: 25px;
+
+header .intro-col{
+    height: 100%;
 }
 header .intro-text .intro-heading {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    color: #ffc74a;
-    text-shadow: -1px -1px 0 #000, 
+    font-family: "Oswald", cursive, sans-serif;
+    background: rgba(0,0,0,.5);
+    text-shadow: -1px -1px 0 #000,
                   1px -1px 0 #000, 
                  -1px 1px 0 #000, 
                   1px 1px 0 #000;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 50px;
-  line-height: 50px;
-  margin-bottom: 25px;
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 25px;
+    padding: 30px;
+}
+header .intro-text .intro-lead-in {
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 0 auto;
+    background: rgba(0,0,0,.4);
+    text-align: left;
+    padding: 30px;
 }
 
-@media (min-width: 768px) {
-  header .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
+header .intro-text .intro-lead-in .intro-link {
+    margin-top: 10px;
+    margin-left: 10px;
+    text-decoration: bold;
+}
+
+@media (max-width: 768px) {
+  /* testing minwidth modifier, when width Smaller than 768 */
+  header .intro-mod{
+    color: white;
+  }
+  /*header .intro-text {
+    padding-top: 120px;
+    padding-bottom: 30px;
+    color: #eeeeee;
+    text-align: center;
   }
   header .intro-text .intro-lead-in {
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
-    font-size: 40px;
+    font-size: 30px;
+    background: rgba(0,0,0,.5);
     line-height: 40px;
     margin-bottom: 25px;
+    padding: 50px;
+    text-align: justify;
   }
   header .intro-text .intro-heading {
-    /*font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    color: #ffc74a;
-    text-shadow: -1px -1px 0 #000, 
-                  1px -1px 0 #000, 
-                 -1px 1px 0 #000, 
+    font-family: "Oswald", cursive, sans-serif;
+    padding: 20px;
+    color: #eeeeee;
+    background: rgba(0,0,0,.5);
+    text-shadow: -1px -1px 0 #000,
+                  1px -1px 0 #000,
+                 -1px 1px 0 #000,
                   1px 1px 0 #000;
-    text-transform: uppercase;
+    text-align: left;
     font-weight: 700;
-    font-size: 75px;
-    line-height: 75px;
+    font-size: 40px;
     margin-bottom: 50px;
-  }
+    padding: 50px;
+  }*/
 }
+
 section {
   padding: 100px 0;
 }
@@ -749,7 +783,8 @@ img::-moz-selection {
 }
 body {
   background-image: url('../img/food22.jpg'); 
-  background-repeat: none;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 /*  -webkit-background-size: cover;
