@@ -19,7 +19,7 @@
 
 /* Wrapper class to put in div around tables */
 .table-wrapper {
-  margin-top: 25px;
+  margin-top: 0px;
 }
 
 #data-table {

@@ -8,6 +8,16 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+def makerequest(item, num):
+    # give a fake request to emulate a potential SQL request
+    if item == "location":
+        return {'id': num, 'imageurl': '../img/austin-tx.jpg', 'address': 'Example', 'neighborhood': 'Example', 'zipcode': '45678-789', 'latitude': 4.5, 'longitude': 4.5, 'restaurant': 1}
+    if item == "category":
+        return {'id': num, 'name': 'Example', 'restotal': 100, 'reviewtotal': 100, 'ratingavg': 4.5, 'restlist': [1,2,3]}
+    if item == "restaurant":
+        return {'id': num, 'imageurl': '../img/austin-tx.jpg', 'name': 'Example', 'phonenum': '(123)456-7890', 'rating': 4.5, 'reviewcount': 123, 'url': 'http://google.com', 'location_id': 1, "catlist": [1,2,3]}
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -18,8 +28,9 @@ def render_location():
 	
 @app.route('/location/<location_id>')
 def render_locatoin_id(location_id=None):
-	id = location_id
-	return render_template('location.html', id = id)
+	locdict = makerequest("location",location_id);
+	restdict = makerequest("restaurant",locdict['restaurant']);
+	return render_template('location.html', locdict = locdict, restdict = restdict)
 	
 @app.route('/restaurant')
 def render_restaurant():
