@@ -11,81 +11,48 @@
         </img>
       </div>
       <div class="container col-md-9 table-wrapper">
-        <h2> Category {{id}} </h2>
+        <h2> Category {{catdict['id']}} </h2>
         <table id="data-table" class="table">
           <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Resturant total</th>
+              <th>Restaurant total</th>
               <th>Review total</th>
-              <th>Price Avg</th>
               <th>Rating Avg</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>1</td>
-              <td>Japanese</td>
-              <td>12</td>
-              <td>200</td>
-              <td>$$$</td>
-              <td>3.3</td>
+              <td>{{catdict['id']}}</td>
+              <td>{{catdict['name']}}</td>
+              <td>{{catdict['resttotal']}}</td>
+              <td>{{catdict['reviewtotal']}}</td>
+              <td>{{catdict['ratingavg']}}</td>
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <!-- Table of related restaurants for this particular category -->
-      <h1 class="center-text"> Related Restaurants </h1>
-      <div class="container table-wrapper">
-        <table id="data-table" class="table">
+        <h3> Related Restaurants </h3>
+                <table id="data-table" class="table">
           <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Phonenum</th>
-              <th>Price</th>
               <th>Rating</th>
               <th>Reviewcount</th>
             </tr>
           </thead>
           <tbody>
+          {% for restdict in reslist %}
             <tr onclick="document.location='/restaurant/1'">
-              <td>1</td>
-              <td>Koriente</td>
-              <td>(512) 275-0852</td>
-              <td> $ </td>
-              <td>4.5</td>
-              <td>954</td>
+              <td>{{restdict['id']}}</td>
+              <td>{{restdict['name']}}</td>
+              <td>{{restdict['phonenum']}}</td>
+              <td>{{restdict['rating']}}</td>
+              <td>{{restdict['reviewcount']}}</td>
             </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Table of related locations for this particular category -->
-      <h1 class="center-text"> Related Locations </h1>
-      <div class="container table-wrapper">
-        <table id="data-table" class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Address</th>
-              <th>Neighborhood</th>
-              <th>Zipcode</th>
-              <th>latitude</th>
-              <th>longitude</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr onclick="document.location='/location/1'">
-              <td>1</td>
-              <td>1403 E 7th St</td>
-              <td>East Austin</td>
-              <td>78702</td>
-              <td>41.403831</td>
-              <td>-94.993606</td>
-            </tr>
+          {% endfor %}
           </tbody>
         </table>
       </div>
