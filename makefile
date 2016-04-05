@@ -5,8 +5,8 @@ FILES :=                              \
     apiary.apib                       \
     IDB1.log                          \
     models.html                        \
-    models.py                         \
-    tests.py                          \
+    app/models.py                         \
+    app/tests.py                          \
     UML.pdf
 	
 check:
@@ -34,7 +34,7 @@ clean:
 	rm -rf __pycache__
 	
 test: tests.py
-	coverage3 run    --branch tests.py >  tests.tmp 2>&1
+	coverage3 run    --branch app/tests.py >  tests.tmp 2>&1
 	coverage3 report -m                >> tests.tmp
 	cat tests.tmp
 	
