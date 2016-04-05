@@ -1,3 +1,24 @@
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+function initialize() {
+  var myCenter=new google.maps.LatLng({{locdict['latitude']}},{{locdict['longitude']}});
+
+  var mapProp = {
+    center:myCenter,
+    zoom:15,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+  var marker=new google.maps.Marker({
+  position:myCenter,
+  });
+
+marker.setMap(map);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 {% extends "common_content.html" %}
 
 {% block title %}Location{% endblock %}
@@ -5,6 +26,7 @@
 <!-- super() loads the header, navbar and an open body tag -->
 {% block body %} {{super()}}
     <!-- The information about this particular location -->
+    <div id="googleMap" style="width:500px;height:380px;"></div>
     <section id="table">
       <div class="col-md-3">
         <img class="col-md-12 center-img" src="../img/austin-tx.jpg" height="300px" width="300px">

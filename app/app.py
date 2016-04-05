@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 def makerequest(item, num):
     # give a fake request to emulate a potential SQL request
     if item == "location":
-        return {'id': num, 'imageurl': '../img/austin-tx.jpg', 'address': 'Example', 'neighborhood': 'Example', 'zipcode': '45678-789', 'latitude': 4.5, 'longitude': 4.5, 'restaurant': 1}
+        return {'id': num, 'imageurl': '../img/austin-tx.jpg', 'address': 'Example', 'neighborhood': 'Example', 'zipcode': '45678-789', 'latitude': 30.2849, 'longitude': -97.7341, 'restaurant': 1}
     if item == "category":
         return {'id': num, 'name': 'Example', 'resttotal': 100, 'reviewtotal': 100, 'ratingavg': 4.5, 'restlist': [1,2,3]}
     if item == "restaurant":
