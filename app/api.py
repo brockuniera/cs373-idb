@@ -1,4 +1,3 @@
-from flask import Flask
 from flask.json import dumps, jsonify
 from models import Category, Restaurant, Location
 
@@ -27,12 +26,6 @@ def add_api_routes(route):
         "List a specific restaurant by specifying an id"
         return dumps(Restaurant.query.get(id).__dict__)
 
-    @route('/api/restaurant?q=<filterstring>')
-    def api_filter_restaurants(filterstring):
-        "List a specific restaurant by specifying an id"
-        # TODO Parse filterstring and cop some info
-        return dumps(Restaurant.query.filter_by(name="TODO parse the filterstring").__dict__)
-
     # Categories
 
     @route('/api/category')
@@ -45,12 +38,6 @@ def add_api_routes(route):
         "List a specific category by specifying an id"
         return dumps(Category.query.get(id).__dict__)
 
-    @route('/api/category?q=<filterstring>')
-    def api_filter_categories(filterstring):
-        "List a specific category by specifying an id"
-        # TODO Parse filterstring and cop some info
-        return dumps(Category.query.filter_by(name="TODO parse the filterstring").__dict__)
-
     # Locations
 
     @route('/api/location')
@@ -62,9 +49,3 @@ def add_api_routes(route):
     def api_get_location(id):
         "List a specific location by specifying an id"
         return dumps(Location.query.get(id).__dict__)
-
-    @route('/api/location?q=<filterstring>')
-    def api_filter_locations(filterstring):
-        "List a specific location by specifying an id"
-        # TODO Parse filterstring and cop some info
-        return dumps(Location.query.filter_by(name="TODO parse the filterstring").__dict__)

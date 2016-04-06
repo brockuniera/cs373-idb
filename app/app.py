@@ -1,5 +1,6 @@
 from db import app
 from models import Location, Category, Restaurant
+import api
 from flask import Flask, render_template
 from flask.json import dumps
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -78,6 +79,7 @@ def render_about():
     return render_template('about.html')
 
 if __name__ == '__main__':
+    api.add_api_routes(app.route)
     app.debug = True
     app.run(host='127.0.0.1') 
 
