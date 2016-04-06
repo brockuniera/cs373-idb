@@ -23,16 +23,31 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 {% block title %}Location{% endblock %}
 
-<!-- super() loads the header, navbar and an open body tag -->
+<!-- super() loads the header, pppbar and an open body tag -->
 {% block body %} {{super()}}
+
     <!-- The information about this particular location -->
-    <div id="googleMap" style="width:500px;height:380px;"></div>
-    <section id="table">
-      <div class="col-md-3">
-        <img class="col-md-12 center-img" src="../img/austin-tx.jpg" height="300px" width="300px">
-        </img>
-      </div>
+    <div class="col-md-10 col-md-offset-2">
+    <section class="features">
       <div class="container col-md-9 table-wrapper">
+        <h2>Location {{locdict['id']}}</h2>
+      </div>
+   <!--   <div class="col-md-3">-->
+        <article class="col-md-4">
+            <h3><span class="fa fa-map-marker"> Map</h3>
+           <div id="googleMap" style="width:100%;height:100%;"></div>
+        </article>
+        <article class="col-md-4">
+              <li><b>ID:</b> {{locdict['id']}}</li>
+              <li><b>Address:</b> {{locdict['address']}}</li>
+              <li><b>Neighborhood:</b> {{locdict['neighborhood']}}</li>
+              <li><b>Zipcode:</b> {{locdict['zipcode']}}</li>
+              <li><b>latitude:</b> {{locdict['latitude']}}</li>
+              <li><b>longitude:</b> {{locdict['longitude']}}</li>
+        </article>
+    
+    
+     <!-- <div class="container col-md-9 table-wrapper">
         <h2>Location {{locdict['id']}}</h2>
         <table id="data-table" class="table">
           <thead>
@@ -55,9 +70,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
               <td>{{locdict['longitude']}}</td>
             </tr>
           </tbody>
-        </table>
-      <!-- Table of related Restaurants for this particular location -->
-      <h3>Related: Restaurant {{restdict['id']}}</h3>
+        </table>-->
+
+
+
+      <!-- Table of related estaurants for this particular location -->
+    <h3>Related: Restaurant {{restdict['id']}}<R/h3>
         <table id="data-table" class="table">
           <thead>
             <tr>
@@ -80,5 +98,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         </table>
       </div>
     </section>
+
+  </div>
 {% endblock %}
 <!-- common_content.html closes the body and html tags -->
