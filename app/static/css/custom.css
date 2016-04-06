@@ -13,12 +13,12 @@
 
 .header-image{
   background-image: url('../img/main_bg.jpg');
-   background-repeat: none;
+  background-repeat: none;
   background-attachment: scroll;
   background-position: center center;
+  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  background-size: cover;
   -o-background-size: cover; 
 }
 
@@ -201,4 +201,8 @@ subh{
    align:center;
    width:90%;
    height:5%;
+}
+
+.space { 
+  margin-top: 330px; 
 }
