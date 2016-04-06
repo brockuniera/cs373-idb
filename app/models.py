@@ -1,17 +1,16 @@
 from app import db
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+#from sqlalchemy.ext.declarative import declarative_base
+#db.Model = declarative_base()
 
 # This is an association table, needed for the many-to-many
 # relationship between Restaurant and Category.
 # http://docs.sqlalchemy.org/en/rel_1_0/orm/basic_relationships.html#many-to-many
-_assoctable_restcat = db.Table('assoc_restcat', Base.metadata,
+_assoctable_restcat = db.Table('assoc_restcat',
     db.Column('left_id', db.Integer, db.ForeignKey('restaurants.id')),
     db.Column('right_id', db.Integer, db.ForeignKey('categories.id'))
 )
 
-class Restaurant(Base):
+class Restaurant(db.Model):
     """
     Represents a row of a Restaurant table
     """
@@ -54,7 +53,7 @@ class Restaurant(Base):
                 self.imageurl, self.name, self.phonenum, self.rating, self.reviewcount, self.url
                 )
 
-class Location(Base):
+class Location(db.Model):
     """
     Represents a row of a Location table
     """
@@ -90,7 +89,7 @@ class Location(Base):
                 self.address, self.neighborhood, self.zipcode, self.latitude, self.longitude
                 )
 
-class Category(Base):
+class Category(db.Model):
     """
     Represents a row of a Category table
     """
@@ -105,7 +104,7 @@ class Category(Base):
     # The many-to-many with Restaurant
     restlist = db.relationship('Restaurant', secondary=_assoctable_restcat, back_populates='catlist')
 
-    def __init__(self, name, resttotal, reviewtotal, ratingavg):
+    def __init__(self, name, resttotal, reviewtotal, ratingavg, restlist=None):
         """
         Construct a Category object
         name: name of this category, such as "Mexican" or "Beer, Wine, and Spirits", String(256)
@@ -117,6 +116,7 @@ class Category(Base):
         self.resttotal = resttotal 
         self.reviewtotal = reviewtotal  
         self.ratingavg = ratingavg 
+        self.restlist = restlist or []
 
     def __repr__(self):
         return "<Category(name='{}', resttotal='{}', reviewtotal='{}', ratingavg='{}')>".format(

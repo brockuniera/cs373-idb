@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:admin-pass@localhost/swestaurant_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:admin-password@swestaurant_db/swelp_db'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

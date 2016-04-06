@@ -5,3 +5,5 @@ __pycache__
 *.pyc
 *.env
 config_secret.json
+venv
+.DS_Store
