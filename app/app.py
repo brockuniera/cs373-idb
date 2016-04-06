@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, render_template
+from flask.json import dumps
 from flask.ext.sqlalchemy import SQLAlchemy
 
 SQLALCHEMY_DATABASE_URI = \
@@ -21,7 +22,7 @@ db = SQLAlchemy(app)
 def makerequest(item, num):
     # give a fake request to emulate a potential SQL request
     if item == "location":
-        return {'id': num, 'imageurl': '../img/austin-tx.jpg', 'address': 'Example', 'neighborhood': 'Example', 'zipcode': '45678-789', 'latitude': 30.2849, 'longitude': -97.7341, 'restaurant': 1}
+        return {'id': num, 'imageurl': '../img/austin-tx.jpg', 'address': str(20-num), 'neighborhood': 'Example', 'zipcode': '45678-789', 'latitude': 4.5, 'longitude': 4.5, 'restaurant': 1}
     if item == "category":
         return {'id': num, 'name': 'Example', 'resttotal': 100, 'reviewtotal': 100, 'ratingavg': 4.5, 'restlist': [1,2,3]}
     if item == "restaurant":
@@ -37,8 +38,17 @@ def index():
 	
 @app.route('/location')
 def render_location():
-    return render_template('location_db.html', locAddress = locModel.address)
-	
+
+    #return render_template('location_db.html', locAddress = locModel.address)
+    # what do we do here, make 10 requests based on incrementing ids
+    # then paginate the rest of the requests at the bottom by default?
+    #   we have to make a specific routing for filter
+    datalist = list();
+    datanames = ['id','address','neighborhood','zipcode','latitude','longitude']
+    for num in range(1,10):
+        datalist.append(makerequest("location",num));
+    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Locations")
+
 @app.route('/location/<location_id>')
 def render_locatoin_id(location_id=None):
 	locdict = makerequest("location",location_id);
@@ -47,7 +57,11 @@ def render_locatoin_id(location_id=None):
 	
 @app.route('/restaurant')
 def render_restaurant():
-    return render_template('restaurant_db.html')
+    datalist = list();
+    datanames = ['id','name','phonenum','rating','reviewcount']
+    for num in range(1,10):
+        datalist.append(makerequest("restaurant",num));
+    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Restaurants")
 	
 @app.route('/restaurant/<restaurant_id>')
 def render_restaurant_id(restaurant_id=None):
@@ -60,7 +74,11 @@ def render_restaurant_id(restaurant_id=None):
 
 @app.route('/category')
 def render_category():
-    return render_template('category_db.html')
+    datalist = list();
+    datanames = ['id','name','resttotal','reviewtotal','ratingavg']
+    for num in range(1,10):
+        datalist.append(makerequest("category",num));
+    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Categories")
 
 @app.route('/category/<category_id>')
 def render_category_id(category_id=None):
@@ -75,4 +93,6 @@ def render_about():
     return render_template('about.html')
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1')
+    app.debug = True
+    app.run(host='127.0.0.1') 
+
