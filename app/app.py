@@ -1,23 +1,8 @@
-import os
-
+from db import app
+from models import Location, Category, Restaurant
 from flask import Flask, render_template
 from flask.json import dumps
 from flask.ext.sqlalchemy import SQLAlchemy
-
-SQLALCHEMY_DATABASE_URI = \
-    '{engine}://{username}:{password}@{hostname}/{database}'.format(
-        engine='mysql+pymysql',
-        username=os.getenv('MYSQL_USER'),
-        password=os.getenv('MYSQL_PASSWORD'),
-        hostname=os.getenv('MYSQL_HOST'),
-        database=os.getenv('MYSQL_DATABASE'))
-
-app = Flask(__name__, static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
 
 def makerequest(item, num):
     # give a fake request to emulate a potential SQL request

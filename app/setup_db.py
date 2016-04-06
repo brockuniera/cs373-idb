@@ -2,7 +2,7 @@ import requests
 import json
 import io
 
-from app import app, db
+from db import app, db
 from flask.ext.script import Manager
 from models import Restaurant, Location, Category
 from yelp.client import Client

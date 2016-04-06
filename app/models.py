@@ -1,4 +1,4 @@
-from app import db
+from db import db
 
 # This is an association table, needed for the many-to-many
 # relationship between Restaurant and Category.
