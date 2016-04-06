@@ -2,8 +2,13 @@
 
 .header-image:before {
   background-image: url('../img/main_bg.jpg');
-    filter: grayscale(50%);
-  -webkit-filter: contrast(900%); /* Chrome, Safari, Opera */
+}
+
+.console-back {
+    background: rgba(0,0,0,.5);
+    font-family: monospace;
+    color: white;
+    padding: 30px;
 }
 
 .header-image{

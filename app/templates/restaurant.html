@@ -24,11 +24,13 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{restdict['id']}}</td>
-              <td>{{restdict['name']}}</td>
-              <td>{{restdict['phonenum']}}</td>
-              <td>{{restdict['rating']}}</td>
-              <td>{{restdict['reviewcount']}}</td>
+              <a href="location/{{restdict['id']}}">
+                <td>{{restdict['id']}}</td>
+                <td>{{restdict['name']}}</td>
+                <td>{{restdict['phonenum']}}</td>
+                <td>{{restdict['rating']}}</td>
+                <td>{{restdict['reviewcount']}}</td>
+              </a>
             </tr>
           </tbody>
         </table>
@@ -68,7 +70,7 @@
           </thead>
           <tbody>
           {% for catdict in catlist %}
-            <tr onclick="document.location='/category/1'">
+            <tr>
               <td>{{catdict['id']}}</td>
               <td>{{catdict['name']}}</td>
               <td>{{catdict['resttotal']}}</td>

@@ -8,7 +8,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 def makerequest(item, num):
     # give a fake request to emulate a potential SQL request
     if item == "location":
-        return {'id': num, 'imageurl': '../img/austin-tx.jpg', 'address': str(20-num), 'neighborhood': 'Example', 'zipcode': '45678-789', 'latitude': 4.5, 'longitude': 4.5, 'restaurant': 1}
+        return {'id': num, 'imageurl': '../img/austin-tx.jpg', 'address': str(20), 'neighborhood': 'Example', 'zipcode': '45678-789', 'latitude': 4.5, 'longitude': 4.5, 'restaurant': 1}
     if item == "category":
         return {'id': num, 'name': 'Example', 'resttotal': 100, 'reviewtotal': 100, 'ratingavg': 4.5, 'restlist': [1,2,3]}
     if item == "restaurant":
@@ -33,7 +33,7 @@ def render_location():
     datanames = ['id','address','neighborhood','zipcode','latitude','longitude']
     for num in range(1,10):
         datalist.append(makerequest("location",num));
-    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Locations")
+    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Locations", datatype = "location")
 
 @app.route('/location/<location_id>')
 def render_locatoin_id(location_id=None):
@@ -47,7 +47,7 @@ def render_restaurant():
     datanames = ['id','name','phonenum','rating','reviewcount']
     for num in range(1,10):
         datalist.append(makerequest("restaurant",num));
-    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Restaurants")
+    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Restaurants", datatype = "restaurant")
 	
 @app.route('/restaurant/<restaurant_id>')
 def render_restaurant_id(restaurant_id=None):
@@ -64,7 +64,7 @@ def render_category():
     datanames = ['id','name','resttotal','reviewtotal','ratingavg']
     for num in range(1,10):
         datalist.append(makerequest("category",num));
-    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Categories")
+    return render_template('template_db.html',datalist = datalist, datanames = datanames, title = "Categories", datatype = "category")
 
 @app.route('/category/<category_id>')
 def render_category_id(category_id=None):

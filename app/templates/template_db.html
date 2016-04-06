@@ -29,9 +29,11 @@
           </thead>
           <tbody>
             <tr ng-repeat="dict in data | orderBy:sortType:sortReverse">
-              {% for item in datanames %}
-              <td>{[ dict.{{item}} ]}</td>
-              {%endfor%}
+              <a href="{{datatype}}/{[dict.id]}">
+                {% for item in datanames %}
+                  <td>{[ dict.{{item}} ]}</td>
+                {%endfor%}
+              </a>
             </tr>
           </tbody>
         </table>
