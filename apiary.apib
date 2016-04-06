@@ -83,30 +83,6 @@ Individual restaurants and their respective information
             "reviewcount": 127
         }
 
-## Restaurant by Filter [/restaurant?q={filter}]
-
-### List Restaurant by filter [GET]
-
-+ Parameters
-    + filter (required, json, `{"filters":[{"attr":"name","op":"==","val":"Olive Garden"}]}`)
-    A json filter. "attr" value "name" can be replaced by any other attribute of restaurant.
-"op" value "==" can be replaced with other operations like "<", ">", "!=".
-"val" value "Olive Garden" can be replaced by any other restaurant's name. 
-
-+ Response 200 (application/json)
-
-        {
-            "1": {
-                "category": ...,
-                "id": 1,
-                "location_id": 12,
-                "name": "Olive Garden",
-                "phonenum": "5125551234",
-                "price": 3,
-                "rating": 3.2,
-                "reviewcount": 127
-            }, ...
-        }
 
 # Group Category
 
@@ -164,28 +140,6 @@ Individual categories of restaurants.
             "ratingavg": 3.1
         }
 
-## Category by Filter [/category?q={filter}]
-
-### List Category by filter [GET]
-
-+ Parameters
-    + filter (required, json, `{"filters":[{"attr":"priceavg","op":"<","val":3.7}]}`)
-    A json filter. "attr" value "priceavg" can be replaced by any other attribute of category.
-"op" value ">" can be replaced with other operations like "==", ">", "!=".
-"val" value 3.7 can be replaced by any other float in the range 0.1 - 5.0. 
-
-+ Response 200 (application/json)
-
-        {
-            "1": {
-                "id": 2,
-                "name": "Mexican",
-                "priceavg": 3.1,
-                "resttotal": 239,
-                "reviewtotal": 722,
-                "ratingavg": 3.5
-            }, ...
-        }
 
 # Group Location
 
@@ -242,27 +196,3 @@ Individual locations and their respective information
             "neighborhood": "Downtown", 
             "zipcode": 78701
         }
-
-## Location by Filter [/location?q={filter}]
-
-### List Location by filter [GET]
-
-+ Parameters
-    + filter (required, json, `{"filters":[{"attr":"zipcode","op":"==","val": 78701}]}`)
-    A json filter. "attr" value "zipcode" can be replaced by any other attribute of location.
-"op" value "==" can be replaced with other operations like "<", ">", "!=".
-"val" value 78701 can be replaced by any location zipcode. 
-
-+ Response 200 (application/json)
-
-        {
-            "1": {
-                "address": "452 W 2nd St",
-                "id": 1,
-                "latitude": 30.2656718,
-                "longitude": -97.7484536,
-                "neighborhood": "2nd Street District", 
-                "zipcode": 78701
-            }, ...
-        }
-        
