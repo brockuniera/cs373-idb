@@ -1,8 +1,18 @@
+import os
+
 from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 
+SQLALCHEMY_DATABASE_URI = \
+    '{engine}://{username}:{password}@{hostname}/{database}'.format(
+        engine='mysql+pymysql',
+        username=os.getenv('MYSQL_USER'),
+        password=os.getenv('MYSQL_PASSWORD'),
+        hostname=os.getenv('MYSQL_HOST'),
+        database=os.getenv('MYSQL_DATABASE'))
+
 app = Flask(__name__, static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:admin-password@swestaurant_db/swelp_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -27,10 +37,7 @@ def index():
 	
 @app.route('/location')
 def render_location():
-    # what do we do here, make 10 requests based on incrementing ids
-    # then paginate the rest of the requests at the bottom by default?
-    #   we have to make a specific routing for filter
-    return render_template('location_db.html')
+    return render_template('location_db.html', locAddress = locModel.address)
 	
 @app.route('/location/<location_id>')
 def render_locatoin_id(location_id=None):

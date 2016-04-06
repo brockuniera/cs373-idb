@@ -1,6 +1,4 @@
 from app import db
-#from sqlalchemy.ext.declarative import declarative_base
-#db.Model = declarative_base()
 
 # This is an association table, needed for the many-to-many
 # relationship between Restaurant and Category.
