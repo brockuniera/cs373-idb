@@ -10,6 +10,17 @@
     </script>
     <section>
       <h1 class="center-text"> {{title}} </h1>
+      <div class="center-text">
+        <div class="intro-col">
+          <ul class="pagination">
+            <li><a href="{{page}}?page=1">1</a></li>
+            <li><a href="{{page}}?page=2">2</a></li>
+            <li><a href="{{page}}?page=3">3</a></li>
+            <li><a href="{{page}}?page=4">4</a></li>
+            <li><a href="{{page}}?page=5">5</a></li>
+          </ul>
+        </div>
+      </div>
       <div ng-app="swestaurantApp" ng-controller="sortTableCtrl" class="container table-wrapper">
         <table id="data-table" class="table">
           <thead>

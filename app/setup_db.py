@@ -101,7 +101,7 @@ def create_db():
         'offset': 1,
         'limit': 20, # Max is 20
     }
-    offset_limit = 40
+    offset_limit = 125
 
     # Remove all current data in the database
     # db.drop_all()

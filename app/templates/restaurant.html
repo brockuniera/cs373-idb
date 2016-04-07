@@ -4,36 +4,31 @@
 
 <!-- super() loads the header, navbar and an open body tag -->
 {% block body %} {{super()}}
-    <!-- The information about this particular restaurant -->
-    <section id="table">
-      <div class="col-md-3">
-        <img class="col-md-12 center-img" src="{{ url_for('static', filename='img/austin_eats.png') }}" height="300px" width="300px">
+   <div class="col-md-10 col-md-offset-1">
+    <section class="features">
+      <h2 class="page-heading-90" align="center">{{ restModel.name }}</h2>
+        <article class="col-md-4">
+            <h3><span class="fa fa-file-picture-o">Photo</h3>
+           <img class="col-md-12 center-img" src="{{ restModel.imageurl }}" height="300px" width="300px">
         </img>
-      </div>
-      <div class="container col-md-9 table-wrapper">
-         <h2> Restaurant {{restdict['id']}} </h2>
-        <table id="data-table" class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Phonenum</th>
-              <th>Rating</th>
-              <th>Reviewcount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{restdict['id']}}</td>
-              <td>{{restdict['name']}}</td>
-              <td>{{restdict['phonenum']}}</td>
-              <td>{{restdict['rating']}}</td>
-              <td>{{restdict['reviewcount']}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <h3>Location {{locdict['id']}}</h3>
-        <table id="data-table" class="table">
+        </article>
+        <article class="col-md-4">
+              <h3><span class="fa fa-list">Information</h3>
+              <li2><b>ID:</b> {{ restModel.id }}</li>
+              <br></br>
+              <li2><b>Name:</b> {{ restModel.name }}</li>
+              <br></br>
+              <li2><b>Phone Number:</b> {{restModel.phonenum }}</li>
+              <br></br>
+              <li2><b>Rating: </b>{{ restModel.rating }}</li>
+              <br></br>
+              <li2><b>Review Count:</b> {{ restModel.reviewcount }}</li>
+        </article>
+
+        <!-- Table of related estaurants for this particular location -->
+
+        <h3 class="page-heading-90" align="center">Related Location</h3>
+        <table class="table page-data-center" id="data-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -44,19 +39,20 @@
               <th>longitude</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>{{locdict['id']}}</td>
-              <td>{{locdict['address']}}</td>
-              <td>{{locdict['neighborhood']}}</td>
-              <td>{{locdict['zipcode']}}</td>
-              <td>{{locdict['latitude']}}</td>
-              <td>{{locdict['longitude']}}</td>
+          <tbody class="clickable-rows">
+            <tr data-page="/location">
+              <td>{{ locModel.id }}</td>
+              <td>{{ locModel.address }}</td>
+              <td>{{ locModel.neighborhood }}</td>
+              <td>{{ locModel.zipcode }}</td>
+              <td>{{ locModel.latitude }}</td>
+              <td>{{ locModel.longitude }}</td>
             </tr>
           </tbody>
         </table>
-        <h3> Related Categories </h3>
-        <table id="data-table" class="table">
+
+        <h3 class="page-heading-90" align="center" >Related Categories</h3>
+        <table class="table page-data-center" id="data-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -67,18 +63,17 @@
             </tr>
           </thead>
           <tbody>
-          {% for catdict in catlist %}
-            <tr onclick="document.location='/category/1'">
-              <td>{{catdict['id']}}</td>
-              <td>{{catdict['name']}}</td>
-              <td>{{catdict['resttotal']}}</td>
-              <td>{{catdict['reviewtotal']}}</td>
-              <td>{{catdict['ratingavg']}}</td>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
-          {% endfor %}
           </tbody>
         </table>
+      </section>
       </div>
-    </section>
+
 {% endblock %}
 <!-- common_content.html closes the body and html tags -->

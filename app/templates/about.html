@@ -19,7 +19,7 @@
           <!-- Alex -->
           <div class="col-sm-4">
             <div class="team-member">
-              <img src="img/team/1.jpg" class="img-responsive">
+              <img src="{{ url_for('static', filename='img/team/1.jpg') }}" class="img-responsive">
               <h3 class="center-text">Alex Brockunier</h3>
               <p class="bold-text">
                 I'm a senior in CS with one more semester to go. I had a web development internship last year and this Summer I'll be interning with Intentional Software, doing some research. In my free time I make music, create video games with my friends, play video games with my friends, read about computer science things, and miss my two cats.
@@ -39,7 +39,7 @@
           <!-- Tomas -->
           <div class="col-sm-4">
             <div class="team-member">
-              <img src="img/team/Tomas.jpg" class="img-responsive">
+              <img src="{{ url_for('static', filename='img/team/2.jpg') }}" class="img-responsive">
               <h3 class="center-text">Tomas Gonzalez</h3>
               <p class="bold-text">
                 I am currently a senior here at UT graduating May 2016, searching for a potential internship or job over the course of the next year. Wanting to become self-taught 2D/3D artist/animator, with interest in video games and concept art. I am unusually proud for having coined the name austinfoodfor.me, and I have a cat.
@@ -58,7 +58,7 @@
           <!-- Zach -->
           <div class="col-sm-4">
             <div class="team-member">
-              <img src="img/team/3.jpg" class="img-responsive">
+              <img src="{{ url_for('static', filename='img/team/3.jpg') }}" class="img-responsive">
               <h3 class="center-text">Zachary Sanders</h3>
               <p class="bold-text">
                 Senior in CS, this is my last semester here at UT. I've had three internships in the past and have accepted a full time Software Engineering position at American Express in Phoenix, AZ. I'm married, I have two cats and I enjoy a good cold adult beverage.
@@ -80,9 +80,9 @@
         <!-- Angel, Ann row -->
         <div class="row">
           <!-- Angel -->
-          <div class="col-sm-6">
+          <div class="col-sm-4 col-sm-offset-2">
             <div class="team-member">
-              <img src="img/team/4.jpg" class="img-responsive">
+              <img src="{{ url_for('static', filename='img/team/4.jpg') }}" class="img-responsive">
               <h3 class="center-text">Angel Xiao</h3>
               <p class="bold-text">
                 Junior in CS. I've had an summer internship in National Instrument. I will be a Software Engineering intern in Microsoft in the following summer. I have a cat named hacker. I am a photographer and I love taking photos.
@@ -101,9 +101,9 @@
           </div>
 
           <!-- Ann -->
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div class="team-member">
-              <img src="img/team/5.jpg" class="img-responsive">
+              <img src="{{ url_for('static', filename='img/team/5.jpg') }}" class="img-responsive">
               <h3 class="center-text">An-Yi Yu</h3>
               <p class="bold-text">
                 I'm a senior in Computer Science. I was born in Taiwan and moved to the United States when I was 11 years old. I don't have a cat.
@@ -119,6 +119,18 @@
             </div>
           </div> 
         </div>
+      <div>
+        <div class="console-back">
+          Test text.
+        </div>
+        <div class="intro-link-outer">
+          <a class="intro-link" >
+            Click here to run tests
+          </a>
+        </div>
+      </div>
+
+      <br></br>
 
       <!-- Team Stats -->
       <h3>Team Stats</h3>
