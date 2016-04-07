@@ -10,8 +10,24 @@
     <meta name="author" content="cs373-swestaurant-group">
 
     <title>{% block title %}{% endblock %}</title>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Animating the header -->
+    <script src="{{ url_for('static', filename='js/classie.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cbpAnimatedHeader.min.js') }}"></script>
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
     <!-- Bootstrap Core CSS -->
+    <script src="{{ url_for('static', filename='js/agency.js') }}"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -79,22 +95,5 @@
     <header>
     </header>
     {% endblock %}
-    <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-    <!-- Animating the header -->
-    <script src="{{ url_for('static', filename='js/classie.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/cbpAnimatedHeader.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/agency.js') }}"></script>
-
   </body>
 </html>

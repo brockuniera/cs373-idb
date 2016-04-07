@@ -1,39 +1,36 @@
 {% extends "common_content.html" %}
 
-{% block title %}{{title}}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 <!-- super() loads the header, navbar and an open body tag -->
-{% block body %} {{super()}}
+{% block body %} {{ super() }}
     <!-- All Restaurant data table -->
-    <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-    <script src="{{ url_for('static', filename='js/sortTableAngular.js') }}"> </script>
-    <script type="text/javascript">
-        setupAngSort({{ datalist|tojson|safe }});
+    <script>
+      tableData({{ dataList|safe }});
     </script>
     <section>
       <h1 class="center-text"> {{title}} </h1>
-      <div ng-app="sortApp" ng-controller="mainController" class="container table-wrapper" >
+      <div ng-app="swestaurantApp" ng-controller="sortTableCtrl" class="container table-wrapper">
         <table id="data-table" class="table">
           <thead>
             <tr>
-              {% for item in datanames %}
+              {% for tableHeader in dataNames %}
               <th>
-                <a href="#" ng-click="sortType = '{{item}}'">
-                  {{item}}
-                  <span ng-show="sortType == '{{item}}'" class="fa fa-caret-down"></span>
+                <a href="#" ng-click="sortType = '{{ tableHeader }}'; sortReverse = !sortReverse">
+                  {{ tableHeader }}
+                  <span ng-show="sortType == '{{ tableHeader }}'" class="fa fa-caret-down"></span>
                 </a>
               </th>
-              {%endfor%}
+              {% endfor %}
             </tr>
           </thead>
-          <tbody>
-            <tr ng-repeat="dict in data | orderBy:sortType:sortReverse">
-              {% for item in datanames %}
-              <td>{[ dict.{{item}} ]}</td>
-              {%endfor%}
+          <tbody class="clickable-rows">
+            <tr ng-repeat="dict in data | orderBy:sortType:sortReverse" data-page="/{{ page }}"> 
+              {% for attr in dataNames %}
+                <td>{[ dict.{{attr}} ]}</td>
+              {% endfor %}
             </tr>
-          </tbody>
+          </tbody> 
         </table>
       </div>
     </section>

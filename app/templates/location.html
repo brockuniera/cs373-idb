@@ -1,7 +1,7 @@
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
 function initialize() {
-  var myCenter=new google.maps.LatLng({{locdict['latitude']}},{{locdict['longitude']}});
+  var myCenter=new google.maps.LatLng({{ locModel.latitude }},{{ locModel.longitude }});
 
   var mapProp = {
     center:myCenter,
@@ -29,29 +29,29 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <!-- The information about this particular location -->
     <div class="col-md-10 col-md-offset-1">
     <section class="features">
-      <h2 class="page-heading-90" align="center">{{locdict['address']}}</h2>
+      <h2 class="page-heading-90" align="center">{{ locModel.address }}</h2>
         <article class="col-md-4">
             <h3><span class="fa fa-map-marker"> Map</h3>
            <div class="page_loca_map"id="googleMap"></div>
         </article>
         <article class="col-md-4">
               <h3><span class="fa fa-list"> Information</h3>
-              <li2><b>ID:</b> {{locdict['id']}}</li>
+              <li2><b>ID:</b> {{ locModel.id }}</li>
               <br></br>
-              <li2><b>Address:</b> {{locdict['address']}}</li>
+              <li2><b>Address:</b> {{ locModel.address }}</li>
               <br></br>
-              <li2><b>Neighborhood:</b> {{locdict['neighborhood']}}</li>
+              <li2><b>Neighborhood:</b> {{ locModel.neighborhood }}</li>
               <br></br>
-              <li2><b>Zipcode:</b> {{locdict['zipcode']}}</li>
+              <li2><b>Zipcode:</b> {{ locModel.zipcode }}</li>
               <br></br>
-              <li2><b>latitude:</b> {{locdict['latitude']}}</li>
+              <li2><b>latitude:</b> {{ locModel.latitude }}</li>
               <br></br>
-              <li2><b>longitude:</b> {{locdict['longitude']}}</li>
+              <li2><b>longitude:</b> {{ locModel.longitude }}</li>
         </article>
 
         <!-- Table of related estaurants for this particular location -->
 
-        <h3 class="page-heading-90" align="center" >Related: Restaurant {{restdict['id']}}</h3>
+        <h3 class="page-heading-90" align="center"> Related Restaurant</h3>
         <table class="table page-data-center" id="data-table">
           <thead>
             <tr>
@@ -62,19 +62,39 @@ google.maps.event.addDomListener(window, 'load', initialize);
               <th>Reviewcount</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="clickable-rows">
+            <tr data-page="/restaurant">
+              <td>{{ restModel.id }}</td>
+              <td>{{ restModel.name }}</td>
+              <td>{{ restModel.phonenum }}</td>
+              <td>{{ restModel.rating }}</td>
+              <td>{{ restModel.reviewcount }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 class="page-heading-90" align="center"> Related Categories </h3>
+        <table class="table page-data-center" id="data-table">
+          <thead>
             <tr>
-              <td>{{restdict['id']}}</td>
-              <td>{{restdict['name']}}</td>
-              <td>{{restdict['phonenum']}}</td>
-              <td>{{restdict['rating']}}</td>
-              <td>{{restdict['reviewcount']}}</td>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Phonenum</th>
+              <th>Rating</th>
+              <th>Reviewcount</th>
+            </tr>
+          </thead>
+          <tbody class="clickable-rows">
+            <tr data-page="/restaurant">
+              <td>{{ restModel.id }}</td>
+              <td>{{ restModel.name }}</td>
+              <td>{{ restModel.phonenum }}</td>
+              <td>{{ restModel.rating }}</td>
+              <td>{{ restModel.reviewcount }}</td>
             </tr>
           </tbody>
         </table>
       </section>
       </div>
-
   </div>
 {% endblock %}
 <!-- common_content.html closes the body and html tags -->
