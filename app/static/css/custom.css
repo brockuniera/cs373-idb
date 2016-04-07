@@ -52,6 +52,11 @@ a{
   cursor: pointer;
 }
 
+/* Header text color */
+#data-table thead > tr > th > a{
+  color: white;
+}
+
 /* Change color of the borders of table header */
 #data-table thead > tr > th {
   border-bottom-width: 5px;
@@ -59,7 +64,7 @@ a{
   border-bottom-color: black;
   font-size: 20px;
   text-align: center;
-  background-color: #8d3a5a;
+  background-color: #6d0a3a;
 }
 
 /* Change color of the borders of table rows */
@@ -117,33 +122,33 @@ a{
     padding-top:150px;
   }
 
-    .features article {
-      padding: 1.75em 1.75em 0.1em 1.75em ;
-      border-radius: 5px;
-      margin: 1.5em 3em 1.5em 0;
-      width: calc(50% - 1.5em);
-    }
+.features article {
+  padding: 1.75em 1.75em 0.1em 1.75em ;
+  border-radius: 5px;
+  margin: 1.5em 3em 1.5em 0;
+  width: calc(50% - 1.5em);
+}
 
-      .features article:nth-child(2n) {
-        margin-right: 0;
-      }
+.features article:nth-child(2n) {
+  margin-right: 0;
+}
 
-      .features article .image {
-        border-radius: 5px 5px 0 0;
-        display: block;
-        margin-bottom: 1.75em;
-        margin-left: -1.75em;
-        margin-top: -1.75em;
-        position: relative;
-        width: calc(100% + 3.5em);
-        height: 100%;
-      }
+.features article .image {
+  border-radius: 5px 5px 0 0;
+  display: block;
+  margin-bottom: 1.75em;
+  margin-left: -1.75em;
+  margin-top: -1.75em;
+  position: relative;
+  width: calc(100% + 3.5em);
+  height: 100%;
+}
 
-        .features article .image img {
-          border-radius: 5px 5px 0 0;
-          width: 100%;
-          height: 100%;
-        }
+.features article .image img {
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  height: 100%;
+}
 
     @media screen and (max-width: 980px) {
 

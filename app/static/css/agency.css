@@ -288,7 +288,7 @@ header .intro-text .intro-lead-in {
     color: white;
     white-space: nowrap;
     text-decoration: bold;
-    background: #8d3a5a;
+    background: #6d0a3a;
     text-align: center;
     border-radius: 10px;
 }
@@ -783,7 +783,7 @@ ul.social-buttons li a:active {
 }
 ::selection {
   text-shadow: none;
-  background: #6d0a3a;
+  background: #ffbb99;
 }
 img::selection {
   background: transparent;
