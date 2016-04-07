@@ -1,3 +1,7 @@
+import sys
+import unittest
+import tests
+from io import StringIO
 from db import app
 from models import Location, Category, Restaurant
 import api
@@ -81,7 +85,11 @@ def render_about():
 
 @app.route('/aboutT')
 def render_aboutT():
-    teststring = str("Big fuck");
+    test_obj = unittest.TestLoader().loadTestsFromTestCase(tests.tests)
+    out_obj = StringIO()
+    unittest.TextTestRunner(stream=out_obj).run(test_obj)
+    teststring = out_obj.getvalue()
+    teststring = teststring.replace('\n', '</br>')
     return render_template('about.html', teststring = teststring)
 
 if __name__ == '__main__':

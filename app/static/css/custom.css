@@ -98,8 +98,12 @@ a{
 }
 
 /* Removes bullet points from ul */
+.no-bullet {
+    list-style: none;
+}
+
 .no-bullet > li {
-  list-style: none;
+    list-style: none;
 }
 
 .page_loca_map{
