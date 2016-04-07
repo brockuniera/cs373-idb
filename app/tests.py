@@ -1,4 +1,3 @@
-from flask.ext.testing import TestCase
 from unittest import main, TestCase
 
 from db import app, db
@@ -112,7 +111,6 @@ class TestFood(TestCase):
 
     def test_create_location_0(self):
         data = _LOCDICTS[0]
-                "zipcode": 78701, "latitude": 12.12345, "longitude": -97.12345}
         test_location = Location(**data)
         self.assertEqual(data["address"], test_location.address)
         self.assertEqual(data["neighborhood"], test_location.neighborhood)
@@ -162,7 +160,7 @@ class TestFood(TestCase):
         self.assertEqual(data["reviewtotal"], test_category.reviewtotal)
         self.assertEqual(data["ratingavg"], test_category.ratingavg)
 
-    def test_relationship_restaurant_category(self):
+    def test_relationship_restaurant_category_0(self):
         testrest = Restaurant(**_RESTDICTS[0])
         fatcat = Category(**_CATDICTS[0])
 
@@ -174,8 +172,23 @@ class TestFood(TestCase):
         self.assertEqual(len(testrest.catlist), 1)
         self.assertEqual(len(fatcat.restlist), 1)
 
-        sefl.assertEqual(testrest.catlist[0], fatcat)
-        sefl.assertEqual(fatcat.restlist[0], testrest)
+        self.assertEqual(testrest.catlist[0], fatcat)
+        self.assertEqual(fatcat.restlist[0], testrest)
+
+    def test_relationship_restaurant_category_1(self):
+        testrest = Restaurant(**_RESTDICTS[0])
+        fatcat = Category(**_CATDICTS[0])
+
+        self.assertEqual(len(testrest.catlist), 0)
+        self.assertEqual(len(fatcat.restlist), 0)
+
+        fatcat.restlist.append(testrest)
+
+        self.assertEqual(len(testrest.catlist), 1)
+        self.assertEqual(len(fatcat.restlist), 1)
+
+        self.assertEqual(testrest.catlist[0], fatcat)
+        self.assertEqual(fatcat.restlist[0], testrest)
 
 
 if __name__ == '__main__':
