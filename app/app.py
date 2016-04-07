@@ -1,11 +1,10 @@
-import api
 import logging
-
 from db import app
 from models import Location, Category, Restaurant, getDataDictList
-from flask import Flask, render_template, request
+from flask import render_template, request
 from flask.json import dumps
 from flask.ext.sqlalchemy import SQLAlchemy
+import api
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -76,7 +75,6 @@ def getOffset(pagenum):
     return offset
 
 if __name__ == '__main__':
-    api.add_api_routes(app.route)
     app.debug = True
     app.run(host='127.0.0.1') 
 
