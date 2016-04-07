@@ -4,8 +4,89 @@
 
 <!-- super() loads the header, navbar and an open body tag -->
 {% block body %} {{super()}}
-    <!-- The information about this particular category -->
-    <section id="table">
+    <!-- The information about this particular category -->v
+    <div class="col-md-10 col-md-offset-1">
+      <section class="features">
+        <h2 class="page-heading-90" align="center">Category {{catdict['id']}}</h2>
+            <div id="slideshow-wrap">
+        <input type="radio" id="button-1" name="controls" checked="checked"/>
+        <label for="button-1"></label>
+        <input type="radio" id="button-2" name="controls"/>
+        <label for="button-2"></label>
+        <input type="radio" id="button-3" name="controls"/>
+        <label for="button-3"></label>
+        <input type="radio" id="button-4" name="controls"/>
+        <label for="button-4"></label>
+        <input type="radio" id="button-5" name="controls"/>
+        <label for="button-5"></label>
+        <label for="button-1" class="arrows" id="arrow-1">></label>
+        <label for="button-2" class="arrows" id="arrow-2">></label>
+        <label for="button-3" class="arrows" id="arrow-3">></label>
+        <label for="button-4" class="arrows" id="arrow-4">></label>
+        <label for="button-5" class="arrows" id="arrow-5">></label>
+        <div id="slideshow-inner">
+            <ul>
+                <li id="slide1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Western_Sushi.jpg" />
+                </li>
+                <li id="slide2">
+                    <img src="https://i.ytimg.com/vi/bvh3N5U-78c/maxresdefault.jpg" />
+                </li>
+                <li id="slide3">
+                    <img src="https://eat24-files-live.s3.amazonaws.com/cuisines/v4/sushi.jpg?Signature=bC7dnFuUwPsnbXnXkfd8OJA1LPo%3D&Expires=1460011202&AWSAccessKeyId=AKIAIEJ2GCCJRT63TBYA" />
+                </li>
+                <li id="slide4">
+                    <img src="http://cdn1.theodysseyonline.com/files/2015/09/04/63576941155341407593747909_725ac96b86049c94c1e467ccbbdadc06.jpg" />
+                </li>
+                <li id="slide5">
+                    <img src="https://i.ytimg.com/vi/hkVfzjA1HA0/maxresdefault.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+     <h3 class="page-heading-90" align="center"><br></br><span class="fa fa-list"> Information</h3>
+    <article class="col-md-4">
+              <li2><b>ID:</b> </li>
+              <br></br>
+              <li2><b>Name:</b> </li>
+              <br></br>
+              <li2><b>resttotal:</b> </li>
+              <br></br>
+        </article>
+        <article class="col-md-4">
+              <li2><b>reviewtotal:</b> </li>
+              <br></br>
+              <li2><b>ratingavg:</b> </li>
+        </article>
+
+        <h3 class="page-heading-90" align="center" >Related Restaurants</h3>
+        <table class="table page-data-center" id="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Phonenum</th>
+              <th>Rating</th>
+              <th>Reviewcount</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for restdict in reslist %}
+            <tr>
+              <td>{{restdict['id']}}</td>
+              <td>{{restdict['name']}}</td>
+              <td>{{restdict['phonenum']}}</td>
+              <td>{{restdict['rating']}}</td>
+              <td>{{restdict['reviewcount']}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+      </section>
+    </div>
+
+  <!--  <section id="table">
       <div class="col-md-3">
         <img class="col-md-12 center-img" src="{{ url_for('static', filename='img/cuisine-of-world.jpg') }}" height="300px" width="300px">
         </img>
@@ -56,6 +137,6 @@
           </tbody>
         </table>
       </div>
-    </section>
+    </section>-->
 {% endblock %}
 <!-- common_content.html closes the body and html tags -->

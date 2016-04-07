@@ -4,38 +4,31 @@
 
 <!-- super() loads the header, navbar and an open body tag -->
 {% block body %} {{super()}}
-    <!-- The information about this particular restaurant -->
-    <section id="table">
-      <div class="col-md-3">
-        <img class="col-md-12 center-img" src="{{ url_for('static', filename='img/austin_eats.png') }}" height="300px" width="300px">
+   <div class="col-md-10 col-md-offset-1">
+    <section class="features">
+      <h2 class="page-heading-90" align="center">{{locdict['address']}}</h2>
+        <article class="col-md-4">
+            <h3><span class="fa fa-file-picture-o"> Photo</h3>
+           <img class="col-md-12 center-img" src="{{ url_for('static', filename='img/austin_eats.png') }}" height="300px" width="300px">
         </img>
-      </div>
-      <div class="container col-md-9 table-wrapper">
-         <h2> Restaurant {{restdict['id']}} </h2>
-        <table id="data-table" class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Phonenum</th>
-              <th>Rating</th>
-              <th>Reviewcount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <a href="location/{{restdict['id']}}">
-                <td>{{restdict['id']}}</td>
-                <td>{{restdict['name']}}</td>
-                <td>{{restdict['phonenum']}}</td>
-                <td>{{restdict['rating']}}</td>
-                <td>{{restdict['reviewcount']}}</td>
-              </a>
-            </tr>
-          </tbody>
-        </table>
-        <h3>Location {{locdict['id']}}</h3>
-        <table id="data-table" class="table">
+        </article>
+        <article class="col-md-4">
+              <h3><span class="fa fa-list"> Information</h3>
+              <li2><b>ID:</b> {{locdict['id']}}</li>
+              <br></br>
+              <li2><b>Name:</b> {{restdict['name']}}</li>
+              <br></br>
+              <li2><b>Phone Number:</b> {{restdict['phonenum']}}</li>
+              <br></br>
+              <li2><b>Rating:</b> {{restdict['rating']}}</li>
+              <br></br>
+              <li2><b>Review Count:</b> {{restdict['reviewcount']}}</li>
+        </article>
+
+        <!-- Table of related estaurants for this particular location -->
+
+        <h3 class="page-heading-90" align="center" >Location {{locdict['id']}}</h3>
+        <table class="table page-data-center" id="data-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -57,8 +50,9 @@
             </tr>
           </tbody>
         </table>
-        <h3> Related Categories </h3>
-        <table id="data-table" class="table">
+
+        <h3 class="page-heading-90" align="center" >Related Categories</h3>
+        <table class="table page-data-center" id="data-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -80,7 +74,8 @@
           {% endfor %}
           </tbody>
         </table>
+      </section>
       </div>
-    </section>
+
 {% endblock %}
 <!-- common_content.html closes the body and html tags -->
