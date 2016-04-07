@@ -5,9 +5,6 @@
 <!-- super() loads the header, navbar and an open body tag -->
 {% block body %} {{ super() }}
     <!-- All Restaurant data table -->
-    <script>
-      tableData({{ dataList|safe }});
-    </script>
     <section>
       <h1 class="center-text"> {{title}} </h1>
       <div class="center-text">
@@ -21,26 +18,28 @@
           </ul>
         </div>
       </div>
-      <div ng-app="swestaurantApp" ng-controller="sortTableCtrl" class="container table-wrapper">
+      <divclass="container table-wrapper">
         <table id="data-table" class="table">
           <thead>
             <tr>
               {% for tableHeader in dataNames %}
               <th>
-                <a href="#" ng-click="sortType = '{{ tableHeader }}'; sortReverse = !sortReverse">
+                <a>
                   {{ tableHeader }}
-                  <span ng-show="sortType == '{{ tableHeader }}'" class="fa fa-caret-down"></span>
+                  <span class="fa fa-caret-down"></span>
                 </a>
               </th>
               {% endfor %}
             </tr>
           </thead>
           <tbody class="clickable-rows">
-            <tr ng-repeat="dict in data | orderBy:sortType:sortReverse" data-page="/{{ page }}"> 
+          {% for dataModel in dataList %}
+            <tr data-page="/{{ page }}"> 
               {% for attr in dataNames %}
-                <td>{[ dict.{{attr}} ]}</td>
-              {% endfor %}
+              <td>{{ dataModel[attr] }}</td>
+              {% endfor %} 
             </tr>
+            {% endfor %}
           </tbody> 
         </table>
       </div>

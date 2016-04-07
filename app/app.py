@@ -33,7 +33,7 @@ def render_location():
         dataList = dumps(locDataDictList), title = "Locations", page = "location")
 
 @app.route('/location/<location_id>')
-def render_locatoin_id(location_id=None):
+def render_location_id(location_id=None):
     locModel = Location.query.get(location_id)
     relatedRestModel = Restaurant.query.filter_by(location_id = location_id).one()
     return render_template('location.html', locModel = locModel, restModel = relatedRestModel)
@@ -44,15 +44,16 @@ def render_locatoin_id(location_id=None):
 def render_restaurant():
     # Get query string args
     offset = getOffset(request.args.get('page'))
-    sortby = validateSortString(request.args.get('sortby'))
+    sortby = validateSortString(request.args.get('sortby'), Restaurant)
+    logger.debug(sortby)
 
     restDataDictList = getDataDictList(
-        Restaurant.query.filter_by().limit(results_per_page).offset(offset).order_by(sortby and getattr(Restaurant, sortby))
+        Restaurant.query.order_by(sortby and getattr(Restaurant, sortby)).all()
     )
 
     return render_template('template_db.html',
             dataNames=Restaurant.getDataNames(),
-            dataList=dumps(restDataDictList),
+            dataList=restDataDictList,
             title="Restaurants",
             page="restaurant"
         )
@@ -61,7 +62,6 @@ def render_restaurant():
 def render_restaurant_id(restaurant_id=None):
     restModel = Restaurant.query.get_or_404(restaurant_id)
     relatedLocModel = Location(id = restModel.location_id).one()
-    # TODO get related categories of this restaurant
     return render_template('restaurant.html', restModel = restModel, locModel = relatedLocModel)
 
 # Category
@@ -103,7 +103,7 @@ def getOffset(pagenumstr):
     offset = 0
     try:
         offset = (int(pagenumstr) - 1) * results_per_page
-    except ValueError:
+    except (ValueError, TypeError):
         pass
     return offset
 
