@@ -24,7 +24,7 @@
             <tr>
               {% for tableHeader in dataNames %}
               <th>
-                <a>
+                <a href="/{{ page }}?sortby={{ tableHeader }}&amp;dir={{ direction }}">
                   {{ tableHeader }}
                   <span class="fa fa-caret-down"></span>
                 </a>

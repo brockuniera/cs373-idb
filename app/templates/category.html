@@ -4,8 +4,11 @@
 
 <!-- super() loads the header, navbar and an open body tag -->
 {% block body %} {{super()}}
-    <!-- The information about this particular category -->v
-    <div class="col-md-10 col-md-offset-1">
+    <!-- The information about this particular category -->
+    <script>
+      tableData({{ restListModels|safe }})
+    </script>
+    <div class="col-md-10 col-md-offset-1" ng-app="swestaurantApp" ng-controller="sortTableCtrl">
       <section class="features">
         <h2 class="page-heading-90" align="center">{{ catModel.name }}</h2>
           <div id="slideshow-wrap">
@@ -52,50 +55,23 @@
         <h3 class="page-heading-90" align="center">Related Restaurants</h3>
         <table class="table page-data-center" id="data-table">
           <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Phonenum</th>
-              <th>Rating</th>
-              <th>Reviewcount</th>
+           <tr>
+              {% for attr in restAttrs %}
+              <th>
+                <a href="#" ng-click="sortType = '{{attr}}'; sortReverse = !sortReverse">
+                  {{attr}}
+                  <span ng-show="sortType == '{{attr}}'" class="fa fa-caret-down"></span>
+                </a>
+              </th>
+              {% endfor %}
             </tr>
           </thead>
           <tbody class="clickable-rows">
-            {% for restModel in catModel.restlist %}
-            <tr data-page="/restaurant">
-              <td>{{ restModel.id }}</td>
-              <td>{{ restModel.name }}</td>
-              <td>{{ restModel.phonenum }}</td>
-              <td>{{ restModel.rating }}</td>
-              <td>{{ restModel.reviewcount }}</td>
+            <tr ng-repeat="restModel in data | orderBy:sortType:sortReverse" data-page="/category">
+              {% for attr in restAttrs %}
+                <td>{[ restModel.{{attr}} ]}</td>
+              {% endfor %}
             </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-
-        <h3 class="page-heading-90" align="center">Related Location</h3>
-        <table class="table page-data-center" id="data-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Address</th>
-              <th>Neighborhood</th>
-              <th>Zipcode</th>
-              <th>latitude</th>
-              <th>longitude</th>
-            </tr>
-          </thead>
-          <tbody class="clickable-rows">
-            {% for locModel in locModelList %}
-            <tr data-page="/location">
-              <td>{{ locModel.id }}</td>
-              <td>{{ locModel.address }}</td>
-              <td>{{ locModel.neighborhood }}</td>
-              <td>{{ locModel.zipcode }}</td>
-              <td>{{ locModel.latitude }}</td>
-              <td>{{ locModel.longitude }}</td>
-            </tr>
-            {% endfor %}
           </tbody>
         </table>
       </section>
