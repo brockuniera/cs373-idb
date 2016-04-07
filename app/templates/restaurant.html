@@ -62,14 +62,16 @@
               <th>Rating Avg</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+          <tbody class="clickable-rows">
+            {% for category in restModel.catlist %}
+            <tr data-page="/category">
+              <td>{{ category.id }}</td>
+              <td>{{ category.name }}</td>
+              <td>{{ category.resttotal }}</td>
+              <td>{{ category.reviewtotal }}</td>
+              <td>{{ category.ratingavg }}</td>
             </tr>
+            {% endfor %}
           </tbody>
         </table>
       </section>

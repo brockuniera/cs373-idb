@@ -59,7 +59,7 @@
           <li2><b>ratingavg:</b> {{ catModel.ratingavg }}</li>
         </article>
 
-        <h3 class="page-heading-90" align="center" >Related Restaurants</h3>
+        <h3 class="page-heading-90" align="center">Related Restaurants</h3>
         <table class="table page-data-center" id="data-table">
           <thead>
             <tr>
@@ -70,14 +70,42 @@
               <th>Reviewcount</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+          <tbody class="clickable-rows">
+            {% for restModel in catModel.restlist %}
+            <tr data-page="/restaurant">
+              <td>{{ restModel.id }}</td>
+              <td>{{ restModel.name }}</td>
+              <td>{{ restModel.phonenum }}</td>
+              <td>{{ restModel.rating }}</td>
+              <td>{{ restModel.reviewcount }}</td>
             </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <h3 class="page-heading-90" align="center">Related Location</h3>
+        <table class="table page-data-center" id="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Address</th>
+              <th>Neighborhood</th>
+              <th>Zipcode</th>
+              <th>latitude</th>
+              <th>longitude</th>
+            </tr>
+          </thead>
+          <tbody class="clickable-rows">
+            {% for locModel in locModelList %}
+            <tr data-page="/location">
+              <td>{{ locModel.id }}</td>
+              <td>{{ locModel.address }}</td>
+              <td>{{ locModel.neighborhood }}</td>
+              <td>{{ locModel.zipcode }}</td>
+              <td>{{ locModel.latitude }}</td>
+              <td>{{ locModel.longitude }}</td>
+            </tr>
+            {% endfor %}
           </tbody>
         </table>
       </section>

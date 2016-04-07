@@ -72,25 +72,27 @@ google.maps.event.addDomListener(window, 'load', initialize);
             </tr>
           </tbody>
         </table>
-        <h3 class="page-heading-90" align="center"> Related Categories </h3>
+        <h3 class="page-heading-90" align="center" >Related Categories</h3>
         <table class="table page-data-center" id="data-table">
           <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Phonenum</th>
-              <th>Rating</th>
-              <th>Reviewcount</th>
+              <th>Restaurant total</th>
+              <th>Review total</th>
+              <th>Rating Avg</th>
             </tr>
           </thead>
           <tbody class="clickable-rows">
-            <tr data-page="/restaurant">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            {% for category in restModel.catlist %}
+            <tr data-page="/category">
+              <td>{{ category.id }}</td>
+              <td>{{ category.name }}</td>
+              <td>{{ category.resttotal }}</td>
+              <td>{{ category.reviewtotal }}</td>
+              <td>{{ category.ratingavg }}</td>
             </tr>
+            {% endfor %}
           </tbody>
         </table>
       </section>

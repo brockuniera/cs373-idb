@@ -126,8 +126,8 @@ class Category(db.Model):
         self.restlist = restlist or []
 
     def __repr__(self):
-        return "<Category(name='{}', resttotal='{}', reviewtotal='{}', ratingavg='{}', restlist='{}')>".format(
-                self.name, self.resttotal, self.reviewtotal, self.ratingavg, self.restlist
+        return "<Category(name='{}', resttotal='{}', reviewtotal='{}', ratingavg='{}')>".format(
+                self.name, self.resttotal, self.reviewtotal, self.ratingavg
                 )
 
     @staticmethod

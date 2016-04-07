@@ -30,7 +30,6 @@ def render_location():
 def render_locatoin_id(location_id=None):
     locModel = Location.query.get(location_id)
     relatedRestModel = Restaurant.query.filter_by(location_id = location_id).one()
-    # TODO get related categories based on the restaurant id
     return render_template('location.html', locModel = locModel, restModel = relatedRestModel)
 
 @app.route('/restaurant')
@@ -45,7 +44,6 @@ def render_restaurant():
 def render_restaurant_id(restaurant_id=None):
     restModel = Restaurant.query.get(restaurant_id)
     relatedLocModel = Location.query.filter_by(id = restModel.location_id).one()
-    # TODO get related categories of this restaurant
     return render_template('restaurant.html', restModel = restModel, locModel = relatedLocModel)
 
 @app.route('/category')
@@ -59,9 +57,10 @@ def render_category():
 @app.route('/category/<category_id>')
 def render_category_id(category_id=None):
     catModel = Category.query.get(category_id)
-    # TODO get related restaurants of this category
-    # TODO get related locations of those restaurants
-    return render_template('category.html', catModel = catModel)
+    locModelList = list()
+    for restModel in catModel.restlist:
+        locModelList.append(Location.query.get(restModel.location_id))
+    return render_template('category.html', catModel = catModel, locModelList = locModelList)
 
 @app.route('/about')
 def render_about():
