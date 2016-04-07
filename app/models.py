@@ -53,6 +53,7 @@ class Restaurant(db.Model):
 
     @staticmethod
     def getDataNames():
+        # Order matters
         return ["id", "name", "phonenum", "rating", "reviewcount"]
 
 class Location(db.Model):
@@ -93,6 +94,7 @@ class Location(db.Model):
 
     @staticmethod
     def getDataNames():
+        # Order matters
         return ["id", "address", "neighborhood", "zipcode", "latitude", "longitude"]
 
 
@@ -132,6 +134,7 @@ class Category(db.Model):
 
     @staticmethod
     def getDataNames():
+        # Order matters
         return ["id", "name", "resttotal", "reviewtotal", "ratingavg"]
 
 def getDataDictList(modelList):
