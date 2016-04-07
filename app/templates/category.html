@@ -26,21 +26,11 @@
             <label for="button-5" class="arrows" id="arrow-5">></label>
             <div id="slideshow-inner">
               <ul>
-                <li id="slide1">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Western_Sushi.jpg" />
+              {% for imgTuple in imgList %}
+                <li id="slide{{imgTuple[0]}}">
+                  <img src="{{imgTuple[1]}}" />
                 </li>
-                <li id="slide2">
-                  <img src="https://i.ytimg.com/vi/bvh3N5U-78c/maxresdefault.jpg" />
-                </li>
-                <li id="slide3">
-                  <img src="https://eat24-files-live.s3.amazonaws.com/cuisines/v4/sushi.jpg?Signature=bC7dnFuUwPsnbXnXkfd8OJA1LPo%3D&Expires=1460011202&AWSAccessKeyId=AKIAIEJ2GCCJRT63TBYA" />
-                </li>
-                <li id="slide4">
-                  <img src="http://cdn1.theodysseyonline.com/files/2015/09/04/63576941155341407593747909_725ac96b86049c94c1e467ccbbdadc06.jpg" />
-                </li>
-                <li id="slide5">
-                  <img src="https://i.ytimg.com/vi/hkVfzjA1HA0/maxresdefault.jpg" />
-                </li>
+              {% endfor %}
               </ul>
             </div>
           </div>

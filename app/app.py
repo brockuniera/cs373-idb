@@ -78,9 +78,14 @@ def render_category():
 def render_category_id(category_id=None):
     catModel = Category.query.get(category_id)
     locModelList = list()
+    imgList = list()
+    imgIndex = 1
     for restModel in catModel.restlist:
+        if(imgIndex <= 5):
+            imgList.append((imgIndex, restModel.imageurl))
         locModelList.append(Location.query.get(restModel.location_id))
-    return render_template('category.html', catModel = catModel, locModelList = locModelList)
+    return render_template('category.html', catModel = catModel, locModelList = locModelList,
+        imgList = imgList)
 
 @app.route('/about')
 def render_about():
