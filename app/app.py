@@ -76,7 +76,13 @@ def render_category_id(category_id=None):
 
 @app.route('/about')
 def render_about():
-    return render_template('about.html')
+    teststring = str("");
+    return render_template('about.html', teststring = teststring)
+
+@app.route('/aboutT')
+def render_aboutT():
+    teststring = str("Big fuck");
+    return render_template('about.html', teststring = teststring)
 
 if __name__ == '__main__':
     api.add_api_routes(app.route)

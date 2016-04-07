@@ -1,5 +1,12 @@
 /* Image for our main index.html page */
 
+a.offanchor {
+    display: block;
+    position: relative;
+    top: -150px;
+    visibility: hidden;
+}
+
 .header-image:before {
   background-image: url('../img/main_bg.jpg');
 }
