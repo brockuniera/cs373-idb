@@ -792,15 +792,15 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  background-image: url('../img/food22.jpg');
+/*  background-image: url('../img/food22.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center;*/
 /*  -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;*/
-  /*background-color: #99c2c2;*/
+  background-color: #ffffff;
   webkit-tap-highlight-color: #6d0a3a;
 }
