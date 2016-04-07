@@ -186,7 +186,8 @@ subh{
 }
 
 .space { 
-  margin-top: 330px;
+  margin-top: 50px; 
+  margin-bottom: 220px;
 }
 
 #slideshow-wrap {
@@ -211,7 +212,7 @@ subh{
     position: relative;
 }
 
-#slideshow-inner>uk {
+#slideshow-inner>ul {
 list-style: none;
     height: 100%;
     width: 500%;
@@ -224,7 +225,7 @@ list-style: none;
     transition: left .8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-#slideshow-inner>uk>lk {
+#slideshow-inner>ul>li {
     list-style: none;
     width: 20%;
     height: 320px;
