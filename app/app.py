@@ -85,7 +85,7 @@ def render_about():
 
 @app.route('/aboutT')
 def render_aboutT():
-    test_obj = unittest.TestLoader().loadTestsFromTestCase(tests.tests)
+    test_obj = unittest.TestLoader().loadTestsFromTestCase(tests.TestFood)
     out_obj = StringIO()
     unittest.TextTestRunner(stream=out_obj).run(test_obj)
     teststring = out_obj.getvalue()

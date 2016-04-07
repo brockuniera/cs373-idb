@@ -263,12 +263,12 @@ header .intro-text .intro-heading {
     padding: 30px;
     height: 100%;
 }
+
 header .intro-text .intro-lead-in {
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 100%;
-    font-style: italic;
     font-size: 22px;
-    line-height: 22px;
+    line-height: 35px;
     margin: 0 auto;
     background: rgba(0,0,0,.4);
     text-align: left;
