@@ -25,34 +25,39 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <!-- super() loads the header, pppbar and an open body tag -->
 {% block body %} {{super()}}
-
     <!-- The information about this particular location -->
-    <div class="col-md-10 col-md-offset-1">
-    <section class="features">
-      <h2 class="page-heading-90" align="center">{{locdict['address']}}</h2>
-        <article class="col-md-4">
-            <h3><span class="fa fa-map-marker"> Map</h3>
-           <div class="page_loca_map"id="googleMap"></div>
-        </article>
-        <article class="col-md-4">
+    <div class="col-md-12">
+    <div class="col-md-1" ></div>
+    <div class="col-md-10">
+      <section class="features">
+        <h2 class="center-text">{{locdict['address']}}</h2>
+        <div class="row">
+            <div class="col-md-6">
+              <h3><span class="fa fa-map-marker"> Map</span></h3>
+              <div class="page_loca_map" id="googleMap"></div>
+            </div>
+            <div class="col-md-6">
               <h3><span class="fa fa-list"> Information</h3>
-              <li2><b>ID:</b> {{locdict['id']}}</li>
-              <br></br>
-              <li2><b>Address:</b> {{locdict['address']}}</li>
-              <br></br>
-              <li2><b>Neighborhood:</b> {{locdict['neighborhood']}}</li>
-              <br></br>
-              <li2><b>Zipcode:</b> {{locdict['zipcode']}}</li>
-              <br></br>
-              <li2><b>latitude:</b> {{locdict['latitude']}}</li>
-              <br></br>
-              <li2><b>longitude:</b> {{locdict['longitude']}}</li>
-        </article>
+                <ul>
+                  <li2><b>ID:</b> {{locdict['id']}}</li2>
+                  <br></br>
+                  <li2><b>Address:</b> {{locdict['address']}}</li2>
+                  <br></br>
+                  <li2><b>Neighborhood:</b> {{locdict['neighborhood']}}</li2>
+                  <br></br>
+                  <li2><b>Zipcode:</b> {{locdict['zipcode']}}</li2>
+                  <br></br>
+                  <li2><b>latitude:</b> {{locdict['latitude']}}</li2>
+                  <br></br>
+                  <li2><b>longitude:</b> {{locdict['longitude']}}</li2>
+                </ul>
+            </div>
+        </div>
 
         <!-- Table of related estaurants for this particular location -->
 
-        <h3 class="page-heading-90" align="center" >Related: Restaurant {{restdict['id']}}</h3>
-        <table class="table page-data-center" id="data-table">
+        <h3 class="center-text">Related: Restaurant {{restdict['id']}}</h3>
+        <table class="table" id="data-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -73,8 +78,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
           </tbody>
         </table>
       </section>
-      </div>
-
-  </div>
+    </div>
+    <div class="col-md-1" ></div>
+    </div>
 {% endblock %}
 <!-- common_content.html closes the body and html tags -->
