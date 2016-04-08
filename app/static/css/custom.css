@@ -213,8 +213,15 @@ subh{
 }
 
 
-
-div#slider { overflow: hidden; }
+.slider-outer{
+    padding:20px;
+}
+/*https://codepen.io/dudleystorey/pen/ehKpi*/
+div#slider {
+    overflow: hidden;
+    border: 10px solid white;
+    box-shadow: 0px 5px 1px #888888;
+}
 div#slider figure img { width: 20%; float: left; }
 div#slider figure {
     position: relative;
