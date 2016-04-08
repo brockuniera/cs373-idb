@@ -1,11 +1,10 @@
-import sys
 import unittest
 import tests
 from io import StringIO
 import logging
 from db import app
 from models import Location, Category, Restaurant, getDataDictList
-from flask import render_template, request
+from flask import render_template, Markup
 from flask.json import dumps
 from flask.ext.sqlalchemy import SQLAlchemy
 import api
@@ -159,9 +158,11 @@ def render_aboutT():
     test_obj = unittest.TestLoader().loadTestsFromTestCase(tests.TestFood)
     out_obj = StringIO()
     unittest.TextTestRunner(stream=out_obj).run(test_obj)
-    teststring = out_obj.getvalue()
-    teststring = teststring.replace('\n', '</br>')
-    return render_template('about.html', teststring = teststring)
+    unformattedstring = out_obj.getvalue()
+    text = str();
+    for line in unformattedstring.split('\n'):
+        text += Markup.escape(line) + Markup('<br />')
+    return render_template('about.html', teststring = text)
 
 #
 # Helper functions
