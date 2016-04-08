@@ -3,7 +3,7 @@ FILES :=                              \
     .travis.yml                       \
     makefile                          \
     apiary.apib                       \
-    IDB1.log                          \
+    IDB2.log                          \
     models.html                        \
     app/models.py                         \
     app/tests.py                          \
@@ -40,6 +40,9 @@ test: app/tests.py
 	
 IDB1.log:
 	git log > IDB1.log
+
+IDB2.log:
+	git log > IDB2.log
 	
 models.html: models.py
 	pydoc -w models
