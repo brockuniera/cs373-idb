@@ -13,30 +13,16 @@
   <div class="col-md-10" ng-app="swestaurantApp" ng-controller="sortTableCtrl">
     <section class="features">
       <h2 class="center-text">{{ catModel.name }}</h2>
-      <div id="slideshow-wrap">
-        <input type="radio" id="button-1" name="controls" checked="checked"/>
-        <label for="button-1"></label>
-        <input type="radio" id="button-2" name="controls"/>
-        <label for="button-2"></label>
-        <input type="radio" id="button-3" name="controls"/>
-        <label for="button-3"></label>
-        <input type="radio" id="button-4" name="controls"/>
-        <label for="button-4"></label>
-        <input type="radio" id="button-5" name="controls"/>
-        <label for="button-5"></label>
-        <label for="button-1" class="arrows" id="arrow-1">></label>
-        <label for="button-2" class="arrows" id="arrow-2">></label>
-        <label for="button-3" class="arrows" id="arrow-3">></label>
-        <label for="button-4" class="arrows" id="arrow-4">></label>
-        <label for="button-5" class="arrows" id="arrow-5">></label>
-        <div id="slideshow-inner">
-          <ul>
-            {% for imgTuple in imgList %}
-            <li id="slide{{imgTuple[0]}}">
-            <img src="{{imgTuple[1]}}" />
-            </li>
-            {% endfor %}
-          </ul>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+        <div class="slider-outer">
+            <div id="slider">
+                <figure>
+                {% for imgTuple in imgList %}
+                <img src="{{imgTuple[1]}}" />
+                {% endfor %}
+            </figure>
+            </div>
         </div>
       </div>
       <div class="row">
