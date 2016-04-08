@@ -1,41 +1,46 @@
 {% extends "common_content.html" %}
 
-{% block title %}{{title}}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 <!-- super() loads the header, navbar and an open body tag -->
-{% block body %} {{super()}}
+{% block body %} {{ super() }}
     <!-- All Restaurant data table -->
-    <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-    <script src="{{ url_for('static', filename='js/sortTableAngular.js') }}"> </script>
-    <script type="text/javascript">
-        setupAngSort({{ datalist|tojson|safe }});
-    </script>
     <section>
       <h1 class="center-text"> {{title}} </h1>
-      <div ng-app="sortApp" ng-controller="mainController" class="container table-wrapper" >
+      <div class="center-text">
+        <div class="intro-col">
+          <ul class="pagination">
+            <li><a href="{{page}}?page=1">1</a></li>
+            <li><a href="{{page}}?page=2">2</a></li>
+            <li><a href="{{page}}?page=3">3</a></li>
+            <li><a href="{{page}}?page=4">4</a></li>
+            <li><a href="{{page}}?page=5">5</a></li>
+          </ul>
+        </div>
+      </div>
+      <divclass="container table-wrapper">
         <table id="data-table" class="table">
           <thead>
             <tr>
-              {% for item in datanames %}
+              {% for tableHeader in dataNames %}
               <th>
-                <a href="#" ng-click="sortType = '{{item}}'">
-                  {{item}}
-                  <span ng-show="sortType == '{{item}}'" class="fa fa-caret-down"></span>
+                <a href="/{{ page }}?sortby={{ tableHeader }}&amp;dir={{ direction }}">
+                  {{ tableHeader }}
+                  <span class="fa fa-caret-down"></span>
                 </a>
               </th>
-              {%endfor%}
+              {% endfor %}
             </tr>
           </thead>
-          <tbody>
-            <tr ng-repeat="dict in data | orderBy:sortType:sortReverse">
-              <a href="{{datatype}}/{[dict.id]}">
-                {% for item in datanames %}
-                  <td>{[ dict.{{item}} ]}</td>
-                {%endfor%}
-              </a>
+          <tbody class="clickable-rows">
+          {% for dataModel in dataList %}
+            <tr data-page="/{{ page }}"> 
+              {% for attr in dataNames %}
+              <td>{{ dataModel[attr] }}</td>
+              {% endfor %} 
             </tr>
-          </tbody>
+            {% endfor %}
+          </tbody> 
         </table>
       </div>
     </section>

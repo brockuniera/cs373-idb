@@ -15,6 +15,18 @@ $(function() {
     });
 });
 
+$(window).load(function() {
+    $(".clickable-rows").find("tr").each(function (index, row) {
+        var selectedRow = $(row);
+        var id = selectedRow.find("td").first().html();
+        var page = selectedRow.data("page");
+        var href = page + "/" + id;
+        selectedRow.click( function() {
+            window.document.location = href;
+        });
+    });
+});
+
 // Highlight the top nav as scrolling occurs
 $('body').scrollspy({
     target: '.navbar-fixed-top'

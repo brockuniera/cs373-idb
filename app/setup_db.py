@@ -1,6 +1,7 @@
 import requests
 import json
 import io
+import re
 
 from db import app, db
 from flask.ext.script import Manager
@@ -18,8 +19,8 @@ def fill_restaurant_data(restaurant, restaurant_data) :
     restaurant_data['phonenum'] = restaurant.display_phone
     restaurant_data['rating'] = restaurant.rating
     restaurant_data['reviewcount'] = restaurant.review_count
-    restaurant_data['url'] = restaurant.url
-    restaurant_data['imageurl'] = restaurant.image_url
+    restaurant_data['url'] = restaurant.url 
+    restaurant_data['imageurl'] = re.sub(r'\/\w+\.jpg', r'/ls.jpg', restaurant.image_url)
 
 def fill_location_data(restaurant, location_data):
     """

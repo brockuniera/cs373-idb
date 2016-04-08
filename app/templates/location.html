@@ -9,59 +9,84 @@
 {% block body %} {{super()}}
     <!-- The information about this particular location -->
     <div class="col-md-12">
-    <div class="col-md-1" ></div>
-    <div class="col-md-10">
-      <section class="features">
-        <h2 class="center-text">{{locdict['address']}}</h2>
-        <div class="row">
-            <div class="col-md-6">
-              <h3><span class="fa fa-map-marker"> Map</span></h3>
-              <div class="page_loca_map" id="googleMap"></div>
-            </div>
-            <div class="col-md-6">
-              <h3><span class="fa fa-list"> Information</h3>
+      <div class="col-md-1" ></div>
+      <div class="col-md-10 col-md-offset-1"  ng-app="swestaurantApp" ng-controller="sortTableCtrl">
+        <script>
+          tableData({{ catListModels|safe }})
+        </script>
+        <section class="features">
+          <h2 class="page-heading-90" align="center">{{ locModel.address }}</h2>
+          <div class="row">
+              <div class="col-md-6">
+                <h3><span class="fa fa-map-marker"> Map</span></h3>
+                <div class="page_loca_map" id="googleMap"></div>
+              </div>
+              <div class="col-md-6">
+                <h3><span class="fa fa-list"> Information</h3>
                 <ul>
-                  <li2><b>ID:</b> {{locdict['id']}}</li2>
+                  <li2><b>ID:</b> {{ locModel.id }}</li>
                   <br></br>
-                  <li2><b>Address:</b> {{locdict['address']}}</li2>
+                  <li2><b>Address:</b> {{ locModel.address }}</li>
                   <br></br>
-                  <li2><b>Neighborhood:</b> {{locdict['neighborhood']}}</li2>
+                  <li2><b>Neighborhood:</b> {{ locModel.neighborhood }}</li>
                   <br></br>
-                  <li2><b>Zipcode:</b> {{locdict['zipcode']}}</li2>
+                  <li2><b>Zipcode:</b> {{ locModel.zipcode }}</li>
                   <br></br>
-                  <li2 id="latitude" data-latitude="{{locdict['latitude']}}"><b>latitude:</b> {{locdict['latitude']}}</li2>
+                  <li2><b>latitude:</b> {{ locModel.latitude }}</li>
                   <br></br>
-                  <li2 id="longitude" data-longitude="{{locdict['longitude']}}"><b>longitude:</b> {{locdict['longitude']}}</li2>
+                  <li2><b>longitude:</b> {{ locModel.longitude }}</li>
                 </ul>
-            </div>
-        </div>
+              </div>
+          </div>
 
-        <!-- Table of related estaurants for this particular location -->
+          <!-- Table of related restaurants for this particular location -->
 
-        <h3 class="center-text">Related: Restaurant {{restdict['id']}}</h3>
-        <table class="table" id="data-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Phonenum</th>
-              <th>Rating</th>
-              <th>Reviewcount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{restdict['id']}}</td>
-              <td>{{restdict['name']}}</td>
-              <td>{{restdict['phonenum']}}</td>
-              <td>{{restdict['rating']}}</td>
-              <td>{{restdict['reviewcount']}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </div>
-    <div class="col-md-1" ></div>
+          <h3 class="page-heading-90" align="center"> Related Restaurant</h3>
+          <table class="table page-data-center" id="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phonenum</th>
+                <th>Rating</th>
+                <th>Reviewcount</th>
+              </tr>
+            </thead>
+            <tbody class="clickable-rows">
+              <tr data-page="/restaurant">
+                <td>{{ restModel.id }}</td>
+                <td>{{ restModel.name }}</td>
+                <td>{{ restModel.phonenum }}</td>
+                <td>{{ restModel.rating }}</td>
+                <td>{{ restModel.reviewcount }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 class="page-heading-90" align="center" >Related Categories</h3>
+          <table class="table page-data-center" id="data-table">
+            <thead>
+              <tr>
+                {% for attr in catAttrs %}
+                <th>
+                  <a href="#" ng-click="sortType = '{{attr}}'; sortReverse = !sortReverse">
+                    {{attr}}
+                    <span ng-show="sortType == '{{attr}}'" class="fa fa-caret-down"></span>
+                  </a>
+                </th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody class="clickable-rows">
+              <tr ng-repeat="catModel in data | orderBy:sortType:sortReverse" data-page="/restaurant">
+                {% for attr in catAttrs %}
+                  <td>{[ catModel.{{attr}} ]}</td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+      <div class="col-md-1" ></div>
     </div>
 {% endblock %}
 <!-- common_content.html closes the body and html tags -->

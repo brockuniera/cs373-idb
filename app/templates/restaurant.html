@@ -4,87 +4,87 @@
 
 <!-- super() loads the header, navbar and an open body tag -->
 {% block body %} {{super()}}
-<div class="col-md-12">
-    <div class="col-md-1" ></div>
-    <div class="col-md-10">
-      <section class="features">
-        <h2 class="center-text">{{restdict['name']}}</h2>
-        <div class="row">
-            <div class="col-md-6">
-              <h3><span class="fa fa-file-picture-o"> Photo</h3>
-                <img class="col-md-12 center-img" src="{{ url_for('static', filename='img/austin_eats.png') }}" height="300px" width="300px">
-            </img>
-            </div>
-            <div class="col-md-6">
-              <h3><span class="fa fa-list"> Information</h3>
-                <ul>
-                  <li2><b>ID:</b> {{restdict['id']}}</li>
-                  <br></br>
-                  <li2><b>Name:</b> {{restdict['name']}}</li>
-                  <br></br>
-                  <li2><b>Phone Number:</b> {{restdict['phonenum']}}</li>
-                  <br></br>
-                  <li2><b>Rating:</b> {{restdict['rating']}}</li>
-                  <br></br>
-                  <li2><b>Review Count:</b> {{restdict['reviewcount']}}</li>
-                </ul>
-            </div>
-        </div>
+    <script>
+      tableData({{ catListModels|safe }})
+    </script>
+    <div class="col-md-12">
+      <div class="col-md-1" ></div>
+      <div class="col-md-10" ng-app="swestaurantApp" ng-controller="sortTableCtrl">
+        <section class="features">
+          <h2 class="center-text">{{restModel.name}}</h2>
+          <div class="row">
+              <div class="col-md-6">
+                <h3><span class="fa fa-file-picture-o"> Photo</h3>
+             <img class="col-md-12 center-img" src="{{ restModel.imageurl }}" height="300px" width="300px">
+              </img>
+              </div>
+              <div class="col-md-6">
+                <h3><span class="fa fa-list"> Information</h3>
+                  <ul>
+                    <li2><b>ID:</b> {{ restModel.id }}</li>
+                    <br></br>
+                    <li2><b>Name:</b> {{ restModel.name }}</li>
+                    <br></br>
+                    <li2><b>Phone Number:</b> {{restModel.phonenum }}</li>
+                    <br></br>
+                    <li2><b>Rating: </b>{{ restModel.rating }}</li>
+                    <br></br>
+                    <li2><b>Review Count:</b> {{ restModel.reviewcount }}</li>
+                  </ul>
+              </div>
+          </div>
 
-        <!-- Table of related estaurants for this particular location -->
+          <!-- Table of related estaurants for this particular location -->
 
-        <h3 class="center-text">Related: Location {{locdict['id']}}</h3>
-        <table class="table" id="data-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Address</th>
-              <th>Neighborhood</th>
-              <th>Zipcode</th>
-              <th>latitude</th>
-              <th>longitude</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{locdict['id']}}</td>
-              <td>{{locdict['address']}}</td>
-              <td>{{locdict['neighborhood']}}</td>
-              <td>{{locdict['zipcode']}}</td>
-              <td>{{locdict['latitude']}}</td>
-              <td>{{locdict['longitude']}}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 class="center-text">Related Categories</h3>
-         <table class="table" id="data-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Restaurant total</th>
-              <th>Review total</th>
-              <th>Rating Avg</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for catdict in catlist %}
-            <tr>
-              <td>{{catdict['id']}}</td>
-              <td>{{catdict['name']}}</td>
-              <td>{{catdict['resttotal']}}</td>
-              <td>{{catdict['reviewtotal']}}</td>
-              <td>{{catdict['ratingavg']}}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </section>
+          <h3 class="center-text">Related Location</h3>
+          <table class="table" id="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Address</th>
+                <th>Neighborhood</th>
+                <th>Zipcode</th>
+                <th>latitude</th>
+                <th>longitude</th>
+              </tr>
+            </thead>
+            <tbody class="clickable-rows">
+              <tr data-page="/location">
+                <td>{{ locModel.id }}</td>
+                <td>{{ locModel.address }}</td>
+                <td>{{ locModel.neighborhood }}</td>
+                <td>{{ locModel.zipcode }}</td>
+                <td>{{ locModel.latitude }}</td>
+                <td>{{ locModel.longitude }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 class="center-text">Related Categories</h3>
+           <table class="table" id="data-table">
+            <thead>
+             <tr>
+                {% for attr in catAttrs %}
+                <th>
+                  <a href="#" ng-click="sortType = '{{attr}}'; sortReverse = !sortReverse">
+                    {{attr}}
+                    <span ng-show="sortType == '{{attr}}'" class="fa fa-caret-down"></span>
+                  </a>
+                </th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody class="clickable-rows">
+              <tr ng-repeat="catModel in data | orderBy:sortType:sortReverse" data-page="/category">
+                {% for attr in catAttrs %}
+                  <td>{[ catModel.{{attr}} ]}</td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+      <div class="col-md-1" ></div>
     </div>
-    <div class="col-md-1" ></div>
-    </div>
-  </div>
 
 {% endblock %}
 <!-- common_content.html closes the body and html tags -->

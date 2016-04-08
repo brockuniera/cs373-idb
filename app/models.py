@@ -51,6 +51,11 @@ class Restaurant(db.Model):
                 self.imageurl, self.name, self.phonenum, self.rating, self.reviewcount, self.url
                 )
 
+    @staticmethod
+    def getDataNames():
+        # Order matters
+        return ["id", "name", "phonenum", "rating", "reviewcount"]
+
 class Location(db.Model):
     """
     Represents a row of a Location table
@@ -87,6 +92,12 @@ class Location(db.Model):
                 self.address, self.neighborhood, self.zipcode, self.latitude, self.longitude
                 )
 
+    @staticmethod
+    def getDataNames():
+        # Order matters
+        return ["id", "address", "neighborhood", "zipcode", "latitude", "longitude"]
+
+
 class Category(db.Model):
     """
     Represents a row of a Category table
@@ -120,3 +131,19 @@ class Category(db.Model):
         return "<Category(name='{}', resttotal='{}', reviewtotal='{}', ratingavg='{}')>".format(
                 self.name, self.resttotal, self.reviewtotal, self.ratingavg
                 )
+
+    @staticmethod
+    def getDataNames():
+        # Order matters
+        return ["id", "name", "resttotal", "reviewtotal", "ratingavg"]
+
+def getDataDictList(modelList):
+    """
+    Returns a list of dictionary representations of models
+    """
+    dataDictList = []
+    for model in modelList:
+        dataDict = model.__dict__
+        dataDict.pop("_sa_instance_state", None) # Weird key added by sqlalchemy
+        dataDictList.append(dataDict)
+    return dataDictList
