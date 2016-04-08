@@ -18,8 +18,8 @@
             <div class="slider-outer">
             <div id="slider">
                 <figure>
-                {% for imgTuple in imgList %}
-                <img src="{{imgTuple[1]}}" />
+                {% for imgLink in imgList %}
+                <img src="{{imgLink}}" />
                 {% endfor %}
                 </figure>
             </div>
@@ -60,7 +60,7 @@
           </tr>
         </thead>
         <tbody class="clickable-rows">
-          <tr ng-repeat="restModel in data | orderBy:sortType:sortReverse" data-page="/category">
+          <tr ng-repeat="restModel in data | orderBy:sortType:sortReverse" data-page="/restaurant">
             {% for attr in restAttrs %}
             <td>{[ restModel.{{attr}} ]}</td>
             {% endfor %}

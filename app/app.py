@@ -67,7 +67,7 @@ def render_restaurant_id(restaurant_id=None):
     restModel = Restaurant.query.get_or_404(restaurant_id)
     relatedLocModel = Location.query.get(restModel.location_id)
     catListModels = getDataDictList(restModel.catlist)
-    return render_template('restaurant.html', 
+    return render_template('restaurant.html',
         restModel = restModel, 
         locModel = relatedLocModel,
         catAttrs = Category.getDataNames(),
@@ -88,12 +88,13 @@ def render_category():
 
 @app.route('/category/<category_id>')
 def render_category_id(category_id=None):
-    imgList = list()
-    imgIndex = 1
     catModel = Category.query.get_or_404(category_id)
-    for restModel in catModel.restlist:
-        if(imgIndex <= 5):
-            imgList.append((imgIndex, restModel.imageurl))
+
+    imgList = [restModel.imageurl for restModel in catModel.restlist][:5]
+
+    while len(imgList) < 5:
+        imgList = imgList + [url for url in imgList]
+        imgList = imgList[:5]
 
     relatedRestModels = getDataDictList(catModel.restlist)
     return render_template('category.html', 

@@ -77,7 +77,7 @@
               </tr>
             </thead>
             <tbody class="clickable-rows">
-              <tr ng-repeat="catModel in data | orderBy:sortType:sortReverse" data-page="/restaurant">
+              <tr ng-repeat="catModel in data | orderBy:sortType:sortReverse" data-page="/category">
                 {% for attr in catAttrs %}
                   <td>{[ catModel.{{attr}} ]}</td>
                 {% endfor %}
