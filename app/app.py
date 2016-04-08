@@ -30,7 +30,7 @@ def index():
 
 @app.route('/location')
 def render_location():
-    tableDataDict = getTableDataDict("Locations","location")
+    tableDataDict = getTableDataDict("Locations","location", Location)
     locDataDictList = getDataDictList(getModels(Location, tableDataDict['offset'], 
         tableDataDict['sortby'], tableDataDict['direction']))
     return render_template('template_db.html',
@@ -53,7 +53,7 @@ def render_location_id(location_id=None):
 
 @app.route('/restaurant')
 def render_restaurant():
-    tableDataDict = getTableDataDict("Restaurants","restaurant")
+    tableDataDict = getTableDataDict("Restaurants","restaurant", Restaurant)
     restDataDictList = getDataDictList(getModels(Restaurant, tableDataDict['offset'], 
         tableDataDict['sortby'], tableDataDict['direction']))
     return render_template('template_db.html',
@@ -77,7 +77,7 @@ def render_restaurant_id(restaurant_id=None):
 
 @app.route('/category')
 def render_category():
-    tableDataDict = getTableDataDict("Categories","category")
+    tableDataDict = getTableDataDict("Categories","category", Category)
     catDataDictList = getDataDictList(getModels(Category, tableDataDict['offset'],
         tableDataDict['sortby'], tableDataDict['direction']))
     return render_template('template_db.html',
@@ -158,7 +158,7 @@ def getCaretDir(direction):
         return "down"
     return "up"
 
-def getTableDataDict(title, page):
+def getTableDataDict(title, page, model):
     """
     Common data for table page
     """
@@ -168,7 +168,7 @@ def getTableDataDict(title, page):
     tableDataDict['title'] = title
     tableDataDict['pagenum'] = request.args.get('page') or 1
     tableDataDict['offset'] = getOffset(tableDataDict['pagenum'])
-    tableDataDict['sortby'] = validateSortString(request.args.get('sortby'), Location) or 'id'
+    tableDataDict['sortby'] = validateSortString(request.args.get('sortby'), model) or 'id'
     tableDataDict['direction'] = getDirection(request.args.get('dir'), changeDir)
     tableDataDict['caretDir'] = getCaretDir(tableDataDict['direction'])
     return tableDataDict
