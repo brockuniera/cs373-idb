@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Czach%5Cdocuments%5Cmostly_school%5Ccs373%5Cswestaurant%5Cmodels.py">c:\users\zach\documents\mostly_school\cs373\swestaurant\models.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Czach%5Cdocuments%5Cmostly_school%5Ccs373%5Cswestaurant%5Capp%5Cmodels.py">c:\users\zach\documents\mostly_school\cs373\swestaurant\app\models.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -18,7 +18,7 @@
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial">sqlalchemy.ext.declarative.api.Base(<a href="builtins.html#object">builtins.object</a>)
+<dt><font face="helvetica, arial">flask_sqlalchemy.Model(<a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="models.html#Category">Category</a>
@@ -31,25 +31,30 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Category">class <strong>Category</strong></a>(sqlalchemy.ext.declarative.api.Base)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Category">class <strong>Category</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Represents&nbsp;a&nbsp;row&nbsp;of&nbsp;a&nbsp;<a href="#Category">Category</a>&nbsp;table<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Category">Category</a></dd>
-<dd>sqlalchemy.ext.declarative.api.Base</dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Category-__init__"><strong>__init__</strong></a>(self, name, resttotal, reviewtotal, ratingavg)</dt><dd><tt>Construct&nbsp;a&nbsp;<a href="#Category">Category</a>&nbsp;object<br>
+<dl><dt><a name="Category-__init__"><strong>__init__</strong></a>(self, name, resttotal, reviewtotal, ratingavg, restlist=None)</dt><dd><tt>Construct&nbsp;a&nbsp;<a href="#Category">Category</a>&nbsp;object<br>
 name:&nbsp;name&nbsp;of&nbsp;this&nbsp;category,&nbsp;such&nbsp;as&nbsp;"Mexican"&nbsp;or&nbsp;"Beer,&nbsp;Wine,&nbsp;and&nbsp;Spirits",&nbsp;String(256)<br>
 resttotal:&nbsp;total&nbsp;number&nbsp;of&nbsp;restaurants&nbsp;in&nbsp;this&nbsp;category<br>
 reviewtotal:&nbsp;total&nbsp;number&nbsp;of&nbsp;reviews&nbsp;of&nbsp;restaurants&nbsp;in&nbsp;this&nbsp;category<br>
 rating:&nbsp;average&nbsp;rating&nbsp;of&nbsp;restaurants&nbsp;in&nbsp;this&nbsp;category</tt></dd></dl>
 
 <dl><dt><a name="Category-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Category-getDataNames"><strong>getDataNames</strong></a>()</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -67,14 +72,20 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x273d2f582e8; Category&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x2cd41269390; Category&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('categories', MetaData(bind=None), Column(...gavg', Float(), table=&lt;categories&gt;), schema=None)</dl>
 
 <dl><dt><strong>__tablename__</strong> = 'categories'</dl>
 
 <hr>
-Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
@@ -82,21 +93,27 @@ Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
 <hr>
-Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br>
-<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Location">class <strong>Location</strong></a>(sqlalchemy.ext.declarative.api.Base)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Location">class <strong>Location</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Represents&nbsp;a&nbsp;row&nbsp;of&nbsp;a&nbsp;<a href="#Location">Location</a>&nbsp;table<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Location">Location</a></dd>
-<dd>sqlalchemy.ext.declarative.api.Base</dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
@@ -104,11 +121,15 @@ Methods defined here:<br>
 <dl><dt><a name="Location-__init__"><strong>__init__</strong></a>(self, address, neighborhood, zipcode, latitude, longitude)</dt><dd><tt>Construct&nbsp;a&nbsp;<a href="#Location">Location</a>&nbsp;object<br>
 address:&nbsp;address&nbsp;of&nbsp;this&nbsp;location,&nbsp;String(256)<br>
 neighborhood:&nbsp;neighborhood&nbsp;of&nbsp;this&nbsp;location,&nbsp;String(40)<br>
-zipcode:&nbsp;zipcode&nbsp;of&nbsp;this&nbsp;location,&nbsp;String(10)<br>
+zipcode:&nbsp;zipcode&nbsp;of&nbsp;this&nbsp;location,&nbsp;Integer<br>
 latitude:&nbsp;Geographical&nbsp;latitude&nbsp;of&nbsp;this&nbsp;location,&nbsp;Float<br>
 logitude:&nbsp;Geographical&nbsp;longitude&nbsp;of&nbsp;this&nbsp;location,&nbsp;Float</tt></dd></dl>
 
 <dl><dt><a name="Location-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Location-getDataNames"><strong>getDataNames</strong></a>()</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -128,14 +149,20 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x273d2f2fe10; Location&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x2cd4123de80; Location&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('locations', MetaData(bind=None), Column('...itude', Float(), table=&lt;locations&gt;), schema=None)</dl>
 
 <dl><dt><strong>__tablename__</strong> = 'locations'</dl>
 
 <hr>
-Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
@@ -143,21 +170,27 @@ Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
 <hr>
-Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br>
-<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Restaurant">class <strong>Restaurant</strong></a>(sqlalchemy.ext.declarative.api.Base)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Restaurant">class <strong>Restaurant</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Represents&nbsp;a&nbsp;row&nbsp;of&nbsp;a&nbsp;<a href="#Restaurant">Restaurant</a>&nbsp;table<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Restaurant">Restaurant</a></dd>
-<dd>sqlalchemy.ext.declarative.api.Base</dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
@@ -171,6 +204,10 @@ reviewcount:&nbsp;number&nbsp;of&nbsp;reviews&nbsp;this&nbsp;restaurant&nbsp;has
 url:&nbsp;the&nbsp;url&nbsp;of&nbsp;the&nbsp;Yelp&nbsp;page&nbsp;of&nbsp;this&nbsp;restaurant</tt></dd></dl>
 
 <dl><dt><a name="Restaurant-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Restaurant-getDataNames"><strong>getDataNames</strong></a>()</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -196,14 +233,20 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x273d2f2f7f0; Restaurant&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x2cd4123d860; Restaurant&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('restaurants', MetaData(bind=None), Column...ocations.id'), table=&lt;restaurants&gt;), schema=None)</dl>
 
 <dl><dt><strong>__tablename__</strong> = 'restaurants'</dl>
 
 <hr>
-Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
 <dl><dt><strong>__dict__</strong></dt>
 <dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
@@ -211,8 +254,13 @@ Data descriptors inherited from sqlalchemy.ext.declarative.api.Base:<br>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
 <hr>
-Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br>
-<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+Data and other attributes inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>The&nbsp;default&nbsp;query&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as<br>
+:attr:`~SQLAlchemy.Query`.&nbsp;This&nbsp;can&nbsp;be&nbsp;subclassed&nbsp;and<br>
+replaced&nbsp;for&nbsp;individual&nbsp;models&nbsp;by&nbsp;setting&nbsp;the&nbsp;:attr:`~Model.query_class`<br>
+attribute.&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;a&nbsp;standard&nbsp;SQLAlchemy<br>
+:class:`~sqlalchemy.orm.query.Query`&nbsp;class&nbsp;and&nbsp;has&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;a<br>
+standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -221,5 +269,5 @@ Data and other attributes inherited from sqlalchemy.ext.declarative.api.Base:<br
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine='mysql+pymysql://admin:admin-pass@localhost/swestaurant_db'&gt;</td></tr></table>
+<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine='mysql+pymysql://None:None@None/None'&gt;</td></tr></table>
 </body></html>
