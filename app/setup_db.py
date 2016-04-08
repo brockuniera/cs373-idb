@@ -38,7 +38,7 @@ def fill_location_data(restaurant, location_data):
             address += addr
 
     location_data['address'] = address
-    location_data['zipcode'] = restaurant.location.postal_code
+    location_data['zipcode'] = int(restaurant.location.postal_code)
     location_data['latitude'] = restaurant.location.coordinate.latitude
     location_data['longitude'] = restaurant.location.coordinate.longitude
 

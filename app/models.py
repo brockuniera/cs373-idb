@@ -65,7 +65,7 @@ class Location(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     address = db.Column(db.String(256))
     neighborhood = db.Column(db.String(40))
-    zipcode = db.Column(db.String(10))
+    zipcode = db.Column(db.Integer)
     latitude = db.Column(db.Float)
     longitude = db.Column(db.Float)
 
@@ -77,7 +77,7 @@ class Location(db.Model):
         Construct a Location object
         address: address of this location, String(256)
         neighborhood: neighborhood of this location, String(40)
-        zipcode: zipcode of this location, String(10)
+        zipcode: zipcode of this location, Integer
         latitude: Geographical latitude of this location, Float
         logitude: Geographical longitude of this location, Float
         """

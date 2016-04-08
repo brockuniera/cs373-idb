@@ -30,28 +30,13 @@ def index():
 
 @app.route('/location')
 def render_location():
-    offset = getOffset(request.args.get('page'))
-    sortby = validateSortString(request.args.get('sortby'), Location)
-    direction = validateDirectionString(request.args.get('dir'))
-
-    if sortby is not None:
-        if direction == "ascending":
-            locDataDictList = getDataDictList(
-                Location.query.order_by(getattr(Location, sortby)).all()
-            )
-        else:
-            locDataDictList = getDataDictList(
-                Location.query.order_by(getattr(Location, sortby).desc()).all()
-            )
-    else:
-        locDataDictList = Location.query.filter_by().limit(results_per_page).offset(offset)
-
+    tableDataDict = getTableDataDict("Locations","location")
+    locDataDictList = getDataDictList(getModels(Location, tableDataDict['offset'], 
+        tableDataDict['sortby'], tableDataDict['direction']))
     return render_template('template_db.html',
             dataNames=Location.getDataNames(),
             dataList=locDataDictList,
-            title="Locations",
-            page="location",
-            direction=direction
+            **tableDataDict
         )
 
 @app.route('/location/<location_id>')
@@ -68,29 +53,13 @@ def render_location_id(location_id=None):
 
 @app.route('/restaurant')
 def render_restaurant():
-    # Get query string args
-    offset = getOffset(request.args.get('page'))
-    sortby = validateSortString(request.args.get('sortby'), Restaurant)
-    direction = validateDirectionString(request.args.get('dir'))
-
-    if sortby is not None:
-        if direction == "ascending":
-            restDataDictList = getDataDictList(
-                Restaurant.query.order_by(getattr(Restaurant, sortby)).all()
-            )
-        else:
-            restDataDictList = getDataDictList(
-                Restaurant.query.order_by(getattr(Restaurant, sortby).desc()).all()
-            )
-    else:
-        restDataDictList = Restaurant.query.filter_by().limit(results_per_page).offset(offset)
-
+    tableDataDict = getTableDataDict("Restaurants","restaurant")
+    restDataDictList = getDataDictList(getModels(Restaurant, tableDataDict['offset'], 
+        tableDataDict['sortby'], tableDataDict['direction']))
     return render_template('template_db.html',
             dataNames=Restaurant.getDataNames(),
             dataList=restDataDictList,
-            title="Restaurants",
-            page="restaurant",
-            direction=direction
+            **tableDataDict
         )
 
 @app.route('/restaurant/<restaurant_id>')
@@ -108,29 +77,13 @@ def render_restaurant_id(restaurant_id=None):
 
 @app.route('/category')
 def render_category():
-    # Get query string args
-    offset = getOffset(request.args.get('page'))
-    sortby = validateSortString(request.args.get('sortby'), Category)
-    direction = validateDirectionString(request.args.get('dir'))
-
-    if sortby is not None:
-        if direction == "ascending":
-            catDataDictList = getDataDictList(
-                Category.query.order_by(getattr(Category, sortby)).all()
-            )
-        else:
-            catDataDictList = getDataDictList(
-                Category.query.order_by(getattr(Category, sortby).desc()).all()
-            )
-    else:
-        catDataDictList = Category.query.filter_by().limit(results_per_page).offset(offset)
-
+    tableDataDict = getTableDataDict("Categories","category")
+    catDataDictList = getDataDictList(getModels(Category, tableDataDict['offset'],
+        tableDataDict['sortby'], tableDataDict['direction']))
     return render_template('template_db.html',
             dataNames=Category.getDataNames(),
             dataList=catDataDictList,
-            title="Categories",
-            page="category",
-            direction=direction
+            **tableDataDict
         )
 
 @app.route('/category/<category_id>')
@@ -184,21 +137,64 @@ def validateSortString(sortstring, classmodel):
     """
     return sortstring if sortstring in classmodel.getDataNames() else None
 
-def validateDirectionString(querydirection):
-    direction = querydirection or "ascending"
-    if direction == "ascending":
+def getDirection(direction, changeDir):
+    """
+    returns the direction that the columns should be sorted
+    """
+    if direction == None and not changeDir:
+        direction = "ascending"
+    elif direction == "ascending" and changeDir:
         direction = "descending"
-    else:
+    elif direction == "descending" and changeDir:
         direction = "ascending"
     return direction
 
+def getCaretDir(direction):
+    """
+    returns the caret direction
+    """
+    if direction == "ascending":
+        return "down"
+    return "up"
+
+def getTableDataDict(title, page):
+    """
+    Common data for table page
+    """
+    tableDataDict = {}
+    changeDir = request.args.get('changedir') and True or False
+    tableDataDict['page'] = page
+    tableDataDict['title'] = title
+    tableDataDict['pagenum'] = request.args.get('page') or 1
+    tableDataDict['offset'] = getOffset(tableDataDict['pagenum'])
+    tableDataDict['sortby'] = validateSortString(request.args.get('sortby'), Location) or 'id'
+    tableDataDict['direction'] = getDirection(request.args.get('dir'), changeDir)
+    tableDataDict['caretDir'] = getCaretDir(tableDataDict['direction'])
+    return tableDataDict
+
+def getModels(model, offset, sortby, direction):
+    """
+    Makes query and gets list of models based on it
+    """
+    query = None;
+    if sortby is not None:
+        if direction == "ascending":
+            modelList = model.query.order_by(
+                getattr(model, sortby)).limit(results_per_page).offset(offset)
+        else:
+            modelList = model.query.order_by(
+                    getattr(model, sortby).desc()).limit(results_per_page).offset(offset)
+    else:
+        modelList = model.query.filter_by().limit(results_per_page).offset(offset)
+    return modelList
+
 def getDataDictList(modelList):
     """
-    Returns a list of dictionary representations of models
+    Returns a list of dictionary representations of models based on params
     """
     dataDictList = []
-    for model in modelList:
-        dataDict = model.__dict__
+    for modelObj in modelList:
+        dataDict = modelObj.__dict__
         dataDict.pop("_sa_instance_state", None) # Weird key added by sqlalchemy
         dataDictList.append(dataDict)
     return dataDictList

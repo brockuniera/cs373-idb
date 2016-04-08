@@ -275,7 +275,7 @@ class TestLocations(TestCase):
         db.session.add(loc3)
         db.session.commit()
         self.assertEqual(len(Location.query.all()), 3)
-        Location.query.filter_by(latitude=_LOCDICTS[2]['latitude']).delete()
+        Location.query.filter_by(address=_LOCDICTS[2]['address']).delete()
         db.session.commit()
         self.assertEqual(len(Location.query.all()), 2)
 
