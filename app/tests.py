@@ -4,7 +4,7 @@ from db import app, db
 from models import Restaurant, Location, Category
 
 _TEST_DATABASE_URI = 'sqlite://'
-# app.config['SQLALCHEMY_DATABASE_URI'] = _TEST_DATABASE_URI
+app.config['SQLALCHEMY_DATABASE_URI'] = _TEST_DATABASE_URI
 
 _RESTDICTS = [
     {
