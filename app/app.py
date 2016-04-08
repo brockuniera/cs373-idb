@@ -4,7 +4,7 @@ from io import StringIO
 import logging
 from db import app
 from models import Location, Category, Restaurant, getDataDictList
-from flask import render_template, Markup
+from flask import render_template, Markup, request
 from flask.json import dumps
 from flask.ext.sqlalchemy import SQLAlchemy
 import api
