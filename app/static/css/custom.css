@@ -79,6 +79,7 @@ a{
 
 /* center text */
 .center-text {
+  color: #006666;
   text-align: center;
 }
 
@@ -194,8 +195,7 @@ a{
 
     }
 
-li2
-{
+li2{
     font-size: 30px;
     color: #632B4C;
 }
