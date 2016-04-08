@@ -230,7 +230,7 @@ div#slider figure {
     left: 0;
     text-align: left;
     font-size: 0;
-    animation: 30s slidy infinite;
+    animation: 15s slidy infinite;
 }
 
 @keyframes slidy {
@@ -243,4 +243,8 @@ div#slider figure {
     75% { left: -300%; }
     95% { left: -300%; }
     100% { left: -400%; }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
 }
