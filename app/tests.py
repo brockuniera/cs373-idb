@@ -190,7 +190,6 @@ class TestFood(TestCase):
         self.assertEqual(testrest.catlist[0], fatcat)
         self.assertEqual(fatcat.restlist[0], testrest)
 
-
 class TestRestaurants(TestCase):
 
     def setUp(self):
@@ -230,6 +229,15 @@ class TestRestaurants(TestCase):
         Restaurant.query.filter_by(name='Test Name').delete()
         db.session.commit()
         self.assertEqual(len(Restaurant.query.all()), 2)
+
+    def test_get_data_names_0(self):
+        self.assertEqual(len(Restaurant.getDataNames()), 5)
+
+    def test_get_data_names_1(self):
+        self.assertEqual(Restaurant.getDataNames(), ["id", "name", "phonenum", "rating", "reviewcount"])
+
+    def test_get_data_names_2(self):
+        self.assertEqual(Restaurant.getDataNames()[0], "id")
 
 class TestLocations(TestCase):
 
@@ -271,6 +279,15 @@ class TestLocations(TestCase):
         db.session.commit()
         self.assertEqual(len(Location.query.all()), 2)
 
+    def test_get_data_names_0(self):
+        self.assertEqual(len(Location.getDataNames()), 6)
+
+    def test_get_data_names_1(self):
+        self.assertEqual(Location.getDataNames(), ["id", "address", "neighborhood", "zipcode", "latitude", "longitude"])
+
+    def test_get_data_names_2(self):
+        self.assertEqual(Location.getDataNames()[0], "id")
+
 class TestCategorys(TestCase):
 
     def setUp(self):
@@ -292,7 +309,7 @@ class TestCategorys(TestCase):
     def test_repr(self):
         cat = Category.query.filter_by(name=_CATDICTS[0]['name']).one()
         correctreprfstring = "<Category(name='{name}', resttotal='{resttotal}', reviewtotal='{reviewtotal}', ratingavg='{ratingavg}')>"
-        self.assertEqual( repr(cat), correctreprfstring.format(**_CATDICTS[0]))
+        self.assertEqual(repr(cat), correctreprfstring.format(**_CATDICTS[0]))
 
     def test_filtering_cats_0(self):   
         cat = Category.query.filter_by(name=_CATDICTS[0]['name']).one()
@@ -310,6 +327,15 @@ class TestCategorys(TestCase):
         Category.query.filter_by(reviewtotal=_CATDICTS[2]['reviewtotal']).delete()
         db.session.commit()
         self.assertEqual(len(Category.query.all()), 2)
+
+    def test_get_data_names_0(self):
+        self.assertEqual(len(Category.getDataNames()), 5)
+
+    def test_get_data_names_1(self):
+        self.assertEqual(Category.getDataNames(), ["id", "name", "resttotal", "reviewtotal", "ratingavg"])
+
+    def test_get_data_names_2(self):
+        self.assertEqual(Category.getDataNames()[0], "id")
 
 if __name__ == '__main__':
     main()

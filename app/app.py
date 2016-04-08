@@ -1,13 +1,14 @@
-import unittest
-import tests
-from io import StringIO
-import logging
-from db import app
-from models import Location, Category, Restaurant, getDataDictList
 from flask import render_template, Markup, request
 from flask.json import dumps
 from flask.ext.sqlalchemy import SQLAlchemy
+from io import StringIO
+import logging
+import subprocess
+import unittest
+
 import api
+from db import app
+from models import Location, Category, Restaurant
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -155,14 +156,9 @@ def render_about():
 
 @app.route('/aboutT')
 def render_aboutT():
-    test_obj = unittest.main()
-    out_obj = StringIO()
-    unittest.TextTestRunner(stream=out_obj).run(test_obj)
-    unformattedstring = out_obj.getvalue()
-    text = str();
-    for line in unformattedstring.split('\n'):
-        text += Markup.escape(line) + Markup('<br />')
-    return render_template('about.html', teststring = text)
+    erroutput = subprocess.Popen(['python', 'tests.py'], stderr=subprocess.PIPE).communicate()[1]
+    formattedout = "".join(Markup.escape(str(line)) + Markup('<br />') for line in erroutput.decode("utf-8").splitlines())
+    return render_template('about.html', teststring=formattedout)
 
 #
 # Helper functions
@@ -196,6 +192,16 @@ def validateDirectionString(querydirection):
         direction = "ascending"
     return direction
 
+def getDataDictList(modelList):
+    """
+    Returns a list of dictionary representations of models
+    """
+    dataDictList = []
+    for model in modelList:
+        dataDict = model.__dict__
+        dataDict.pop("_sa_instance_state", None) # Weird key added by sqlalchemy
+        dataDictList.append(dataDict)
+    return dataDictList
 
 if __name__ == '__main__':
     app.debug = True

@@ -137,13 +137,3 @@ class Category(db.Model):
         # Order matters
         return ["id", "name", "resttotal", "reviewtotal", "ratingavg"]
 
-def getDataDictList(modelList):
-    """
-    Returns a list of dictionary representations of models
-    """
-    dataDictList = []
-    for model in modelList:
-        dataDict = model.__dict__
-        dataDict.pop("_sa_instance_state", None) # Weird key added by sqlalchemy
-        dataDictList.append(dataDict)
-    return dataDictList
