@@ -801,6 +801,6 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;*/
-  background-color: #ffffff;
-  webkit-tap-highlight-color: #6d0a3a;
+  background-color: #ffe6cc;
+  /*webkit-tap-highlight-color: #6d0a3a;*/
 }
