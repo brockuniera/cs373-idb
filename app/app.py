@@ -9,6 +9,7 @@ import unittest
 import api
 from db import app
 from models import Location, Category, Restaurant
+from whoosh_index import *
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -114,6 +115,36 @@ def render_aboutT():
     formattedout = "".join(Markup.escape(str(line)) + Markup('<br />') for line in erroutput.decode("utf-8").splitlines())
     return render_template('about.html', teststring=formattedout)
 
+@app.route('/search', methods=['GET', 'POST'])
+def render_search():
+    create_whoosh_dir()
+    rest_ix = get_restaurant_index()
+    loc_ix = get_location_index()
+    cat_ix = get_category_index()
+
+    restSearchableFields = ["name","phonenum"]
+    locSearchableFields = ["address","zipcode","neighborhood"]
+    catSearchableFields = ["name"]
+
+    restDataList = []
+    locDataList = []
+    catDataList = []
+
+    if request.method == 'POST':
+        search_query = request.form['search']
+        restDataList = search_results(rest_ix, search_query, restSearchableFields)
+        locDataList = search_results(loc_ix, search_query, locSearchableFields)
+        catDataList = search_results(cat_ix, search_query, catSearchableFields)
+        constructRelatedModels(restDataList, locDataList, catDataList)
+
+    return render_template('search_results.html',
+        restDataNames=Restaurant.getDataNames() + ["context"],
+        restDataList=restDataList,
+        locDataNames=Location.getDataNames() + ["context"],
+        locDataList=locDataList,
+        catDataNames=Category.getDataNames() + ["context"],
+        catDataList=catDataList)
+
 #
 # Helper functions
 #
@@ -199,6 +230,43 @@ def getDataDictList(modelList):
         dataDict.pop("_sa_instance_state", None) # Weird key added by sqlalchemy
         dataDictList.append(dataDict)
     return dataDictList
+
+def getDataDict(model):
+    """
+    Returns a single dictionary of model without sqlalchemy instance key in it
+    """
+    dataDict = model.__dict__
+    dataDict.pop("_sa_instance_state", None)
+    return dataDict
+
+def constructRelatedModels(restDataList, locDataList, catDataList):
+    for catModel in catDataList:
+        relatedRestModelsDicts = getDataDictList(Category.query.get(catModel["id"]).restlist)
+        for restModelDict in relatedRestModelsDicts:
+            found = False
+            for restModel in restDataList:
+                if(restModel["id"] == str(restModelDict["id"])):
+                    found = True
+            if not found:
+                restModelDict["context"] = "Category: " + catModel["context"]
+                restDataList.append(restModelDict)
+
+    for locModel in locDataList:
+        restModelDict = getDataDict(Restaurant.query.filter_by(location_id = locModel["id"]).one())
+        found = False
+        currRestModel = None
+        for restModel in restDataList:
+            if(str(restModel["id"]) == str(restModelDict["id"])):
+                currRestModel = restModel
+        if currRestModel is not None:
+            if("Location" not in currRestModel["context"]):
+                logger.debug(currRestModel["context"])
+                currRestModel["context"] += ", Location: " + locModel["context"]
+        else:
+            restModelDict["context"] = "Location: " + locModel["context"]
+            restDataList.append(restModelDict)
+
+
 
 if __name__ == '__main__':
     #app.debug = True # Comment out for production

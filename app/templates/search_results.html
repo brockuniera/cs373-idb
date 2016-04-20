@@ -1,0 +1,81 @@
+{% extends "common_content.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+<!-- super() loads the header, navbar and an open body tag -->
+{% block body %} {{ super() }}
+    <!-- All Restaurant data table -->
+    <section>
+      <h1 class="center-text"> Search Results </h1>
+      <div class="container table-wrapper">
+        <h3 class="center-text">Restaurants</h3>
+        <table id="data-table" class="table">
+          <thead>
+            <tr>
+              {% for tableHeader in restDataNames %}
+              <th>
+                  {{ tableHeader }}
+              </th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody class="clickable-rows">
+          {% for dataModel in restDataList %}
+            <tr data-page="/restaurant"> 
+              {% for attr in restDataNames %}
+              <td>{{ dataModel[attr] | safe}}</td>
+              {% endfor %} 
+            </tr>
+            {% endfor %}
+          </tbody> 
+        </table>
+      </div>
+      <div class="container table-wrapper">
+        <h3 class="center-text">Locations</h3>
+        <table id="data-table" class="table">
+          <thead>
+            <tr>
+              {% for tableHeader in locDataNames %}
+              <th>
+                  {{ tableHeader }}
+              </th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody class="clickable-rows">
+          {% for dataModel in locDataList %}
+            <tr data-page="/location"> 
+              {% for attr in locDataNames %}
+              <td>{{ dataModel[attr] | safe}}</td>
+              {% endfor %} 
+            </tr>
+            {% endfor %}
+          </tbody> 
+        </table>
+      </div>
+      <div class="container table-wrapper">
+        <h3 class="center-text">Categories</h3>
+        <table id="data-table" class="table">
+          <thead>
+            <tr>
+              {% for tableHeader in catDataNames %}
+              <th>
+               {{ tableHeader }}
+              </th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody class="clickable-rows">
+          {% for dataModel in catDataList %}
+            <tr data-page="/category"> 
+              {% for attr in catDataNames %}
+              <td>{{ dataModel[attr] | safe}}</td>
+              {% endfor %} 
+            </tr>
+            {% endfor %}
+          </tbody> 
+        </table>
+      </div>
+    </section>
+{% endblock %}
+<!-- common_content.html closes the body and html tags -->
