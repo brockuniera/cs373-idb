@@ -105,14 +105,17 @@ def fill_category_index(ix):
     writer.commit()
 
 def search_results(ix, search_query, fields):
-    qp = MultifieldParser(fields, schema=ix.schema, group=qparser.OrGroup)
-    q = qp.parse(search_query)
+    qpo = MultifieldParser(fields, schema=ix.schema, group=qparser.OrGroup)
+    qpa = MultifieldParser(fields, schema=ix.schema)
+    qo = qpo.parse(search_query)
+    qa = qpa.parse(search_query)
     data = []
     data_index = 0
 
     with ix.searcher() as s:
-        results = s.search(q)
-        for hit in results:
+        resultsa = s.search(qa)
+        resultso = s.search(qo)
+        for hit in resultsa:
             data.append(dict(**hit))
             context = str()
             for field in fields:
@@ -120,4 +123,18 @@ def search_results(ix, search_query, fields):
                     context += hit.highlights(field)
             data[data_index]["context"] = context
             data_index += 1
+
+        for hit in resultso:
+            found = False
+            for hita in resultsa:
+                if hit["id"] == hita["id"]:
+                    found = True
+            if not found:
+                data.append(dict(**hit))
+                context = str()
+                for field in fields:
+                    if(len(hit.highlights(field)) > 0 and hit.highlights(field) not in context):
+                        context += hit.highlights(field)
+                data[data_index]["context"] = context
+                data_index += 1
     return data
