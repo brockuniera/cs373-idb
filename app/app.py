@@ -123,7 +123,7 @@ def render_search():
     cat_ix = get_category_index()
 
     restSearchableFields = ["name","phonenum"]
-    locSearchableFields = ["address","zipcode","neighborhood"]
+    locSearchableFields = ["address","neighborhood", "zipcode"]
     catSearchableFields = ["name"]
 
     restDataList = []
@@ -260,7 +260,6 @@ def constructRelatedModels(restDataList, locDataList, catDataList):
                 currRestModel = restModel
         if currRestModel is not None:
             if("Location" not in currRestModel["context"]):
-                logger.debug(currRestModel["context"])
                 currRestModel["context"] += ", Location: " + locModel["context"]
         else:
             restModelDict["context"] = "Location: " + locModel["context"]

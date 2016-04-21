@@ -7,11 +7,6 @@ from whoosh.fields import SchemaClass, TEXT, KEYWORD, ID, STORED
 from whoosh.qparser import MultifieldParser
 from models import Restaurant, Location, Category
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(levelname)s: %(message)s')
-logger = logging.getLogger(__name__)
-
 whoosh_index_path = "whoosh_index"
 
 def create_whoosh_dir():
@@ -22,8 +17,8 @@ def create_whoosh_dir():
 
 class RestaurantSchema(SchemaClass):
     id = ID(stored=True)
-    name = KEYWORD(stored=True)
-    phonenum = KEYWORD(stored=True)
+    name = TEXT(stored=True)
+    phonenum = TEXT(stored=True)
     rating = ID(stored=True)
     reviewcount = ID(stored=True)
 
@@ -52,9 +47,9 @@ def fill_restaurant_index(ix):
 
 class LocationSchema(SchemaClass):
     id = ID(stored=True)
-    address = KEYWORD(stored=True)
-    neighborhood = KEYWORD(stored=True)
-    zipcode = KEYWORD(stored=True)
+    address = TEXT(stored=True)
+    neighborhood = TEXT(stored=True)
+    zipcode = TEXT(stored=True)
     latitude = ID(stored=True)
     longitude = ID(stored=True)
 
@@ -84,29 +79,24 @@ def fill_location_index(ix):
 
 class CategorySchema(SchemaClass):
     id = ID(stored=True)
-    name = KEYWORD(stored=True)
+    name = TEXT(stored=True)
     resttotal = ID(stored=True)
     reviewtotal = ID(stored=True)
     ratingavg = ID(stored=True)
 
 def get_category_index():
     if(index.exists_in(whoosh_index_path, indexname="category_index")):
-        logger.debug("GETTING CATEGORY INDEX")
         cat_ix = index.open_dir(whoosh_index_path, indexname="category_index")
     else:
-        logger.debug("CREATING CATEGORY INDEX")
         cat_ix = index.create_in(whoosh_index_path, schema=CategorySchema(), 
             indexname="category_index")
         fill_category_index(cat_ix)
     return cat_ix
     
 def fill_category_index(ix):
-    logger.debug("FILLING CATEGORY INDEX")
     writer = ix.writer()
-    logger.debug("FILLING CATEGORY INDEX2")
     catModelList = Category.query.filter_by().all()
     for catModel in catModelList:
-        logger.debug(catModel.id)
         writer.add_document(name=catModel.name, 
             id=str(catModel.id), 
             resttotal=str(catModel.resttotal),
@@ -122,13 +112,11 @@ def search_results(ix, search_query, fields):
 
     with ix.searcher() as s:
         results = s.search(q)
-        logger.debug(results)
         for hit in results:
-            logger.debug(hit)
             data.append(dict(**hit))
             context = str()
             for field in fields:
-                if(len(hit.highlights(field)) > 0):
+                if(len(hit.highlights(field)) > 0 and hit.highlights(field) not in context):
                     context += hit.highlights(field)
             data[data_index]["context"] = context
             data_index += 1
