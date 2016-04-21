@@ -22,6 +22,12 @@ a.offanchor {
   background-color: yellow;
 }
 
+.search-bar {
+  float: left; 
+  margin-top: 9px; 
+  margin-right: 25px;
+}
+
 .header-image{
   background-image: url('../img/main_bg.jpg');
   background-repeat: none;
