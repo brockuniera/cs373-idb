@@ -25,7 +25,7 @@ script:
     - ls -al
     # - make models.html
     - ls -al
-    - make IDB2.log
+    - make IDB3.log
     - ls -al
     - make test
     - ls -al

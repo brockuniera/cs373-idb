@@ -1,0 +1,929 @@
+commit 739c9bfd88b8e67746085f8a40d882d40fbcb5d1
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 21 15:07:26 2016 -0500
+
+    Updated about page stats
+
+commit 57eaf402f0f4eac5514cfb4de768398d8a78a860
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 21 14:59:42 2016 -0500
+
+    Fixed styling of search bar, closes brockuniera/cs373-idb#64
+
+commit e29a750942630f4fac26ebb4839aab9b2d19049e
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 21 00:25:08 2016 -0500
+
+    Search now case insensitive, fixes brockuniera/cs373-idb#54
+
+commit db38bb6c5d8e06b3fbdfe74cf15f066031a32805
+Author: zachsand <zachsand@utexas.edu>
+Date:   Wed Apr 20 14:12:05 2016 -0500
+
+    Implement search using Whoosh
+
+commit 15249cf51ccceb42978f345308fafe96d74776cf
+Author: annyuu <annyu@utexas.edu>
+Date:   Sat Apr 9 22:40:51 2016 -0500
+
+    update about page
+
+commit a8c4081832815abece4029a129d56e04803efdab
+Author: zachsand <zachsand@utexas.edu>
+Date:   Fri Apr 8 16:34:07 2016 -0500
+
+    last commit for phase 2, added new log
+
+commit 06c220672c2a4dca020ce42c70eb93cfae861cf4
+Author: zachsand <zachsand@utexas.edu>
+Date:   Fri Apr 8 16:28:59 2016 -0500
+
+    Fixed API issues, regenerated models.html
+
+commit fbd49c7a9ba83bd48bab7a65a0efff583e25b136
+Author: annyuu <annyu@utexas.edu>
+Date:   Fri Apr 8 16:20:48 2016 -0500
+
+    update about page
+
+commit 37e9784c6773413cb992946afc1d55d11416526c
+Author: zachsand <zachsand@utexas.edu>
+Date:   Fri Apr 8 15:15:24 2016 -0500
+
+    Fixed an issue with sorting, accidentally hardcoded the Location model into a common function all models use
+
+commit 8aadfaec0f4f2e76d853a7d98e40b72005f53b68
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Fri Apr 8 14:49:45 2016 -0500
+
+    Comment out app.debug = True
+    
+    Its not for production!!
+
+commit ded25c4a3c9b73625502b8685231fcdeb7738f23
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Fri Apr 8 14:43:38 2016 -0500
+
+    Coverage ignores travis site-packages directories
+
+commit ef37e9ed435ca3457a2a15fb34c41ffcf2750e6c
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Fri Apr 8 14:24:49 2016 -0500
+
+    Corrected link problems + slideshow solution??
+    
+    Slideshow solution might not work correctly, but please upload and see if it did Zach.
+
+commit 08ae89e1fda7c9ee90bff935f101d2f5b547ee70
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Fri Apr 8 14:07:42 2016 -0500
+
+    Fix tests not working in travis
+
+commit 80c2a21e7c1fc8807042aa9943db37c97351cb61
+Author: angelxut <angelx@utexas.edu>
+Date:   Fri Apr 8 09:09:20 2016 -0500
+
+    increase the height of the map
+
+commit 713c70388082beaeea7b046205384183732a151d
+Author: zachsand <zachsand@utexas.edu>
+Date:   Fri Apr 8 03:44:09 2016 -0500
+
+    Added favicon
+
+commit 45492328fcb977d05044ab6ed8308333fefcb844
+Author: zachsand <zachsand@utexas.edu>
+Date:   Fri Apr 8 03:43:40 2016 -0500
+
+    Table sorting now more logical and refactored, add favicon, changed zipcode to an integer
+
+commit d96e35678ab300d56960f7620a8a4ee164b2e717
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 22:45:02 2016 -0500
+
+    tests.py should work in Travis and runnable from about
+
+commit 97009ab8533c84125b2c6fdf8afd90dffc58a5c4
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 21:48:23 2016 -0500
+
+    Fixed the table width by fixing a syntax error
+
+commit 3ed515d6933633a08add657f07799e2610dc970f
+Merge: d820f7c 6ecd29e
+Author: annyuu <annyu@utexas.edu>
+Date:   Thu Apr 7 21:46:55 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb into dev
+
+commit d820f7c6b135d7b23dca1f4bf79beba0193ee74a
+Author: annyuu <annyu@utexas.edu>
+Date:   Thu Apr 7 21:46:33 2016 -0500
+
+    update description on index.html
+
+commit 6ecd29ed9eaf026011a23841ca8c2c1497a566d1
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 21:41:12 2016 -0500
+
+    Made sliding category thing smaller
+
+commit fbc08f543adb5bb3106376c8fa26c6b68fe496c0
+Merge: 4b49ad3 a633e75
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 21:36:17 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb into dev
+
+commit 4b49ad34a829d5c0a886a4dbe33d68b561804124
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 21:35:56 2016 -0500
+
+    Fixed tests page
+
+commit a633e758efca29cc0b534efd91bce27f18fa8653
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 21:34:40 2016 -0500
+
+    Missed a div
+
+commit 44fe91edc86a414784561e8638ac43d46d2a7d23
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 21:33:22 2016 -0500
+
+    Quick page changes
+
+commit e978ce0ea8b73b82be5aaa03f95a40d9b47b07d9
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 21:32:10 2016 -0500
+
+    Add missing map info back to location.html
+
+commit b4fb93c6cc065c88d76732958b51aca3d12cd1b2
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Apr 7 21:28:59 2016 -0500
+
+    delete the duplicate header for category page
+
+commit 1850a4e479a614e3c87e16d63ebf55177e3766e9
+Merge: d9a9a9d c7545c6
+Author: annyuu <annyu@utexas.edu>
+Date:   Thu Apr 7 21:06:15 2016 -0500
+
+    update about page
+
+commit d9a9a9d6675617742b788e13a71c7fe4facf62b7
+Author: annyuu <annyu@utexas.edu>
+Date:   Thu Apr 7 21:02:51 2016 -0500
+
+    update about page
+
+commit c7545c6692348e03e9603c5a33894f7816426cc2
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 20:58:57 2016 -0500
+
+    Got rid of the extra console window
+
+commit 2d599860d03a973c05ccb3c5c044e8cb83dc05ae
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 20:52:47 2016 -0500
+
+    Add request import back to app.py
+
+commit a73f17a130ee9c4a2a7277acfbe326a99a1332b6
+Merge: fa6e17b 66ee128
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 20:50:30 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb into dev
+
+commit fa6e17bd96fee1efbc58c66c35c4a2ee3abd0cdf
+Merge: 0ede745 a7d681c
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 20:47:31 2016 -0500
+
+    Merge dev from tomas
+
+commit 0ede745f229bbc1b26488c71efca01ae2d9b3dd0
+Merge: d58b140 00442a0
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 20:37:02 2016 -0500
+
+    Merge branch 'zach/dynamicdata' into dev BIG DEAL
+
+commit 66ee128fafde562847b7a53fcd95e65fe410aee9
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 20:36:58 2016 -0500
+
+    Small change to slideshow speed + angular cloaking
+
+commit a7d681c0072253165e8685850d1c4bd08d87ebed
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 20:22:43 2016 -0500
+
+    Category page updated for nicer slideshow
+
+commit ecbc5acada3296bc50212989c27005462e4352be
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 20:10:43 2016 -0500
+
+    Changed the slideshow to a new slideshow
+
+commit fbeb7c2bece012595ce88fc4e772f0342e22657c
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 19:47:32 2016 -0500
+
+    Fixed linebreaks in abouttest output
+
+commit d58b140f0a4a33d8498f84584a86fb25a6d78f82
+Author: annyuu <annyu@utexas.edu>
+Date:   Thu Apr 7 19:43:28 2016 -0500
+
+    update pages
+
+commit 6ba63e66f51509f650b991627b906a68a65a521b
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Apr 7 19:42:15 2016 -0500
+
+    pack google map scrip from html file to js file
+
+commit 6620647620f0b9e7b1024cd543d1b344b95282a5
+Author: annyuu <annyu@utexas.edu>
+Date:   Thu Apr 7 19:11:08 2016 -0500
+
+    change background color
+
+commit 080f94d07ec93d7ea2616b618eb7c7d79113df42
+Author: annyuu <annyu@utexas.edu>
+Date:   Thu Apr 7 19:05:10 2016 -0500
+
+    update UML again...
+
+commit 35ecbabfec5ed8d85cd9366825b91b667c265f9a
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 18:52:02 2016 -0500
+
+    Write lotsa unit tests
+
+commit 1051bc6cf17b9c76268c13fadccab8efbdd83c25
+Author: Ann <annyu@utexas.edu>
+Date:   Thu Apr 7 18:52:34 2016 -0500
+
+    update UML.pdf and about page
+
+commit 00442a0faf006c0cad1a46b5ea3772d3bc1dcafe
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 18:42:25 2016 -0500
+
+    Added dynamic sorting to smaller pages using angular, addied backend sorting for larger pages
+
+commit dcc2695b16d28461a4ab3e2003e953c108b63243
+Author: Ann <annyu@utexas.edu>
+Date:   Thu Apr 7 18:29:28 2016 -0500
+
+    fixed some issues in agency.css, custom.css, index.html, restaurant.html, and app.py
+
+commit 4df120c25d61cf635b3e54b0d73003e429d2f49a
+Merge: 37286b9 0a53ad3
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 17:55:07 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb into dev
+
+commit 37286b97ac74adaa90491457ce16072d94a38e92
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 17:53:53 2016 -0500
+
+    Changes to about page, test code w/ formatting
+
+commit 0a53ad32f930347b1507ee95f1cdee9036837cdf
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 17:47:08 2016 -0500
+
+    tests.py is runnable now
+
+commit 8da5e310501368f42f15b8658b281999e41485fe
+Author: Ann <annyu@utexas.edu>
+Date:   Thu Apr 7 17:40:55 2016 -0500
+
+    changed colors...
+
+commit e788d21393d4095ce80d31f8c82ca95704852c86
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 14:11:12 2016 -0500
+
+    Cleaner unit tests
+
+commit 8cdfcb60073699cdeb899da47a7b8895e6b83b36
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 17:23:26 2016 -0500
+
+    Put about page elements in columns, plus app.py
+
+commit 150a2621c1ac6b2e280ef79feb54887a42a69298
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 17:03:53 2016 -0500
+
+    Got backend sorting working for the Restaurant tables page for the most part
+
+commit f68808cb350aaa70009a33a0a199a1813b4d4141
+Author: Ann <annyu@utexas.edu>
+Date:   Thu Apr 7 16:53:25 2016 -0500
+
+    another tiny change for text color
+
+commit 73b65de4152266eac01db40e5b804a204e397c37
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Apr 7 16:32:27 2016 -0500
+
+    changed background and text colors
+
+commit 4f6978b7e702cdaa0481bd7126b221cf72c84efb
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 16:28:49 2016 -0500
+
+    Added getting larger images from Yelp
+
+commit 0845eac4c9fbef2068e09a5d8ef6ca2895567cf5
+Merge: ac61aec f18a01f
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 16:23:50 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb into dev
+
+commit ac61aeccac2962b42d0f24a5a8e3248d08a7cf9d
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Apr 7 16:19:47 2016 -0500
+
+    css changes to elements on main/splash
+
+commit d326be07296884d9f1abcd1362829fec736d4c21
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 16:19:07 2016 -0500
+
+    Restaurant has basic implementation of sortby
+
+commit f18a01febe9ad52bf663909b815f75e28498e4fa
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Apr 7 16:19:03 2016 -0500
+
+    push the header in the splash page up
+
+commit 64beae62789437cf4cf1614fd7de82a344d9c9d6
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 15:25:43 2016 -0500
+
+    Add small comments to models.py
+
+commit 6ec55c0aa5540814befb42ab6682046c4072ec2d
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 15:19:48 2016 -0500
+
+    Addded many to many data to the pages
+
+commit a02dd1ee84cf6c1fcce7b002b6156294306ded11
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Thu Apr 7 14:18:13 2016 -0500
+
+    api.py imports app from db
+
+commit 2fc472569bd4a2503eb34ae25f948e82ff17864c
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 05:53:15 2016 -0500
+
+    got changes from dev index.html into my branch
+
+commit 6b21519f278673b49781bd2bf594fee4572a7f41
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 05:51:19 2016 -0500
+
+    Added pagination using limit/offset for our queries, updated some of the HTML file templates, changed query amount to 125 results
+
+commit c2d5266ef7b8bbe550e8f8e7fd8ac344cde22ad7
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Apr 7 04:40:01 2016 -0500
+
+    Data now pulled from database onto some pages, added onClick for table rows, some other things
+
+commit 8fcb852dc9070d409cc2c5c4655a41b451f2ac85
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Apr 7 01:33:38 2016 -0500
+
+    add slide image for the category subpage and match all three subpages
+
+commit beb9970bc86867d0e2dfa83833c496a4d492c7d3
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Wed Apr 6 17:53:15 2016 -0500
+
+    small changes
+
+commit 9e7dcaea1eedd70bc77df42727318983c472653c
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Wed Apr 6 17:37:53 2016 -0500
+
+    Added css rules for about page "test" button + etc
+    
+    Mostly indent and visual effects
+
+commit 75730c22ff2396145cfc3f4e0ce894392e69c269
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Wed Apr 6 16:58:51 2016 -0500
+
+    api.py is now used by app.py
+
+commit d39700809662618ab273fedda16c556603e9cd09
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Wed Apr 6 15:36:52 2016 -0500
+
+    More api functions
+
+commit 51d3573bb64119c66ca3f0d0034fd49e84870b4b
+Author: angelxut <angelx@utexas.edu>
+Date:   Wed Apr 6 17:05:45 2016 -0500
+
+    done redesign the location subpage
+
+commit 8786911f741552884e71dd4441b7c3f36da646d8
+Author: zachsand <zachsand@utexas.edu>
+Date:   Wed Apr 6 16:57:14 2016 -0500
+
+    Removed filtering part of the API, we determined it wasn't really typical in a RESTful API
+
+commit 537aad5ba71b394c9cebc302e173fa6ce90aa382
+Author: zachsand <zachsand@utexas.edu>
+Date:   Wed Apr 6 15:48:46 2016 -0500
+
+    Changed to structure of the app to have db.py as the root to fix import issues with models
+
+commit 320eca1b3e887c1c18ef6f2b168e9b22e7de1736
+Author: zachsand <zachsand@utexas.edu>
+Date:   Wed Apr 6 14:21:58 2016 -0500
+
+    Removing a swap file that someone committed -- don't do that lol
+
+commit 277b558de0547ce23f447463184124b34ecc49d8
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Wed Apr 6 12:06:19 2016 -0500
+
+    Combined all database templates to one single file
+    
+    Changed all possible elements from each page to a template call.  Refer to app.py for variables passed in,
+    Since iterating through keys is undefined in terms of sorting, we have to manually define the columns and
+    pass it in through flask.  I also currently have angular loading at the top of the page, which may be a
+    cause for slow page loading.
+
+commit d43ca5cb49cdecddc8e94e749ee6a88f9b2ea43d
+Author: zachsand <zachsand@utexas.edu>
+Date:   Wed Apr 6 03:13:56 2016 -0500
+
+    Got the damn database to work correctly on a local container with some small changes and adding the use of Manager
+
+commit d28a84dc2b075df7aaec48619d32823d1df66ed0
+Author: angelxut <angelx@utexas.edu>
+Date:   Wed Apr 6 00:29:15 2016 -0500
+
+    redesign the location subpage, but not finish yet
+
+commit 55a261e9fa4e94c96237f792de7ff9e3749a0f70
+Author: angelxut <angelx@utexas.edu>
+Date:   Wed Apr 6 00:22:54 2016 -0500
+
+    redesign the location subpage, but not finish yet
+
+commit 15b36f7d4dc5b7f334a81c7c5e02ae7bd539e63b
+Author: angelxut <angelx@utexas.edu>
+Date:   Tue Apr 5 16:14:53 2016 -0500
+
+    add google map in the location page
+
+commit 73a94ff59aed4ae7b15caaefef0b3503372f66f8
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Tue Apr 5 11:25:10 2016 -0500
+
+    Extended FLASK implementation from Location.html
+    
+    Now works for category and restaurant requests, however the formatting is still temporary.
+
+commit 008efed56321e7dcfe834b567b18da2680cb4d43
+Author: zachsand <zachsand@utexas.edu>
+Date:   Tue Apr 5 00:04:51 2016 -0500
+
+    Updated makefile to get make test to run correctly now that Python files are in app directory
+
+commit dd4f132718a25fae0e6ecf3759d9b5d3e0bcbf14
+Author: zachsand <zachsand@utexas.edu>
+Date:   Mon Apr 4 23:56:39 2016 -0500
+
+    Moved all the Python files to the app directory and updated the makefile to reflect that
+
+commit 6ce59bab848dba8acf43cedf64e79d90b4dc442d
+Author: angelxut <angelx@utexas.edu>
+Date:   Mon Apr 4 16:58:13 2016 -0500
+
+    add yelp logos files to the static floder
+
+commit b37e836db4099c2323f65a1b699d6688c9d0c087
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Mon Apr 4 14:19:53 2016 -0500
+
+    changes to app.py and location.htm to accept flask
+    
+    App.py now has a temporary function to mimic SQL calls by returning a dummy dictionary.  This dictionary is used to implement flask templating to Restaurant.htm.  A few unpolished formatting changes were made to each single templating page as well.
+
+commit 285b03f6bf943f96b7d459c1114a5fe6a21efd57
+Author: Tomas Gonzalez <tjg@cs.utexas.edu>
+Date:   Sat Apr 2 12:43:54 2016 -0500
+
+    Background changes w/ angel + other splash tweaks
+    
+    Added drop shadows to elements to make them stick out more along the background, however the background may not be as pleasing as it could be, use css filter options to tweak that.:
+
+commit 49e1653f38abc6869cb3ab75bf2968df2065bf30
+Author: angelxut <angelx@utexas.edu>
+Date:   Sat Apr 2 11:26:18 2016 -0500
+
+    change the background -- get every food out of the image
+
+commit c30f8e60805b2eda2fafbbc8bf021e64ba3c5be4
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Fri Apr 1 20:54:38 2016 -0500
+
+    Made small modifications to front page and css
+    
+    Now include a place for Title and Description for splash page, needs a proper writup.
+    Color and a font size change to navbar, and some padding changes that might need to be reverted.
+    Font choice is unmade and color doesn't contrast well with background.
+
+commit 36ae6edface97048db02bf7911c3fdaae3b60544
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Mar 31 03:28:29 2016 -0500
+
+    Restyled the tables to make them easier to read, they can now all be changed by changing the 'data-table' css id, they probably still need some work but they don't have resize issues on smaller screens closes brockuniera/cs373-idb#29
+
+commit 72baa96b236466db72f177abb6412611bbcafc98
+Author: zachsand <zachsand@utexas.edu>
+Date:   Thu Mar 31 02:33:54 2016 -0500
+
+    Cleaned up HTML pages, added templating for common things on each page, added a custom css file, closes brockuniera/cs373-idb#43#29#28
+
+commit 42d68f02255b3286b5f3c5910a174ce7dfb6ed6c
+Author: zachsand <zachsand@utexas.edu>
+Date:   Wed Mar 30 00:38:20 2016 -0500
+
+    Fixed db import and removed uneeded namedtuple import
+
+commit b6e32cb0582c44904e382d359bdf21d8684f51a9
+Author: zachsand <zachsand@utexas.edu>
+Date:   Wed Mar 30 00:16:20 2016 -0500
+
+    Changed spacing to all HTML files to 2 space indent, added some comments, and fixed some minor errors like unclosed tags, etc. closes brockuniera/cs373-idb#25
+
+commit c7bb243b92bc25ff5f72f106010e52ac4fc831fd
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Sat Mar 26 23:34:26 2016 -0500
+
+    Removed db.py and moved most of its code to app.py to fix relative module location issues
+
+commit afde16c16e611705246b5e22867d2ece7febfeab
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Sat Mar 26 23:00:33 2016 -0500
+
+    Small change to app.py, importing the app from db.py now
+
+commit 8ef776bbd6d5ebcf9d1b3f0323b5005dbe634b31
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Sat Mar 26 22:54:49 2016 -0500
+
+    Updated models documentation becase models changed slightly, closes brockuniera/cs373-idb#33
+
+commit 6a3cb17c7f35ddfc1d45ebc5251b7acd08e77523
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Sat Mar 26 22:52:04 2016 -0500
+
+    Changed models to match Yelp research, added Yelp logo images, updated tests to match model changes, updated readme and created a file to setup the database with data
+
+commit 1a188b442f1a5fe3eb9f5c6216f55fc6d66ccb82
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 21:30:38 2016 -0500
+
+    Updated commit count in about page
+
+commit 46363bb7d07c51739461e91b1a3866ba3e301ba8
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 21:28:16 2016 -0500
+
+    Fixed about page and updated IDB1.log, should be last commit for phase 1
+
+commit ab51173270c67e62d9ed811f2ac8437404f89ddb
+Merge: 2efc5c8 7968d8d
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 21:18:01 2016 -0500
+
+    Merge branch 'master' into dev
+
+commit 7968d8d56be3dc5dee460ad09a215cf15b9afc34
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 21:16:41 2016 -0500
+
+    updated commits and issues before phase 1 turn in
+
+commit db06fc98394fa0ef4508d56d6409311e98975153
+Merge: d0412b5 9500355
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 21:08:44 2016 -0500
+
+    Fixing merge for master
+
+commit 2efc5c824f71624a7c4e90b0fd54148451082488
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 21:00:42 2016 -0500
+
+    minor changes
+
+commit d0412b59b1080d7cd478a34bef493f34f34a56fc
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 20:49:10 2016 -0500
+
+    Updated that IDB1 log closes closes brockuniera/cs373-idb#14
+
+commit 62283223f4aac83e36e8c3984a81da4955a0372e
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 20:47:31 2016 -0500
+
+    closes brockuniera/cs373-idb#2
+
+commit 036c451c9ef3789a9fd5c67f064b03ccb5ca5c8a
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 20:38:03 2016 -0500
+
+    set both of location and restuarant page in center
+
+commit b48f9233d55d7ba67a40067af463f1ae950f4532
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 20:34:30 2016 -0500
+
+    Removed copies of files, everything should have been in static
+
+commit 963bbe0bda161c501480f0e5ad7c7334aee4081b
+Merge: 2f31cc5 761b8fe
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 20:26:19 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb into dev
+
+commit 2f31cc509404068f086c8e5d8db63669fd7cdfa4
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 20:25:35 2016 -0500
+
+    finish about page
+
+commit 761b8fe4070a4777a77da6249a702907c9355871
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Mar 24 20:19:47 2016 -0500
+
+    Added image candidates for static web pages
+
+commit 9713ebe311350ffb51f0e3549f37b38f5664c675
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 20:10:15 2016 -0500
+
+    Added images to each of the model id files, they're the same for each but at least it's something
+
+commit 41609c94d408606eabc164dcfa77bdbd4ba823fc
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 19:59:15 2016 -0500
+
+    change photo's size
+
+commit 8c28f4288613d9b3c7dea17926020ac49c392389
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 19:56:18 2016 -0500
+
+    added more stuff to about page
+
+commit f5146afb94832405fdc76e29a67d5073312e2bfb
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 19:46:09 2016 -0500
+
+    Added the routing to template models based on id as well as the template id pages
+
+commit 22cee5082571c6b47594f8918826e4be7c3b9c73
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 19:25:30 2016 -0500
+
+    git photos in the about page works
+
+commit a06cb43789ca63f44b85fc343e5ff49e073834b2
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 19:08:31 2016 -0500
+
+    changes 2
+
+commit 950035531c1b9b529032b826114ac115de06037b
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 19:00:00 2016 -0500
+
+    minor changes agency.css
+
+commit 2642f9af4673cdb540bd92e6af26f9eec4139139
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Thu Mar 24 18:55:19 2016 -0500
+
+    Updated about page, team members
+
+commit 2b9d3dd4c2584fc895ae944705cc0d6514e1e1ef
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 18:43:12 2016 -0500
+
+    finish the details of the table and add the hover table
+
+commit 479548f1c44abab09c51be9d1680af491eed67a6
+Author: Tomas Gonzalez <tomas.g.2012@utexas.edu>
+Date:   Thu Mar 24 18:10:49 2016 -0500
+
+    Slightly updated agreed UML design
+
+commit 30ba8dad48afd04eeb2e54be21429055b4cfa67d
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 18:06:11 2016 -0500
+
+    fill some details for the tables
+
+commit 3abce40ab1d9133ab97fb44374b3b550428ea88e
+Author: angelxut <angelx@utexas.edu>
+Date:   Thu Mar 24 16:25:35 2016 -0500
+
+    create a table but not finish yet
+
+commit ab09d23d0a7818894f73b649bb61b72a96b2e3f5
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 15:05:01 2016 -0500
+
+    Added Apiary documentation, closes brockuniera/cs373-idb#7
+
+commit e869fdc4f4977a1b0ddf81f117fccc9a4dcac8fb
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 14:54:38 2016 -0500
+
+    Added Travis CI  image for build pass/fail
+
+commit 4c8199d1e2c17bbd6f0b84a8adf354bd2b92beba
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 14:52:01 2016 -0500
+
+    Manually ran pydoc for models and commented it out on travis yml file
+
+commit 5cab3ab126617accc826434c5667e67fc2de8c38
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 14:30:10 2016 -0500
+
+    Changed the way makefile is making documentation
+
+commit 3399b1fff154e6f927cf80110ceb64a4a54f3b14
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 14:27:17 2016 -0500
+
+    Updated travil yml and makefile, added apiary documentation
+
+commit 19bc975be3c7253011ba33408f4adecb882fae7a
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:37:13 2016 -0500
+
+    Changed makefile to attempt to fix failing commands
+
+commit a70905670b889fc36b2b3ee2738cbedad23b5b03
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:23:39 2016 -0500
+
+    Fixed tab issue with .travis.yml
+
+commit 2a59f977e2155b898c676812df8cf8ed52a31b7a
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:21:18 2016 -0500
+
+    Added changes to .travis.yml so it actually runs some tests
+
+commit ece8dad8ccf8754130567d0519831ee9ffe86c54
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:19:27 2016 -0500
+
+    Added README
+
+commit e8d6d1ca4104f887e8e5781e8023d8f600e8325f
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:18:44 2016 -0500
+
+    Added README
+
+commit ecea1d6cfdd4d31e518df9cecbdbc0065ea03289
+Merge: d269e0b 31f8659
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:17:07 2016 -0500
+
+    Added README
+
+commit d269e0b24149a18155e262a35cb2fce8ded5abda
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 06:15:13 2016 -0500
+
+    Added UML pdf and empty apiary file to make travis happy. Readded README, closes brockuniera/cs373-idb#9
+
+commit 31f8659c096ab026b1e0ded61d35f3e834aa9caa
+Author: annyuu <annyuu@users.noreply.github.com>
+Date:   Thu Mar 24 06:14:24 2016 -0500
+
+    Create README.md
+
+commit 0c5c6068b56a7fbb16cf292773271f326380a41a
+Merge: 0e9c072 52e2cba
+Author: annyuu <ann@Anns-MacBook-Pro.local>
+Date:   Thu Mar 24 06:01:10 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brockuniera/cs373-idb-dev into dev
+
+commit 0e9c07282fa43d65089c601da51dfbf24ddf4bc5
+Author: annyuu <ann@Anns-MacBook-Pro.local>
+Date:   Thu Mar 24 05:57:13 2016 -0500
+
+    changed and fixed background and colors
+
+commit 52e2cba5fbab94085483bb380abb976eb444f39d
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 05:56:56 2016 -0500
+
+    Added tests to tests.py to test models.py, they succeed closes brockuniera/cs373-idb#15
+
+commit 25eb7127c72429a6d06136d104a505aaf4eb1436
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 04:05:07 2016 -0500
+
+    Changed the Readme to show a glimpse into our application
+
+commit 562d9a84fd82a7acc1d948ab6b8131dda3da53c6
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 04:03:54 2016 -0500
+
+    Changed the Readme to show a glimpse into our application
+
+commit 7184ca7a2450ac7cd10955767de543965f551c47
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 03:42:29 2016 -0500
+
+    Added docker image and austin eats image for closes brockuniera/cs373-idb#21
+
+commit 4131165e4bdf9d90ce9c7d087b60de57bad5c2c9
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Thu Mar 24 03:35:33 2016 -0500
+
+    Removed uneeded css file since we're linking it now, added carina cluster image for Wiki
+
+commit 67957bf2656510ba6b625ab5f6e11553bacc826f
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Wed Mar 23 23:08:05 2016 -0500
+
+    Comment _assoctable_restcat table in models.py
+
+commit 1870fce96579658c85876f226a0c6fbac53edd0c
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Wed Mar 23 22:47:16 2016 -0500
+
+    Add docstrings to models.py
+
+commit 913528ab56243cd9c4006f74de22a5f5ba2dfae9
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Wed Mar 23 20:08:38 2016 -0500
+
+    Implement models.py
+    
+    Still needs documentation
+
+commit da2da85f7031f943979eacfdaf68df32160565c6
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Wed Mar 23 18:14:17 2016 -0500
+
+    changed links to pages
+
+commit b0fb612c60bbc047153d7050ec4b7f30e7dd7cb4
+Author: Zachary Sanders <Zachary Sanders>
+Date:   Wed Mar 23 05:47:56 2016 -0500
+
+    Changed the structure of the repo to match how Flask expects it, this commit is currently live on the website resolves brockuniera/cs373-idb#17
+
+commit 8b30d6292aa360326bb1d66ee82c5ec2b6e2fb55
+Author: angelxut <angelx@utexas.edu>
+Date:   Tue Mar 22 23:43:11 2016 -0500
+
+    add four subpages
+
+commit 4f232569afb48d7843c93fc61e061d1c21586eec
+Author: annyuu <ann@wireless-10-147-233-175.public.utexas.edu>
+Date:   Tue Mar 22 18:26:46 2016 -0500
+
+    Main page html files and pictures
+
+commit aebd5aa1a360ef579b7368b9d42342d54329f2ee
+Author: brockuniera <brockuniera@utexas.edu>
+Date:   Sat Mar 19 16:04:35 2016 -0500
+
+    Add .gitignore, .travis.yml
