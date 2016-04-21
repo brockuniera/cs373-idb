@@ -1,6 +1,6 @@
 import os
 import logging
-import time
+import re
 
 from whoosh import index, qparser
 from whoosh.fields import SchemaClass, TEXT, KEYWORD, ID, STORED
@@ -120,7 +120,7 @@ def search_results(ix, search_query, fields):
             context = str()
             for field in fields:
                 if(len(hit.highlights(field)) > 0 and hit.highlights(field) not in context):
-                    context += hit.highlights(field)
+                    context += re.sub(r"(\(.*[^\)])",r'\1)', hit.highlights(field))
             data[data_index]["context"] = context
             data_index += 1
 
@@ -134,7 +134,7 @@ def search_results(ix, search_query, fields):
                 context = str()
                 for field in fields:
                     if(len(hit.highlights(field)) > 0 and hit.highlights(field) not in context):
-                        context += hit.highlights(field)
+                        context += re.sub(r"(\(.*[^\)])",r'\1)', hit.highlights(field))
                 data[data_index]["context"] = context
                 data_index += 1
     return data
