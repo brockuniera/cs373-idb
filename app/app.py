@@ -251,20 +251,27 @@ def constructRelatedModels(restDataList, locDataList, catDataList):
                 restModelDict["context"] = "Category: " + catModel["context"]
                 restDataList.append(restModelDict)
 
+    catAndRestList = []
+    catAndRestIndex = 0;
+
     for locModel in locDataList:
         restModelDict = getDataDict(Restaurant.query.filter_by(location_id = locModel["id"]).one())
         found = False
         currRestModel = None
         for restModel in restDataList:
             if(str(restModel["id"]) == str(restModelDict["id"])):
-                currRestModel = restModel
-        if currRestModel is not None:
-            if("Location" not in currRestModel["context"]):
-                currRestModel["context"] += ", Location: " + locModel["context"]
+                catAndRestList.append(restModel)
+                restDataList.remove(restModel)
+        if len(catAndRestList) == (catAndRestIndex+1):
+            if("Location" not in catAndRestList[catAndRestIndex]):
+                catAndRestList[catAndRestIndex]["context"] += ", Location: " + locModel["context"]
+                catAndRestIndex += 1
         else:
             restModelDict["context"] = "Location: " + locModel["context"]
             restDataList.append(restModelDict)
 
+    for catAndRest in catAndRestList:
+        restDataList.insert(0, catAndRest)
 
 
 if __name__ == '__main__':
