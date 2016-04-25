@@ -1,5 +1,5 @@
 from flask import render_template, Markup, request
-from flask.json import dumps
+from flask.json import dumps, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 from io import StringIO
 import logging
@@ -27,12 +27,31 @@ results_per_page = 25
 def index():
     return render_template('index.html')
 
+# Other Team's API
+
+@app.route('/otherdata.json')
+def todojson():
+    """
+    JSON data to render is returned by this endpoint
+    """
+    import json
+    # TODO We're using a test data file 'flare.json' for now
+    with open('flare.json') as f:
+        return jsonify(**json.load(f))
+
+@app.route('/otherapi')
+def otherapi():
+    """
+    URI for displaying the other team's data
+    """
+    return render_template('other_api.html')
+
 # Location
 
 @app.route('/location')
 def render_location():
     tableDataDict = getTableDataDict("Locations","location", Location)
-    locDataDictList = getDataDictList(getModels(Location, tableDataDict['offset'], 
+    locDataDictList = getDataDictList(getModels(Location, tableDataDict['offset'],
         tableDataDict['sortby'], tableDataDict['direction']))
     return render_template('template_db.html',
             dataNames=Location.getDataNames(),
@@ -45,8 +64,8 @@ def render_location_id(location_id=None):
     locModel = Location.query.get_or_404(location_id)
     relatedRestModel = Restaurant.query.filter_by(location_id = location_id).one()
     catListModels = getDataDictList(relatedRestModel.catlist)
-    return render_template('location.html', 
-        locModel = locModel, 
+    return render_template('location.html',
+        locModel = locModel,
         restModel = relatedRestModel,
         catAttrs = Category.getDataNames(),
         catListModels = dumps(catListModels))
@@ -55,7 +74,7 @@ def render_location_id(location_id=None):
 @app.route('/restaurant')
 def render_restaurant():
     tableDataDict = getTableDataDict("Restaurants","restaurant", Restaurant)
-    restDataDictList = getDataDictList(getModels(Restaurant, tableDataDict['offset'], 
+    restDataDictList = getDataDictList(getModels(Restaurant, tableDataDict['offset'],
         tableDataDict['sortby'], tableDataDict['direction']))
     return render_template('template_db.html',
             dataNames=Restaurant.getDataNames(),
@@ -69,7 +88,7 @@ def render_restaurant_id(restaurant_id=None):
     relatedLocModel = Location.query.get(restModel.location_id)
     catListModels = getDataDictList(restModel.catlist)
     return render_template('restaurant.html',
-        restModel = restModel, 
+        restModel = restModel,
         locModel = relatedLocModel,
         catAttrs = Category.getDataNames(),
         catListModels = dumps(catListModels))
@@ -98,8 +117,8 @@ def render_category_id(category_id=None):
         imgList = imgList[:5]
 
     relatedRestModels = getDataDictList(catModel.restlist)
-    return render_template('category.html', 
-        catModel = catModel, 
+    return render_template('category.html',
+        catModel = catModel,
         restAttrs = Restaurant.getDataNames(),
         imgList = imgList,
         restListModels = dumps(relatedRestModels))
@@ -275,5 +294,5 @@ def constructRelatedModels(restDataList, locDataList, catDataList):
 
 
 if __name__ == '__main__':
-    #app.debug = True # Comment out for production
+    app.debug = True # Comment out for production
     app.run(host='127.0.0.1')

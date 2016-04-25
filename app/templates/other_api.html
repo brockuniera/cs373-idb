@@ -1,0 +1,18 @@
+{% extends "common_content.html" %}
+
+{% block title %}Other API Test{% endblock %}
+
+<!-- super() loads the header, navbar and an open body tag -->
+{% block body %} {{ super() }}
+<div id="body">
+  <div id="footer">
+    d3.layout.treemap
+    <div class="hint">click or option-click to descend or ascend</div>
+    <div><select>
+      <option value="size">Size</option>
+      <option value="count">Count</option>
+    </select></div>
+  </div>
+</div>
+<script src="/static/js/d3treemap.js"></script> <!-- TODO Move out of body of html -->
+{% endblock %}
