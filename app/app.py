@@ -3,6 +3,7 @@ from flask.json import dumps, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 from io import StringIO
 import logging
+import requests
 import subprocess
 import unittest
 
@@ -34,10 +35,34 @@ def todojson():
     """
     JSON data to render is returned by this endpoint
     """
-    import json
-    # TODO We're using a test data file 'flare.json' for now
-    with open('flare.json') as f:
-        return jsonify(**json.load(f))
+    datauri = 'http://findgamesfor.me/api/games'
+    jsonstuff = requests.get(datauri).json()
+
+    fieldstotransform = ["Genres", "Companies", "Platforms"]
+
+    def listnode(name, children):
+        return { "name" : name, "children" : children }
+
+    def leafnode(name, size):
+        return { "name" : name, "size" : size }
+
+    def lowlistnode(name, childrennames, size):
+        elemsize = size / len(childrennames)
+        return listnode(name, [leafnode(c, elemsize) for c in childrennames])
+
+    def processdict(d):
+        namelistpairs = [(n, d[n]) for n in fieldstotransform]
+        name = d[" Game"] # The space as the first character is intentional
+        rating = d["Rating"]
+        size = (rating * 100 + 100) ** 4.0
+        return listnode(
+                "gamenode_" + name,
+                [lowlistnode(fn, cn, size) for fn, cn in namelistpairs if cn != []] +
+                    [leafnode(name, size / 2)]
+            )
+
+    result = listnode("topnode", [processdict(d) for d in jsonstuff[:5]])
+    return jsonify(**result)
 
 @app.route('/otherapi')
 def otherapi():
